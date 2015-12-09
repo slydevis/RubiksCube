@@ -1,3 +1,3 @@
 # RubiksCube
 
-[Travis]: (https://travis-ci.org/slydevis/RubiksCube.svg)
+![Travis](https://travis-ci.org/slydevis/RubiksCube.svg)
