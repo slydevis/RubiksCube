@@ -31,42 +31,43 @@ void initCube() {
 
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[0][i][j];
+			face* tmp = cube[SIDE_LEFT][i][j];
 				tmp->color = COLOR_WHITE;
 		}
 	}
 
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[1][i][j];
+			face* tmp = cube[SIDE_FRONT][i][j];
 				tmp->color = COLOR_BLUE;
 		}
 	}
 
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[2][i][j];
+			face* tmp = cube[SIDE_UPPER][i][j];
 				tmp->color = COLOR_RED;
 		}
 	}
 
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[3][i][j];
+			face* tmp = cube[SIDE_BOTTOM][i][j];
 				tmp->color = COLOR_YELLOW;
 		}
 	}
 
+
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[4][i][j];
+			face* tmp = cube[SIDE_RIGHT][i][j];
 				tmp->color = COLOR_GREEN;
 		}
 	}
 
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[5][i][j];
+			face* tmp = cube[SIDE_BEHIND][i][j];
 				tmp->color = COLOR_ORANGE;
 		}
 	}

@@ -30,4 +30,11 @@ typedef struct {
 	int color;
 } face;
 
+#define SIDE_LEFT 0
+#define SIDE_FRONT 1
+#define SIDE_UPPER 2
+#define SIDE_BOTTOM 3
+#define SIDE_RIGHT 4
+#define SIDE_BEHIND 5
+
 #endif /* __DEFINE_H__ */
