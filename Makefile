@@ -9,9 +9,13 @@ EXECS = main.out
 all :: clean
 all :: $(EXECS) 
 
-debug: clean
-debug: CFLAGS += -DDEBUG
-debug: $(EXECS) 
+debug:: clean
+debug:: CFLAGS += -DDEBUG
+debug:: $(EXECS) 
+
+release:: clean
+release:: CFLAGS += -O3
+release:: $(EXECS)
 
 clean ::
 	\rm -f output/*.o output/*.out
