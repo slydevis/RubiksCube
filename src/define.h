@@ -1,5 +1,16 @@
 #ifndef __DEFINE_H__
 
+#include <SDL/SDL.h>
+
+#define color(param) printf("\033[%sm", param)
+
+#define PRINT_COLOR_BLACK "30"
+#define PRINT_COLOR_RED "31"
+#define PRINT_COLOR_GREEN "32"
+#define PRINT_COLOR_YELLOW "33"
+#define PRINT_COLOR_BLUE "34"
+#define PRINT_COLOR_WHITE "37"
+
 #define COLOR_NONE 0
 #define COLOR_RED 1
 #define COLOR_BLUE 2
