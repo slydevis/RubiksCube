@@ -5,6 +5,14 @@
 #include "display.h"
 #include "define.h"
 
+/*
+ * Left side = cube[0]
+ * Front side = cube[1]
+ * Upper side = cube[2]
+ * Bottom side = cube[3]
+ * Right side = cube[4]
+ * Behind side = cube[5]
+ */
 face* cube[6][N][N];
 
 void initCube() {
@@ -62,7 +70,6 @@ void initCube() {
 				tmp->color = COLOR_ORANGE;
 		}
 	}
-
 }
 
 void freeCube() {
