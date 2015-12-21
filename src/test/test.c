@@ -1,5 +1,5 @@
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "test.h"
 #include "../define.h"
 
@@ -17,7 +17,7 @@ void test(int (*f)(), void (*init)(), int result) {
 	}
 	else {
 		color(PRINT_COLOR_RED);
-		printf("FAIL ! \n");
+		printf("FAIL !\n");
 		color(PRINT_COLOR_WHITE);
 		exit(EXIT_FAILURE);
 	}

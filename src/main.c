@@ -1,9 +1,10 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <SDL/SDL.h>
 #include "test/test.h"
+#include "util.h"
 #include "display.h"
-#include "define.h"
+#include "file.h"
 
 /*
  * Left side = cube[0]
@@ -26,51 +27,25 @@ void initCube() {
 			}
 		}
 	}
+}
 
-	// COLOR EXEMPLE (TO DEBUG DISPLAY)
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_LEFT][i][j];
-				tmp->color = COLOR_WHITE;
+void completeCube(char* path) {
+	char* extension = getExtension(path);
+	if(strcmp(extension, EXTENSION_JSON) == 0) {
+		int tmp[6][N][N];
+		readJSON(path, tmp);
+		for(int i = 0; i < 6; ++i) {
+			for(int j = 0; j < N; ++j) {
+				for(int k = 0; k < N; ++k) {
+					face* buff  = cube[i][j][k];
+					buff->color = tmp[i][j][k];
+					cube[i][j][k] = buff;
+				}
+			}
 		}
 	}
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_FRONT][i][j];
-				tmp->color = COLOR_BLUE;
-		}
-	}
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_UPPER][i][j];
-				tmp->color = COLOR_RED;
-		}
-	}
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_BOTTOM][i][j];
-				tmp->color = COLOR_YELLOW;
-		}
-	}
-
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_RIGHT][i][j];
-				tmp->color = COLOR_GREEN;
-		}
-	}
-
-	for(int i = 0; i < N; ++i) {
-		for(int j = 0; j < N; ++j) {
-			face* tmp = cube[SIDE_BEHIND][i][j];
-				tmp->color = COLOR_ORANGE;
-		}
-	}
+	else // Unknown extension
+		printError("Extension inconnue");
 }
 
 void freeCube() {
@@ -86,10 +61,55 @@ void freeCube() {
 	}
 }
 
-int main() {
+void printTitle() {
+	printf("\n\n");
+	printf("██████╗ ██╗   ██╗██████╗ ██╗██╗  ██╗███████╗     ██████╗██╗   ██╗██████╗ ███████╗\n");
+	printf("██╔══██╗██║   ██║██╔══██╗██║██║ ██╔╝██╔════╝    ██╔════╝██║   ██║██╔══██╗██╔════╝\n");
+	printf("██████╔╝██║   ██║██████╔╝██║█████╔╝ ███████╗    ██║     ██║   ██║██████╔╝█████╗  \n");
+	printf("██╔══██╗██║   ██║██╔══██╗██║██╔═██╗ ╚════██║    ██║     ██║   ██║██╔══██╗██╔══╝  \n");
+	printf("██║  ██║╚██████╔╝██████╔╝██║██║  ██╗███████║    ╚██████╗╚██████╔╝██████╔╝███████╗\n");
+	printf("╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝\n");
+	printf("\n\n");
+}
+
+void menu() {
+	int select = 0;
+	//clearScreen();
+	printTitle();
+	printf("1) Voir en 2D\n");
+	printf("2) Voir en 3D\n");
+	printf("3) Quitter\n");
+	printf("Votre choix ? ");
+
+	// Error preventing
+	if(scanf("%d", &select) != 1) {
+	    while (getchar() != '\n');
+		menu();
+	}
+
+	switch(select) {
+		case 1:
+			displayCube2D(cube);
+			break;
+		case 2:
+			printError("OpenGL non implémenté");
+			break;
+		case 3:
+			break;
+		default:
+			return menu();
+	}
+}
+
+int main(int argc, char** argv) {
+	if(argc != 2)
+		printError("Nombre d'argument invalide");
+#ifdef DEBUG
 	executeTest();
+#endif
 	initCube();
-	displayCube(cube);
+	completeCube(argv[1]);
+	menu();
 	freeCube();
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }

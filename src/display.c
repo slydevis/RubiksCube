@@ -1,7 +1,5 @@
 #include <SDL/SDL.h>
-
 #include "display.h"
-#include "define.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
@@ -45,8 +43,8 @@ void printLeftSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100;
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j));
+			pos.x = j*FACE_SIZE + 5*j + 100;
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
@@ -58,8 +56,8 @@ void printFrontSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100 + (3*FACE_SIZE + 4*5);
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j));
+			pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
@@ -71,8 +69,8 @@ void printUpperSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100 + (3*FACE_SIZE + 4*5);
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j)) - (3*FACE_SIZE + 4*5);
+			pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) - (3*FACE_SIZE + 4*5);
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
@@ -84,8 +82,8 @@ void printBottomSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100 + (3*FACE_SIZE + 4*5);
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j)) + (3*FACE_SIZE + 4*5);
+			pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) + (3*FACE_SIZE + 4*5);
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
@@ -97,8 +95,8 @@ void printRightSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100 + (3*FACE_SIZE + 4*5)*2;
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j));
+			pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*2;
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
@@ -110,15 +108,15 @@ void printBehindSide(face* cube[N][N]) {
 		for(int j = 0; j < N; ++j) {
 			SDL_Rect pos;
 			face* tmp = cube[i][j];
-			pos.x = i*FACE_SIZE + 5*i + 100 + (3*FACE_SIZE + 4*5)*3;
-			pos.y = SCREEN_HEIGHT/2 - ((N-j-1)*FACE_SIZE + 5*(N-j));
+			pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*3;
+			pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
 			SDL_FillRect(tmp->screen, NULL, getSDLColor(tmp->color));
 			SDL_BlitSurface(tmp->screen, NULL, screen, &pos);
 		}
 	}
 }
 
-void displayCube(face* cube[6][N][N]) {
+void displayCube2D(face* cube[6][N][N]) {
 	SDL_Event event;
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -140,7 +138,8 @@ void displayCube(face* cube[6][N][N]) {
 		}
 
 		SDL_FillRect(screen, NULL, getSDLColor(COLOR_NONE));
-		printLeftSide(cube[SIDE_LEFT]);
+
+        printLeftSide(cube[SIDE_LEFT]);
 		printFrontSide(cube[SIDE_FRONT]);
 		printUpperSide(cube[SIDE_UPPER]);
 		printBottomSide(cube[SIDE_BOTTOM]);
