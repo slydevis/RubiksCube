@@ -1,0 +1,8 @@
+{
+  "left": ["BLUE", "RED", "GREEN", "YELLOW", "YELLOW", "WHITE", "RED", "YELLOW", "GREEN"],
+  "front": ["RED", "GREEN", "WHITE", "GREEN", "BLUE", "WHITE", "YELLOW", "ORANGE", "GREEN"],
+  "upper": ["YELLOW", "GREEN", "YELLOW", "YELLOW", "RED", "BLUE", "WHITE", "RED", "BLUE"],
+  "bottom": ["ORANGE", "BLUE", "WHITE", "ORANGE", "ORANGE", "WHITE", "YELLOW", "WHITE", "ORANGE"],
+  "right": ["RED", "YELLOW", "BLUE", "ORANGE", "WHITE", "BLUE", "ORANGE", "BLUE", "BLUE"],
+  "behind": ["RED", "ORANGE", "ORANGE", "RED", "GREEN", "GREEN", "WHITE", "RED", "GREEN"],
+}
