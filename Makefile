@@ -18,15 +18,15 @@ release:: CFLAGS += -O3
 release:: $(EXECS)
 
 clean ::
-	\rm -f output/*.o output/*.out *.o
+    \rm -f output/*.o output/*.out *.o
 
 main.out: src/main.c $(OBJ)
-	$(CC) $(CFLAGS) -o output/$(EXECS) src/main.c $(OBJ) $(LIBFLAGS) && rm $(OBJ)
+    $(CC) $(CFLAGS) -o output/$(EXECS) src/main.c $(OBJ) $(LIBFLAGS) && rm $(OBJ)
 test.o:
-	$(CC) $(CFLAGS) -c src/test/test.c && cp test.o output/test.o
+    $(CC) $(CFLAGS) -c src/test/test.c && cp test.o output/test.o
 display.o:
-	$(CC) $(CFLAGS) -c src/display.c && cp display.o output/display.o
+    $(CC) $(CFLAGS) -c src/display.c && cp display.o output/display.o
 file.o:
-	$(CC) $(CFLAGS) -c src/file.c && cp file.o output/file.o
+    $(CC) $(CFLAGS) -c src/file.c && cp file.o output/file.o
 util.o:
-	$(CC) $(CFLAGS) -c src/util.c && cp util.o output/util.o
+    $(CC) $(CFLAGS) -c src/util.c && cp util.o output/util.o
