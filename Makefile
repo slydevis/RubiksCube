@@ -1,7 +1,7 @@
 SHELL  = /bin/bash
 CC     = gcc
 CFLAGS = -Wall -std=c99
-LIBFLAGS = -lSDL -lSDL_mixer
+LIBFLAGS = -lSDL
 OBJ = test.o display.o file.o util.o
 
 EXECS = main.out
