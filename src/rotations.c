@@ -545,3 +545,85 @@ void cube_rotation_upside_down (face* cube[6][N][N]) {
         }
     }
 }
+
+void second_line_right(face* cube[6][N][N]) {
+	down_rotation(cube);
+	right_rotation_reverse(cube);
+	down_rotation_reverse(cube);
+	right_rotation(cube);
+	down_rotation_reverse(cube);
+	front_rotation(cube);
+	down_rotation(cube);
+	front_rotation_reverse(cube);
+}
+
+void second_line_left(face* cube[6][N][N]) {
+	down_rotation_reverse(cube);
+	left_rotation_reverse(cube);
+	down_rotation(cube);
+	left_rotation(cube);
+	down_rotation(cube);
+	front_rotation_reverse(cube);
+	down_rotation_reverse(cube);
+	front_rotation(cube);
+}
+
+void yellow_cross_line (face* cube[6][N][N]) {
+	up_rotation(cube);
+	front_rotation(cube);
+	right_rotation(cube);
+	up_rotation(cube);
+	right_rotation_reverse(cube);
+	up_rotation_reverse (cube);
+	front_rotation_reverse(cube);
+}
+
+void yellow_cross_cross  (face* cube[6][N][N]) {
+	front_rotation(cube);
+	up_rotation(cube);
+	right_rotation(cube);
+	up_rotation_reverse(cube);
+	right_rotation_reverse (cube);
+	front_rotation_reverse(cube);
+}
+
+void yellow_cross_orientation (face* cube[6][N][N]) {
+	right_rotation(cube);
+	up_rotation(cube);
+	up_rotation(cube);
+	right_rotation_reverse(cube);
+	up_rotation_reverse(cube);
+	right_rotation(cube);
+	up_rotation_reverse(cube);
+	right_rotation_reverse(cube);
+}
+
+void yellow_corners_placement (face* cube[6][N][N]) {
+	left_rotation(cube);
+	up_rotation(cube);
+	right_rotation(cube);
+	up_rotation_reverse(cube);
+	left_rotation_reverse(cube);
+	up_rotation(cube);
+	right_rotation_reverse(cube);
+	up_rotation_reverse(cube);
+}
+
+void yellow_corners_orientation (face* cube[6][N][N]) {
+	right_rotation(cube);
+	up_rotation(cube);
+	up_rotation(cube);
+	right_rotation_reverse(cube);
+	up_rotation_reverse(cube);
+	right_rotation(cube);
+	up_rotation_reverse(cube);
+	right_rotation_reverse(cube);
+	left_rotation(cube);
+	up_rotation(cube);
+	up_rotation(cube);
+	left_rotation_reverse(cube);
+	up_rotation(cube);
+	left_rotation(cube);
+	up_rotation(cube);
+	left_rotation_reverse(cube);
+}
