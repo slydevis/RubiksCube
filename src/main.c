@@ -4,8 +4,8 @@
 #include "test/test.h"
 #include "util.h"
 #include "display.h"
+#include "rotations.h"
 #include "file.h"
-
 
 /*
  * Left side = cube[0]
@@ -102,72 +102,6 @@ void menu() {
     }
 }
 
-void cube_rotation_upside_down (face* cube[6][N][N]) {
-    /* on crée deux carré temporaire pour retenir la face devant, celle de
-    gauche et celle de droite */
-    face* tmp1[N][N];
-    face* tmp2[N][N];
-    face* tmp3[N][N];
-    int i,j;
-
-    // on stocke la face de devant dans tmp1
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            tmp1[i][j] = cube[1][i][j];
-        }
-    }
-
-    // on stocke la face de gauche dans tmp2 */
-    for (i = 0; i < N; i++) {
-        for  (j = 0; j < N; j++) {
-            tmp2[i][j] = cube[0][i][j];
-        }
-    }
-
-    // on stocke la face de droite dans tmp3 */
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            tmp3[i][j] = cube[4][i][j];
-        }
-    }
-
-    // on tourne les faces de côté dans le sens des aiguilles d'une montre
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[1][i][j] = cube[3][i][j];
-        }
-    }
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[3][i][j] = cube[5][N-1-i][N-1-j];
-        }
-    }
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[5][i][j] = cube[2][N-1-i][N-1-j];
-        }
-    }
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[2][i][j] = tmp1[i][j];
-        }
-    }
-
-    // on tourne la face de gauche dans le sens des aiguilles d'une montre
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[0][i][j] = tmp2[j][N-1-i];
-        }
-    }
-
-    // on tourne la face de droite
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < N; j++) {
-            cube[4][i][j] = tmp3[N-1-j][i];
-        }
-    }
-}
-
 int main(int argc, char** argv) {
     if(argc != 2)
         printError("Nombre d'argument invalide");
@@ -176,7 +110,7 @@ int main(int argc, char** argv) {
 #endif
     initCube();
     completeCube(argv[1]);
-    cube_rotation_upside_down (cube);
+    //  cube_rotation_upside_down (cube);
     menu();
     freeCube();
     return EXIT_SUCCESS;

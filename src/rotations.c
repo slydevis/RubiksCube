@@ -9,9 +9,9 @@
 
 /*----------------------------------------------------------------------------*/
 
-void up_rotation (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void up_rotation (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du dessus dans tmp1
@@ -19,8 +19,6 @@ void up_rotation (face* cube[6][N][N]) {
         for (j = 0; j < N; j++) {
             tmp1[i][j] = cube[2][i][j];
         }
-    }
-
     // on stocke la ligne supérieure de la face du devant du cube dans tmp2
         tmp2[j] = cube[1][0][j];
     }
@@ -48,9 +46,9 @@ void up_rotation (face* cube[6][N][N]) {
     }
 }
 
-void up_rotation_reverse (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void up_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du dessus dans tmp1
@@ -88,9 +86,9 @@ void up_rotation_reverse (face* cube[6][N][N]) {
     }
 }
 
-void down_rotation (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void down_rotation (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du dessous dans tmp1
@@ -128,9 +126,9 @@ void down_rotation (face* cube[6][N][N]) {
     }
 }
 
-void down_rotation_reverse (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void down_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du dessous dans tmp1
@@ -168,9 +166,9 @@ void down_rotation_reverse (face* cube[6][N][N]) {
     }
 }
 
-void front_rotation (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void front_rotation (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du devant dans tmp1
@@ -209,9 +207,9 @@ void front_rotation (face* cube[6][N][N]) {
     }
 }
 
-void front_rotation_reverse (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void front_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face du devant dans tmp1
@@ -250,9 +248,9 @@ void front_rotation_reverse (face* cube[6][N][N]) {
     }
 }
 
-void right_rotation (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void right_rotation (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face de droite dans tmp1
@@ -291,9 +289,9 @@ void right_rotation (face* cube[6][N][N]) {
     }
 }
 
-void right_rotation_reverse (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void right_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face de droite dans tmp1
@@ -332,9 +330,9 @@ void right_rotation_reverse (face* cube[6][N][N]) {
     }
 }
 
-void left_rotation (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void left_rotation (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face de gauche dans tmp1
@@ -373,9 +371,9 @@ void left_rotation (face* cube[6][N][N]) {
     }
 }
 
-void left_rotation_reverse (face* cube[6][N][N]) {
-    face* tmp1[N][N];           // variable temporaire qui contient une face
-    face* tmp2[N];          // variable temporaire qui contient une ligne
+void left_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N][N];           // variable temporaire qui contient une face
+    int tmp2[N];          // variable temporaire qui contient une ligne
     int i, j;
 
     //on stocke la face de gauche dans tmp1
@@ -414,12 +412,12 @@ void left_rotation_reverse (face* cube[6][N][N]) {
     }
 }
 
-void cube_rotation_side (face* cube[6][N][N]) {
+void cube_rotation_side (int cube[6][N][N]) {
     /* on crée deux carré temporaire pour retenir une face de côté, celle du 
     dessus et celle de face */
-    face* tmp1[N][N];
-    face* tmp2[N][N];
-    face* tmp3[N][N];
+    int tmp1[N][N];
+    int tmp2[N][N];
+    int tmp3[N][N];
     int i,j;
 
     // on stocke la face de devant dans tmp1
@@ -480,12 +478,12 @@ void cube_rotation_side (face* cube[6][N][N]) {
     }
 }
 
-void cube_rotation_upside_down (face* cube[6][N][N]) {
-    /* on crée deux carré temporaire pour retenir la face devant, celle de
+void cube_rotation_upside_down (int cube[6][N][N]) {
+    /* on cr�e deux carr� temporaire pour retenir la face devant, celle de
     gauche et celle de droite */
-    face* tmp1[N][N];
-    face* tmp2[N][N];
-    face* tmp3[N][N];
+    int tmp1[N][N];
+    int tmp2[N][N];
+    int tmp3[N][N];
     int i,j;
 
     // on stocke la face de devant dans tmp1
@@ -546,7 +544,7 @@ void cube_rotation_upside_down (face* cube[6][N][N]) {
     }
 }
 
-void second_line_right(face* cube[6][N][N]) {
+void second_line_right(int cube[6][N][N]) {
 	down_rotation(cube);
 	right_rotation_reverse(cube);
 	down_rotation_reverse(cube);
@@ -557,7 +555,7 @@ void second_line_right(face* cube[6][N][N]) {
 	front_rotation_reverse(cube);
 }
 
-void second_line_left(face* cube[6][N][N]) {
+void second_line_left(int cube[6][N][N]) {
 	down_rotation_reverse(cube);
 	left_rotation_reverse(cube);
 	down_rotation(cube);
@@ -568,7 +566,7 @@ void second_line_left(face* cube[6][N][N]) {
 	front_rotation(cube);
 }
 
-void yellow_cross_line (face* cube[6][N][N]) {
+void yellow_cross_line (int cube[6][N][N]) {
 	up_rotation(cube);
 	front_rotation(cube);
 	right_rotation(cube);
@@ -578,7 +576,7 @@ void yellow_cross_line (face* cube[6][N][N]) {
 	front_rotation_reverse(cube);
 }
 
-void yellow_cross_cross  (face* cube[6][N][N]) {
+void yellow_cross_cross  (int cube[6][N][N]) {
 	front_rotation(cube);
 	up_rotation(cube);
 	right_rotation(cube);
@@ -587,7 +585,7 @@ void yellow_cross_cross  (face* cube[6][N][N]) {
 	front_rotation_reverse(cube);
 }
 
-void yellow_cross_orientation (face* cube[6][N][N]) {
+void yellow_cross_orientation (int cube[6][N][N]) {
 	right_rotation(cube);
 	up_rotation(cube);
 	up_rotation(cube);
@@ -598,7 +596,7 @@ void yellow_cross_orientation (face* cube[6][N][N]) {
 	right_rotation_reverse(cube);
 }
 
-void yellow_corners_placement (face* cube[6][N][N]) {
+void yellow_corners_placement (int cube[6][N][N]) {
 	left_rotation(cube);
 	up_rotation(cube);
 	right_rotation(cube);
@@ -609,7 +607,7 @@ void yellow_corners_placement (face* cube[6][N][N]) {
 	up_rotation_reverse(cube);
 }
 
-void yellow_corners_orientation (face* cube[6][N][N]) {
+void yellow_corners_orientation (int cube[6][N][N]) {
 	right_rotation(cube);
 	up_rotation(cube);
 	up_rotation(cube);
