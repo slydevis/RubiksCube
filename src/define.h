@@ -27,11 +27,6 @@
 #define SCREEN_WIDTH 640
 #define FACE_SIZE 30
 
-typedef struct {
-	SDL_Surface* screen;
-	int color;
-} face;
-
 #define SIDE_LEFT 0
 #define SIDE_FRONT 1
 #define SIDE_UPPER 2
