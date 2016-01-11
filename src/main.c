@@ -15,15 +15,13 @@
  * Right side = cube[4]
  * Behind side = cube[5]
  */
-face* cube[6][N][N];
+int cube[6][N][N];
 
 void initCube() {
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
-                face* tmp = (face*) malloc(sizeof(face));
-                tmp->screen = createFace();
-                tmp->color = COLOR_WHITE;
+                int tmp = COLOR_WHITE;
                 cube[i][j][k] = tmp;
             }
         }
@@ -38,8 +36,8 @@ void completeCube(char* path) {
         for(int i = 0; i < 6; ++i) {
             for(int j = 0; j < N; ++j) {
                 for(int k = 0; k < N; ++k) {
-                    face* buff  = cube[i][j][k];
-                    buff->color = tmp[i][j][k];
+                    int buff  = cube[i][j][k];
+                    buff = tmp[i][j][k];
                     cube[i][j][k] = buff;
                 }
             }
@@ -47,19 +45,6 @@ void completeCube(char* path) {
     }
     else // Unknown extension
         printError("Extension inconnue");
-}
-
-void freeCube() {
-    for(int i = 0; i < 6; ++i) {
-        for(int j = 0; j < N; ++j) {
-            for(int k = 0; k < N; ++k) {
-                face* tmp = cube[i][j][k];
-                freeFace(tmp->screen);
-                tmp->screen = NULL;
-                free(cube[i][j][k]);
-            }
-        }
-    }
 }
 
 void printTitle() {
@@ -112,6 +97,5 @@ int main(int argc, char** argv) {
     completeCube(argv[1]);
     //  cube_rotation_upside_down (cube);
     menu();
-    freeCube();
     return EXIT_SUCCESS;
 }
