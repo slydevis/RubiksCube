@@ -48,6 +48,7 @@
 #define JSON_WHITE "WHITE"
 #define JSON_GREEN "GREEN"
 #define JSON_ORANGE "ORANGE"
+#define JSON_NONE "UNDEFINED"
 
 #define OPEN_READ "r"
 #define OPEN_WRITE "w"

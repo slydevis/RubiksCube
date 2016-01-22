@@ -19,6 +19,8 @@ void up_rotation (int cube[6][N][N]) {
         for (j = 0; j < N; j++) {
             tmp1[i][j] = cube[2][i][j];
         }
+    }
+    for (j = 0; j < N; j++) {
     // on stocke la ligne supérieure de la face du devant du cube dans tmp2
         tmp2[j] = cube[1][0][j];
     }
@@ -237,13 +239,13 @@ void front_rotation_reverse (int cube[6][N][N]) {
         cube[4][j][0] = cube[3][0][N-1-j];
     }
     for (j = 0; j < N; j++) {
-        cube[2][2][j] = tmp2[j];
+        cube[3][0][j] = tmp2[j];
     }
 
-    // on tourne la face du dessous
+    // on tourne la face de devant
     for (i = 0; i < N; i++) {
         for (j = 0; j < N; j++) {
-            cube[1][i][j] = tmp1[N-1-i][j];
+            cube[1][i][j] = tmp1[j][N-1-i];
         }
     }
 }
