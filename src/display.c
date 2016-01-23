@@ -1,5 +1,8 @@
 #include <SDL/SDL.h>
 #include "display.h"
+#include "file.h"
+#include "rotations.h"
+#include "util.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
@@ -24,8 +27,8 @@ Uint32 getSDLColor(int color) {
     }
 }
 
-void changeFaceColor(int cube[6][N][N], int side, int i, int j, int color) {
-    cube[side][i][j] = color;
+void changeFaceColor(miniCube cube[6][N][N], int side, int i, int j, int color) {
+    cube[side][i][j]->color = color;
 }
 
 SDL_Surface* createFace() {
@@ -36,12 +39,12 @@ void freeFace(SDL_Surface* screen) {
     SDL_FreeSurface(screen);
 }
 
-void printLeftSide(int cube[N][N]) {
+void printLeftSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -50,12 +53,12 @@ void printLeftSide(int cube[N][N]) {
     }
 }
 
-void printFrontSide(int cube[N][N]) {
+void printFrontSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -64,12 +67,12 @@ void printFrontSide(int cube[N][N]) {
     }
 }
 
-void printUpperSide(int cube[N][N]) {
+void printUpperSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) - (3*FACE_SIZE + 4*5);
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -78,12 +81,12 @@ void printUpperSide(int cube[N][N]) {
     }
 }
 
-void printBottomSide(int cube[N][N]) {
+void printBottomSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) + (3*FACE_SIZE + 4*5);
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -92,12 +95,12 @@ void printBottomSide(int cube[N][N]) {
     }
 }
 
-void printRightSide(int cube[N][N]) {
+void printRightSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*2;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -106,12 +109,12 @@ void printRightSide(int cube[N][N]) {
     }
 }
 
-void printBehindSide(int cube[N][N]) {
+void printBehindSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*3;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -120,9 +123,120 @@ void printBehindSide(int cube[N][N]) {
     }
 }
 
-void displayCube2D(int cube[6][N][N]) {
-    SDL_Event event;
+typedef struct
+{
+    char key[SDLK_LAST];
+} Input;
 
+void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
+    switch (key) {
+        case SDLK_s:
+#ifdef DEBUG
+            printf("S key pressed\n");
+#endif /* DEBUG */
+                saveCube(cube, EXTENSION_JSON);
+            break;
+        case SDLK_l:
+#ifdef DEBUG
+            printf("L key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                left_rotation(cube);
+            else
+                left_rotation_reverse(cube);
+        break;
+        case SDLK_r:
+#ifdef DEBUG
+            printf("R key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                right_rotation(cube);
+            else
+                right_rotation_reverse(cube);
+        break;
+        case SDLK_u:
+#ifdef DEBUG
+            printf("U key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                up_rotation(cube);
+            else
+                up_rotation_reverse(cube);
+        break;
+        case SDLK_d:
+#ifdef DEBUG
+            printf("D key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                down_rotation(cube);
+            else
+                down_rotation_reverse(cube);
+        break;
+        case SDLK_f:
+#ifdef DEBUG
+            printf("D key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                front_rotation(cube);
+            else
+                front_rotation_reverse(cube);
+        break;
+        case SDLK_m:
+#ifdef DEBUG
+            printf("M key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                middle_vectical_rotation(cube);
+            else
+                middle_vectical_rotation_reverse(cube);
+        break;
+        case SDLK_i:
+#ifdef DEBUG
+            printf("I key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                middle_horizontal_rotation(cube);
+            else
+                middle_horizontal_rotation_reverse(cube);
+        break;
+        case SDLK_TAB:
+            for(int i = 0; i < 6; ++i) {
+                for(int j = 0; j < N; ++j) {
+                    for(int k = 0; k < N; ++k) {
+                        cube[i][j][k]->color = getFinalColorId(i);
+                    }
+                }
+            }
+        break;
+        default:
+        break;
+    }
+}
+
+void UpdateEvents(Input* in, miniCube cube[6][N][N])
+{
+    SDL_Event event;
+    while(SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+            case SDL_QUIT:
+            goContinue = 0;
+            break;
+            case SDL_KEYDOWN:
+                in->key[event.key.keysym.sym]=1;
+                keyboardEventManager(event.key.keysym.sym, cube, in);
+            break;
+            case SDL_KEYUP:
+                in->key[event.key.keysym.sym]=0;
+            break;
+            default:
+            break;
+        }
+    }
+}
+
+void displayCube2D(miniCube cube[6][N][N]) {
     SDL_Init(SDL_INIT_VIDEO);
 
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
@@ -132,14 +246,11 @@ void displayCube2D(int cube[6][N][N]) {
         fprintf(stderr, "Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
     }
-
+    Input in;
+    // init SDL, chargement, tout ce que vous faites avant la boucle.
+    memset(&in,0,sizeof(in));
     while(goContinue) {
-        SDL_WaitEvent(&event);
-        switch(event.type) {
-            case SDL_QUIT:
-                goContinue = 0;
-            break;
-        }
+        UpdateEvents(&in, cube);
 
         SDL_FillRect(screen, NULL, getSDLColor(COLOR_NONE));
 

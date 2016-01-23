@@ -15,14 +15,16 @@
  * Right side = cube[4]
  * Behind side = cube[5]
  */
-int cube[6][N][N];
+miniCube cube[6][N][N];
 
 void initCube() {
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
-                int tmp = COLOR_WHITE;
-                cube[i][j][k] = tmp;
+                miniCube cubeTmp = malloc(sizeof(face*));
+                cube[i][j][k] = cubeTmp;
+                cube[i][j][k]->color = getFinalColorId(i);
+                cube[i][j][k]->finalPos = getFinalLibelle(i, j, k);
             }
         }
     }
@@ -31,18 +33,21 @@ void initCube() {
 void completeCube(char* path) {
     char* extension = getExtension(path);
     if(strcmp(extension, EXTENSION_JSON) == 0) {
-        int tmp[6][N][N];
+        miniCube tmp[6][N][N];
         readJSON(path, tmp);
         for(int i = 0; i < 6; ++i) {
             for(int j = 0; j < N; ++j) {
                 for(int k = 0; k < N; ++k) {
-                    int buff  = cube[i][j][k];
-                    buff = tmp[i][j][k];
-                    cube[i][j][k] = buff;
+                    int buff  = cube[i][j][k]->color;
+                    buff = tmp[i][j][k]->color;
+                    cube[i][j][k]->color = buff;
                 }
             }
         }
+        // TODO : Determine final position
     }
+    else if(strcmp(extension, EXTENSION_ROT) == 0)
+        ReadROT(path, cube);
     else // Unknown extension
         printError("Extension inconnue");
 }
@@ -60,7 +65,9 @@ void printTitle() {
 
 void menu() {
     int select = 0;
-    //clearScreen();
+#ifndef DEBUG
+    clearScreen();
+#endif /* DEBUG */
     printTitle();
     printf("1) Voir en 2D\n");
     printf("2) Voir en 3D\n");
@@ -95,7 +102,6 @@ int main(int argc, char** argv) {
 #endif
     initCube();
     completeCube(argv[1]);
-    //  cube_rotation_upside_down (cube);
     menu();
     return EXIT_SUCCESS;
 }
