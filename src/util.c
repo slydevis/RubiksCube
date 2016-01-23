@@ -13,17 +13,17 @@ void printError(char* str) {
 int getFinalColorId(int id) {
     switch(id) {
         case SIDE_LEFT:
-            return COLOR_GREEN;
-        case SIDE_FRONT:
-            return COLOR_ORANGE;
-        case SIDE_UPPER:
-            return COLOR_YELLOW;
-        case SIDE_BOTTOM:
             return COLOR_WHITE;
-        case SIDE_RIGHT:
+        case SIDE_FRONT:
             return COLOR_BLUE;
-        case SIDE_BEHIND:
+        case SIDE_UPPER:
+            return COLOR_ORANGE;
+        case SIDE_BOTTOM:
             return COLOR_RED;
+        case SIDE_RIGHT:
+            return COLOR_YELLOW;
+        case SIDE_BEHIND:
+            return COLOR_GREEN;
         default:
             return COLOR_NONE;
     }
