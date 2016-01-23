@@ -27,8 +27,8 @@ Uint32 getSDLColor(int color) {
     }
 }
 
-void changeFaceColor(int cube[6][N][N], int side, int i, int j, int color) {
-    cube[side][i][j] = color;
+void changeFaceColor(miniCube cube[6][N][N], int side, int i, int j, int color) {
+    cube[side][i][j]->color = color;
 }
 
 SDL_Surface* createFace() {
@@ -39,12 +39,12 @@ void freeFace(SDL_Surface* screen) {
     SDL_FreeSurface(screen);
 }
 
-void printLeftSide(int cube[N][N]) {
+void printLeftSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -53,12 +53,12 @@ void printLeftSide(int cube[N][N]) {
     }
 }
 
-void printFrontSide(int cube[N][N]) {
+void printFrontSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -67,12 +67,12 @@ void printFrontSide(int cube[N][N]) {
     }
 }
 
-void printUpperSide(int cube[N][N]) {
+void printUpperSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) - (3*FACE_SIZE + 4*5);
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -81,12 +81,12 @@ void printUpperSide(int cube[N][N]) {
     }
 }
 
-void printBottomSide(int cube[N][N]) {
+void printBottomSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5);
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i)) + (3*FACE_SIZE + 4*5);
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -95,12 +95,12 @@ void printBottomSide(int cube[N][N]) {
     }
 }
 
-void printRightSide(int cube[N][N]) {
+void printRightSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*2;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -109,12 +109,12 @@ void printRightSide(int cube[N][N]) {
     }
 }
 
-void printBehindSide(int cube[N][N]) {
+void printBehindSide(miniCube cube[N][N]) {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < N; ++j) {
             SDL_Rect pos;
             SDL_Surface* faceScreen = createFace();
-            int tmp = cube[i][j];
+            int tmp = cube[i][j]->color;
             pos.x = j*FACE_SIZE + 5*j + 100 + (3*FACE_SIZE + 4*5)*3;
             pos.y = SCREEN_HEIGHT/2 - ((N-i-1)*FACE_SIZE + 5*(N-i));
             SDL_FillRect(faceScreen, NULL, getSDLColor(tmp));
@@ -128,7 +128,7 @@ typedef struct
     char key[SDLK_LAST];
 } Input;
 
-void keyboardEventManager(SDLKey key, int cube[6][N][N], Input* in) {
+void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
     switch (key) {
         case SDLK_s:
 #ifdef DEBUG
@@ -203,7 +203,7 @@ void keyboardEventManager(SDLKey key, int cube[6][N][N], Input* in) {
             for(int i = 0; i < 6; ++i) {
                 for(int j = 0; j < N; ++j) {
                     for(int k = 0; k < N; ++k) {
-                        cube[i][j][k] = getFinalColorId(i);
+                        cube[i][j][k]->color = getFinalColorId(i);
                     }
                 }
             }
@@ -213,28 +213,30 @@ void keyboardEventManager(SDLKey key, int cube[6][N][N], Input* in) {
     }
 }
 
-void UpdateEvents(Input* in, int cube[6][N][N])
+void UpdateEvents(Input* in, miniCube cube[6][N][N])
 {
     SDL_Event event;
     while(SDL_PollEvent(&event))
     {
         switch (event.type)
-        {            case SDL_QUIT:
+        {
+            case SDL_QUIT:
             goContinue = 0;
-        break;
-        case SDL_KEYDOWN:
-            in->key[event.key.keysym.sym]=1;
-            keyboardEventManager(event.key.keysym.sym, cube, in);
             break;
-        case SDL_KEYUP:
-            in->key[event.key.keysym.sym]=0;
+            case SDL_KEYDOWN:
+                in->key[event.key.keysym.sym]=1;
+                keyboardEventManager(event.key.keysym.sym, cube, in);
             break;
-        default:
+            case SDL_KEYUP:
+                in->key[event.key.keysym.sym]=0;
+            break;
+            default:
             break;
         }
     }
 }
-void displayCube2D(int cube[6][N][N]) {
+
+void displayCube2D(miniCube cube[6][N][N]) {
     SDL_Init(SDL_INIT_VIDEO);
 
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
@@ -248,17 +250,8 @@ void displayCube2D(int cube[6][N][N]) {
     // init SDL, chargement, tout ce que vous faites avant la boucle.
     memset(&in,0,sizeof(in));
     while(goContinue) {
-//        SDL_WaitEvent(&event);
         UpdateEvents(&in, cube);
-        /*        switch(event.type) {
-            case SDL_QUIT:
-                goContinue = 0;
-            break;
-            case SDL_KEYDOWN:
-                keyboardEventManager(event.key.keysym.sym, cube);
-            break;
-        }
-*/
+
         SDL_FillRect(screen, NULL, getSDLColor(COLOR_NONE));
 
         printLeftSide(cube[SIDE_LEFT]);

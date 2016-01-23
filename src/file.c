@@ -2,6 +2,8 @@
 #include "file.h"
 #include "util.h"
 #include "rotations.h"
+#include <ctype.h>
+#include <string.h>
 
 FILE* openFile(char* path, char* mode) {
     FILE* file = fopen(path, mode);
@@ -79,7 +81,7 @@ char* reverseTranslateWord(int value) {
             return JSON_NONE;
     }
 }
-void readJSON(char * path, int tmp[6][N][N]) {
+void readJSON(char * path, miniCube tmp[6][N][N]) {
     /*
      * Exemple of syntax :
      * {
@@ -121,7 +123,7 @@ void readJSON(char * path, int tmp[6][N][N]) {
                     }
                     if(i == N)
                         i = 0;
-                    tmp[index][i][j] = lastTranslated;
+                    tmp[index][i][j]->color = lastTranslated;
                     ++j;
                 }
             }
@@ -131,7 +133,7 @@ void readJSON(char * path, int tmp[6][N][N]) {
     closeFile(file);
 }
 
-void translateRotation(int cube[6][N][N], char car, int direction) {
+void translateRotation(miniCube cube[6][N][N], char car, int direction) {
     switch(car) {
         case 'U':
             if(direction == DIRECTION_NORMAL)
@@ -307,7 +309,7 @@ void translateRotation(int cube[6][N][N], char car, int direction) {
     }
 }
 
-void ReadROT(char* path, int tmp[6][N][N]) {
+void ReadROT(char* path, miniCube tmp[6][N][N]) {
     /*
      * Exemple of syntax :
      * ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2
@@ -373,9 +375,11 @@ void saveCubeJSON(int cube[6][N][N]) {
         printError("Impossible d'ouvrir le fichier test.txt");
 }
 
-void saveCube(int cube[6][N][N], char* extension) {
+void saveCube(miniCube cube[6][N][N], char* extension) {
+    int cubeTmp[6][N][N];
+    getColorArray(cube, cubeTmp);
     if(strcmp(extension, EXTENSION_JSON) == 0)
-        saveCubeJSON(cube);
+        saveCubeJSON(cubeTmp);
     else
         printError("Extension inconnue");
 }

@@ -26,10 +26,20 @@ void test(int (*f)(), void (*init)(), int result) {
     }
 }
 
-void testCube(void (*f)(int cube[6][N][N]), char* fileInitPath, char* fileResultPath) {
-    int tmp[6][N][N];
-    int result[6][N][N];
+void testCube(void (*f)(miniCube cube[6][N][N]), char* fileInitPath, char* fileResultPath) {
+    miniCube tmp[6][N][N];
+    miniCube result[6][N][N];
 
+    for(int i = 0; i < 6; ++i) {
+        for(int j = 0; j < N; ++j) {
+            for(int k = 0; k < N; ++k) {
+                miniCube cubeTmp = malloc(sizeof(face*));
+                tmp[i][j][k] = cubeTmp;
+                miniCube cubeTmp2 = malloc(sizeof(face*));
+                result[i][j][k] = cubeTmp2;
+            }
+        }
+    }
 
     printf("Run test : ");
 
@@ -40,8 +50,8 @@ void testCube(void (*f)(int cube[6][N][N]), char* fileInitPath, char* fileResult
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
-                int colorTmp = tmp[i][j][k];
-                int colorResult = result[i][j][k];
+                int colorTmp = tmp[i][j][k]->color;
+                int colorResult = result[i][j][k]->color;
 
                 if(colorTmp != colorResult) {
                     color(PRINT_COLOR_RED);

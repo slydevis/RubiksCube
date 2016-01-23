@@ -1,9 +1,14 @@
 #ifndef __DEFINE_H__
 #define __DEFINE_H__
 
-#include <SDL/SDL.h>
+typedef struct face {
+    int color;
+    char* finalPos;
+} face;
 
-#define color(param) printf("\033[%sm", param)
+typedef struct face* miniCube;
+
+#define color(param) printf("\033[%sm", param);
 #define clearScreen() printf("\033[H\033[2J");
 
 #define PRINT_COLOR_BLACK "30"
@@ -36,6 +41,13 @@
 #define SIDE_BOTTOM 3
 #define SIDE_RIGHT 4
 #define SIDE_BEHIND 5
+
+#define SIDE_LEFT_STR "L"
+#define SIDE_FRONT_STR "F"
+#define SIDE_UPPER_STR "U"
+#define SIDE_BOTTOM_STR "D"
+#define SIDE_RIGHT_STR "R"
+#define SIDE_BEHIND_STR "B"
 
 #define EXTENSION_JSON ".json"
 #define EXTENSION_ROT ".rot"
