@@ -47,7 +47,7 @@ void testCube(void (*f)(int cube[6][N][N]), char* fileInitPath, char* fileResult
                     color(PRINT_COLOR_RED);
                     printf("FAIL !\n");
                     color(PRINT_COLOR_WHITE);
-                    saveCube(tmp);
+                    saveCube(tmp, EXTENSION_JSON);
                     exit(EXIT_FAILURE);
                 }
             }
@@ -74,5 +74,11 @@ void executeTest() {
     testCube(left_rotation_reverse, "input/testLeftRotation.json", "input/cube.json");
     testCube(cube_rotation_side, "input/cube.json", "input/testSideRotation.json");
     testCube(cube_rotation_upside_down, "input/cube.json", "input/testUpsideDownRotation.json");
+    testCube(middle_vectical_rotation, "input/cube.json", "input/testMiddleVecticalRotation.json");
+    testCube(middle_vectical_rotation_reverse, "input/testMiddleVecticalRotation.json", "input/cube.json");
+    testCube(middle_horizontal_rotation, "input/cube.json", "input/testMiddleHorizontalRotation.json");
+    testCube(middle_horizontal_rotation_reverse, "input/testMiddleHorizontalRotation.json", "input/cube.json");
+    testCube(middle_rotation_side, "input/cube.json", "input/testMiddleSideRotation.json");
+    testCube(middle_rotation_side_reverse, "input/testMiddleSideRotation.json", "input/cube.json");
     printf("===> DONE\n");
 }

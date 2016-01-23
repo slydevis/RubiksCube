@@ -2,6 +2,7 @@
 #include "display.h"
 #include "file.h"
 #include "rotations.h"
+#include "util.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
@@ -133,7 +134,7 @@ void keyboardEventManager(SDLKey key, int cube[6][N][N], Input* in) {
 #ifdef DEBUG
             printf("S key pressed\n");
 #endif /* DEBUG */
-                saveCube(cube);
+                saveCube(cube, EXTENSION_JSON);
             break;
         case SDLK_l:
 #ifdef DEBUG
@@ -179,6 +180,33 @@ void keyboardEventManager(SDLKey key, int cube[6][N][N], Input* in) {
                 front_rotation(cube);
             else
                 front_rotation_reverse(cube);
+        break;
+        case SDLK_m:
+#ifdef DEBUG
+            printf("M key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                middle_vectical_rotation(cube);
+            else
+                middle_vectical_rotation_reverse(cube);
+        break;
+        case SDLK_i:
+#ifdef DEBUG
+            printf("I key pressed\n");
+#endif /* DEBUG */
+            if(in->key[SDLK_LCTRL] == 0)
+                middle_horizontal_rotation(cube);
+            else
+                middle_horizontal_rotation_reverse(cube);
+        break;
+        case SDLK_TAB:
+            for(int i = 0; i < 6; ++i) {
+                for(int j = 0; j < N; ++j) {
+                    for(int k = 0; k < N; ++k) {
+                        cube[i][j][k] = getFinalColorId(i);
+                    }
+                }
+            }
         break;
         default:
         break;

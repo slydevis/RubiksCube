@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "file.h"
 #include "util.h"
+#include "rotations.h"
 
 FILE* openFile(char* path, char* mode) {
     FILE* file = fopen(path, mode);
@@ -130,6 +131,216 @@ void readJSON(char * path, int tmp[6][N][N]) {
     closeFile(file);
 }
 
+void translateRotation(int cube[6][N][N], char car, int direction) {
+    switch(car) {
+        case 'U':
+            if(direction == DIRECTION_NORMAL)
+                up_rotation(cube);
+            else
+                up_rotation_reverse(cube);
+        break;
+        case 'L':
+            if(direction == DIRECTION_NORMAL)
+                left_rotation_reverse(cube);
+            else
+                left_rotation(cube);
+            break;
+        case 'F':
+            if(direction == DIRECTION_NORMAL)
+                front_rotation(cube);
+            else
+                front_rotation_reverse(cube);
+        break;
+        case 'R':
+            if(direction == DIRECTION_NORMAL)
+                right_rotation(cube);
+            else
+                right_rotation_reverse(cube);
+        break;
+        case 'B':
+            cube_rotation_side(cube);
+            cube_rotation_side(cube);
+            if(direction == DIRECTION_NORMAL)
+                front_rotation(cube);
+            else
+                front_rotation_reverse(cube);
+            cube_rotation_side(cube);
+            cube_rotation_side(cube);
+        break;
+        case 'D':
+            if(direction == DIRECTION_NORMAL)
+                down_rotation_reverse(cube);
+            else
+                down_rotation(cube);
+        break;
+        case 'M':
+            if(direction == DIRECTION_NORMAL)
+                middle_vectical_rotation(cube);
+            else
+                middle_vectical_rotation_reverse(cube);
+        break;
+        case 'u':
+            if(direction == DIRECTION_NORMAL) {
+                middle_horizontal_rotation(cube);
+                up_rotation(cube);
+            }
+            else {
+                middle_horizontal_rotation_reverse(cube);
+                up_rotation_reverse(cube);
+            }
+        break;
+        case 'l':
+            if(direction == DIRECTION_NORMAL) {
+                middle_vectical_rotation(cube);
+                left_rotation_reverse(cube);
+            }
+            else {
+                middle_vectical_rotation_reverse(cube);
+                left_rotation(cube);
+            }
+        break;
+        case 'E':
+            if(direction == DIRECTION_NORMAL) {
+                middle_horizontal_rotation_reverse(cube);
+            }
+            else {
+                middle_horizontal_rotation(cube);
+            }
+        break;
+        case 'f':
+            if(direction == DIRECTION_NORMAL) {
+                front_rotation(cube);
+                middle_rotation_side(cube);
+            }
+            else {
+                middle_rotation_side_reverse(cube);
+                front_rotation_reverse(cube);
+            }
+        break;
+        case 'r':
+            if(direction == DIRECTION_NORMAL) {
+                right_rotation(cube);
+                middle_vectical_rotation_reverse(cube);
+            }
+            else {
+                right_rotation_reverse(cube);
+                middle_vectical_rotation(cube);
+            }
+        break;
+        case 'S':
+            if(direction == DIRECTION_NORMAL) {
+                middle_rotation_side(cube);
+            }
+            else {
+                middle_rotation_side_reverse(cube);
+            }
+        break;
+        case 'b':
+            if(direction == DIRECTION_NORMAL) {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                front_rotation(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                middle_rotation_side_reverse(cube);
+            }
+            else {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                front_rotation_reverse(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                middle_rotation_side(cube);
+            }
+        break;
+        case 'd':
+            if(direction == DIRECTION_NORMAL) {
+                down_rotation_reverse(cube);
+                middle_horizontal_rotation_reverse(cube);
+            }
+            else {
+                down_rotation(cube);
+                middle_horizontal_rotation(cube);
+            }
+        break;
+        case 'X':
+            if(direction == DIRECTION_NORMAL)
+                cube_rotation_upside_down(cube);
+            else {
+                cube_rotation_upside_down(cube);
+                cube_rotation_upside_down(cube);
+                cube_rotation_upside_down(cube);
+            }
+        break;
+        case 'Y':
+            if(direction == DIRECTION_NORMAL) {
+                cube_rotation_side(cube);
+            }
+            else {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+            }
+        break;
+        case 'Z':
+            if(direction == DIRECTION_NORMAL) {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                front_rotation_reverse(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                middle_rotation_side(cube);
+                front_rotation(cube);
+            }
+            else {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                front_rotation(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                middle_rotation_side_reverse(cube);
+                front_rotation_reverse(cube);
+            }
+        break;
+        default:
+        break;
+    }
+}
+
+void ReadROT(char* path, int tmp[6][N][N]) {
+    /*
+     * Exemple of syntax :
+     * ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2
+     */
+
+    char car = '0';
+    char buff;
+
+    FILE* file = openFile(path, OPEN_READ);
+
+    if(!file)
+        printError("Impossible d'ouvrir le fichier demande");
+
+    do {
+        car = getc(file);
+        buff = getc(file);
+
+        if(car == EOF || buff == EOF)
+            break;
+
+        fseek(file, -1, SEEK_CUR);
+
+        if(buff == '\'')
+            translateRotation(tmp, car, DIRECTION_REVERSE);
+        else if(isdigit((int) buff)) {
+            for(int i = 0; i < (int)(buff - '0'); ++i)
+                translateRotation(tmp, car, DIRECTION_NORMAL);
+        }
+        else
+            translateRotation(tmp, car, DIRECTION_NORMAL);
+    } while(car != EOF);
+}
+
 char* getExtension(char* path) {
     char *dotPosition = strrchr(path, '.');
     if(dotPosition == NULL || dotPosition == path)
@@ -137,11 +348,10 @@ char* getExtension(char* path) {
     return dotPosition;
 }
 
-void saveCube(int cube[6][N][N]) {
+void saveCubeJSON(int cube[6][N][N]) {
     FILE* file = openFile("output/save.json", "w");
 
-    if (file != NULL)
-    {
+    if (file != NULL) {
         fprintf(file, "{\n");
 
         for(int i = 0; i < 6; ++i) {
@@ -160,7 +370,12 @@ void saveCube(int cube[6][N][N]) {
         closeFile(file);
     }
     else
-    {
-        printf("Impossible d'ouvrir le fichier test.txt");
-    }
+        printError("Impossible d'ouvrir le fichier test.txt");
+}
+
+void saveCube(int cube[6][N][N], char* extension) {
+    if(strcmp(extension, EXTENSION_JSON) == 0)
+        saveCubeJSON(cube);
+    else
+        printError("Extension inconnue");
 }

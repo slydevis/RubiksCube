@@ -27,6 +27,9 @@
 #define SCREEN_WIDTH 640
 #define FACE_SIZE 30
 
+#define DIRECTION_NORMAL 0
+#define DIRECTION_REVERSE 1
+
 #define SIDE_LEFT 0
 #define SIDE_FRONT 1
 #define SIDE_UPPER 2
@@ -35,6 +38,7 @@
 #define SIDE_BEHIND 5
 
 #define EXTENSION_JSON ".json"
+#define EXTENSION_ROT ".rot"
 
 #define JSON_LEFT "LEFT"
 #define JSON_RIGHT "RIGHT"

@@ -414,6 +414,209 @@ void left_rotation_reverse (int cube[6][N][N]) {
     }
 }
 
+void middle_vectical_rotation (int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_BOTTOM][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_FRONT][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_FRONT][i][1] = cube[SIDE_UPPER][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BOTTOM][i][1] = tmp2[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_BEHIND][i][1];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_BEHIND][i][1] = tmp1[N-i-1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_UPPER][i][1] = tmp2[N-i-1];
+    }
+}
+
+void middle_vectical_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_UPPER][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_FRONT][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_FRONT][i][1] = cube[SIDE_BOTTOM][i][1];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_BEHIND][N-1-i][1];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_BEHIND][i][1] = cube[SIDE_UPPER][N-1-i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_UPPER][i][1] = tmp2[i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BOTTOM][i][1] = tmp1[i];
+    }
+}
+void middle_horizontal_rotation (int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_LEFT][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_FRONT][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_FRONT][1][i] = cube[SIDE_RIGHT][1][i];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_LEFT][1][i] = tmp2[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_BEHIND][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BEHIND][1][i] = tmp1[i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_RIGHT][1][i] = tmp2[i];
+    }
+}
+
+void middle_horizontal_rotation_reverse (int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_RIGHT][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_FRONT][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_FRONT][1][i] = cube[SIDE_LEFT][1][i];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_RIGHT][1][i] = tmp2[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_BEHIND][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BEHIND][1][i] = tmp1[i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_LEFT][1][i] = tmp2[i];
+    }
+}
+
+void middle_rotation_side(int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_UPPER][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_RIGHT][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_UPPER][1][i] = cube[SIDE_LEFT][N-1-i][1];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_RIGHT][i][1] = tmp1[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_BOTTOM][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BOTTOM][1][i] = tmp2[N-1-i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_LEFT][i][1] = tmp1[i];
+    }
+}
+
+void middle_rotation_side_reverse(int cube[6][N][N]) {
+    int tmp1[N];
+    int tmp2[N];
+    int i;
+
+    for (i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_UPPER][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        tmp2[i] = cube[SIDE_LEFT][i][1];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_UPPER][1][i] = cube[SIDE_RIGHT][i][1];
+    }
+
+    for(i = 0; i < N; i++) {
+        cube[SIDE_LEFT][N-i-1][1] = tmp1[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        tmp1[i] = cube[SIDE_BOTTOM][1][i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_BOTTOM][1][i] = tmp2[i];
+    }
+
+    for (i = 0; i < N; i++) {
+        cube[SIDE_RIGHT][N-i-1][1] = tmp1[i];
+    }
+}
+
 void cube_rotation_side (int cube[6][N][N]) {
     /* on crée deux carré temporaire pour retenir une face de côté, celle du 
     dessus et celle de face */

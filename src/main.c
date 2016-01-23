@@ -21,8 +21,7 @@ void initCube() {
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
-                int tmp = COLOR_WHITE;
-                cube[i][j][k] = tmp;
+                cube[i][j][k] = getFinalColorId(i);
             }
         }
     }
@@ -43,6 +42,8 @@ void completeCube(char* path) {
             }
         }
     }
+    else if(strcmp(extension, EXTENSION_ROT) == 0)
+        ReadROT(path, cube);
     else // Unknown extension
         printError("Extension inconnue");
 }
