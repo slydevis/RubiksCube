@@ -1,4 +1,5 @@
 #include <SDL/SDL.h>
+#include <time.h> // rand()
 #include "display.h"
 #include "file.h"
 #include "rotations.h"
@@ -123,6 +124,122 @@ void printBehindSide(miniCube cube[N][N]) {
     }
 }
 
+void printLibelleCube(miniCube cube[6][N][N]) {
+/*
+ *
+ * Exemple :
+                     ----- ----- -----
+                    | A00 | A01 | A02 |
+                     ----- ----- -----
+                    | A10 | A11 | A12 |
+                     ----- ----- -----
+                    | A20 | A21 | A31 |
+                     ----- ----- -----
+ ----- ----- -----   ----- ----- -----   ----- ----- -----   ----- ----- -----
+| A00 | A01 | A02 | | A00 | A01 | A02 | | A00 | A01 | A02 | | A00 | A01 | A02 |
+ ----- ----- -----   ----- ----- -----   ----- ----- -----   ----- ----- -----
+| A10 | A11 | A12 | | A10 | A11 | A12 | | A10 | A11 | A12 | | A10 | A11 | A12 |
+ ----- ----- -----   ----- ----- -----   ----- ----- -----   ----- ----- -----
+| A20 | A21 | A31 | | A20 | A21 | A31 | | A20 | A21 | A31 | | A20 | A21 | A31 |
+ ----- ----- -----   ----- ----- -----   ----- ----- -----   ----- ----- -----
+                     ----- ----- -----
+                    | A00 | A01 | A02 |
+                     ----- ----- -----
+                    | A10 | A11 | A12 |
+                     ----- ----- -----
+                    | A20 | A21 | A31 |
+                     ----- ----- -----
+ */
+
+    /* Space for upper side */
+
+    for(int i = 0; i < N; ++i) {
+        for(int k = 0; k < 20; ++k)
+            printf(" ");
+        printf(" ----- ----- -----\n");
+        for(int k = 0; k < 20; ++k)
+            printf(" ");
+        for(int j = 0; j < N; ++j) {
+            printf("| %s ", cube[SIDE_UPPER][i][j]->finalPos);
+        }
+        printf("|\n");
+    }
+    for(int k = 0; k < 20; ++k)
+        printf(" ");
+    printf(" ----- ----- -----\n");
+
+    for(int i = 0; i < 4; ++i) {
+        for(int j = 0; j < N; ++j) {
+            printf(" -----");
+        }
+        printf("  ");
+    }
+    printf("\n");
+
+    int selectColumn = 0;
+    int sideSelect;
+
+    while(selectColumn != N) {
+        sideSelect = SIDE_LEFT;
+        for(int i = 0; i < 4; ++i) {
+            for(int j = 0; j < N; ++j) {
+                printf("| %s ", cube[sideSelect][selectColumn][j]->finalPos);
+            }
+            sideSelect++;
+            if(sideSelect == SIDE_UPPER || sideSelect == SIDE_BOTTOM)
+                sideSelect = SIDE_RIGHT;
+            printf("| ");
+        }
+        printf("\n");
+
+        for(int i = 0; i < 4; ++i) {
+            for(int j = 0; j < N; ++j) {
+                printf(" -----");
+            }
+            printf("  ");
+        }
+        printf("\n");
+        ++selectColumn;
+    }
+
+    /* Bottom side */
+
+    for(int i = 0; i < N; ++i) {
+        for(int k = 0; k < 20; ++k)
+            printf(" ");
+        printf(" ----- ----- -----\n");
+        for(int k = 0; k < 20; ++k)
+            printf(" ");
+        for(int j = 0; j < N; ++j) {
+            printf("| %s ", cube[SIDE_BOTTOM][i][j]->finalPos);
+        }
+        printf("|\n");
+    }
+    for(int k = 0; k < 20; ++k)
+        printf(" ");
+    printf(" ----- ----- -----\n");
+}
+
+void printHelp() {
+    printf("Rappel :\n\n");
+    printf("- U : Rotation haut\n");
+    printf("- L : Rotation gauche\n");
+    printf("- F : Rotation de face\n");
+    printf("- R : Rotation droite\n");
+    printf("- B : Rotation face arriere\n");
+    printf("- D : Rotation bas\n");
+    printf("- M : Rotation milieu vertical\n");
+    printf("- E : Rotation milieu horizontal\n");
+    printf("- X : Rotation du cube de facon vertical\n");
+    printf("- Y : Rotation du cube de facon horizontal\n");
+    printf("- Tab : Reset du cube\n");
+    printf("- CTRL : Inverse le sens de rotation\n");
+    printf("- S : Sauvegarde le cube courant\n");
+    printf("- Entree : Resoudre le cube de facon mecanique\n");
+    printf("- CTRL + Entree : Resoudre le cube de facon optimise\n");
+    printf("- * : Melange le cube\n\n");
+}
+
 typedef struct
 {
     char key[SDLK_LAST];
@@ -130,87 +247,222 @@ typedef struct
 
 void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
     switch (key) {
-        case SDLK_s:
-#ifdef DEBUG
-            printf("S key pressed\n");
-#endif /* DEBUG */
-                saveCube(cube, EXTENSION_JSON);
-            break;
-        case SDLK_l:
-#ifdef DEBUG
-            printf("L key pressed\n");
-#endif /* DEBUG */
-            if(in->key[SDLK_LCTRL] == 0)
-                left_rotation(cube);
-            else
-                left_rotation_reverse(cube);
-        break;
-        case SDLK_r:
-#ifdef DEBUG
-            printf("R key pressed\n");
-#endif /* DEBUG */
-            if(in->key[SDLK_LCTRL] == 0)
-                right_rotation(cube);
-            else
-                right_rotation_reverse(cube);
-        break;
         case SDLK_u:
-#ifdef DEBUG
-            printf("U key pressed\n");
-#endif /* DEBUG */
             if(in->key[SDLK_LCTRL] == 0)
                 up_rotation(cube);
             else
                 up_rotation_reverse(cube);
         break;
-        case SDLK_d:
-#ifdef DEBUG
-            printf("D key pressed\n");
-#endif /* DEBUG */
+        case SDLK_l:
             if(in->key[SDLK_LCTRL] == 0)
-                down_rotation(cube);
+                left_rotation_reverse(cube);
             else
-                down_rotation_reverse(cube);
+                left_rotation(cube);
         break;
         case SDLK_f:
-#ifdef DEBUG
-            printf("D key pressed\n");
-#endif /* DEBUG */
             if(in->key[SDLK_LCTRL] == 0)
                 front_rotation(cube);
             else
                 front_rotation_reverse(cube);
         break;
+        case SDLK_r:
+            if(in->key[SDLK_LCTRL] == 0)
+                right_rotation(cube);
+            else
+                right_rotation_reverse(cube);
+        break;
+        case SDLK_b:
+            cube_rotation_side(cube);
+            cube_rotation_side(cube);
+            if(in->key[SDLK_LCTRL] == 0)
+                front_rotation(cube);
+            else
+                front_rotation_reverse(cube);
+            cube_rotation_side(cube);
+            cube_rotation_side(cube);
+        break;
+        case SDLK_d:
+            if(in->key[SDLK_LCTRL] == 0)
+                down_rotation_reverse(cube);
+            else
+                down_rotation(cube);
+        break;
         case SDLK_m:
-#ifdef DEBUG
-            printf("M key pressed\n");
-#endif /* DEBUG */
             if(in->key[SDLK_LCTRL] == 0)
                 middle_vectical_rotation(cube);
             else
                 middle_vectical_rotation_reverse(cube);
         break;
-        case SDLK_i:
-#ifdef DEBUG
-            printf("I key pressed\n");
-#endif /* DEBUG */
+        case SDLK_e:
             if(in->key[SDLK_LCTRL] == 0)
                 middle_horizontal_rotation(cube);
             else
                 middle_horizontal_rotation_reverse(cube);
+        break;
+        case SDLK_x:
+            if(in->key[SDLK_LCTRL] == 0)
+                cube_rotation_upside_down(cube);
+            else {
+                cube_rotation_upside_down(cube);
+                cube_rotation_upside_down(cube);
+                cube_rotation_upside_down(cube);
+            }
+        break;
+        case SDLK_y:
+            if(in->key[SDLK_LCTRL] == 0)
+                cube_rotation_side(cube);
+            else {
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+                cube_rotation_side(cube);
+            }
         break;
         case SDLK_TAB:
             for(int i = 0; i < 6; ++i) {
                 for(int j = 0; j < N; ++j) {
                     for(int k = 0; k < N; ++k) {
                         cube[i][j][k]->color = getFinalColorId(i);
+                        cube[i][j][k]->finalPos = getFinalLibelle(i, j, k);
                     }
                 }
             }
         break;
-        default:
+        case SDLK_s:
+            saveCube(cube, EXTENSION_JSON);
         break;
+        case SDLK_RETURN:
+            if(in->key[SDLK_LCTRL] == 0)
+                printf("RESOUDRE MECANIQUE !!!\n");
+            else
+                printf("RESOUDRE !!!!\n");
+        break;
+        case SDLK_ASTERISK:
+        {
+            // TODO : Créer une fonction
+            int selectRotation;
+            srand(time(NULL)); // initialisation de rand
+            for(int i = 0; i < RAND_SIZE; ++i) {
+                selectRotation = rand()%24;
+                switch(selectRotation) {
+                    case 0:
+                        up_rotation(cube);
+                    break;
+                    case 1:
+                        up_rotation_reverse(cube);
+                    break;
+                    case 2:
+                        left_rotation(cube);
+                    break;
+                    case 3:
+                        left_rotation_reverse(cube);
+                    break;
+                    case 4:
+                        front_rotation(cube);
+                    break;
+                    case 5:
+                        front_rotation_reverse(cube);
+                    break;
+                    case 6:
+                        right_rotation(cube);
+                    break;
+                    case 7:
+                        right_rotation_reverse(cube);
+                    break;
+                    case 8:
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        front_rotation(cube);
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                    break;
+                    case 9:
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        front_rotation_reverse(cube);
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                    break;
+                    case 10:
+                        down_rotation(cube);
+                    break;
+                    case 11:
+                        down_rotation_reverse(cube);
+                    break;
+                    case 12:
+                        middle_vectical_rotation(cube);
+                    break;
+                    case 13:
+                        middle_vectical_rotation_reverse(cube);
+                    break;
+                    case 14:
+                        middle_horizontal_rotation(cube);
+                    break;
+                    case 15:
+                        middle_horizontal_rotation_reverse(cube);
+                    break;
+                    case 16:
+                        middle_rotation_side(cube);
+                    break;
+                    case 17:
+                        middle_rotation_side_reverse(cube);
+                    break;
+                    case 18:
+                        cube_rotation_upside_down(cube);
+                    break;
+                    case 19:
+                        cube_rotation_upside_down(cube);
+                        cube_rotation_upside_down(cube);
+                        cube_rotation_upside_down(cube);
+                    break;
+                    case 20:
+                        cube_rotation_side(cube);
+                    break;
+                    case 21:
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                    break;
+                    case 22:
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        front_rotation_reverse(cube);
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        middle_rotation_side(cube);
+                        front_rotation(cube);
+                    break;
+                    case 23:
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        front_rotation(cube);
+                        cube_rotation_side(cube);
+                        cube_rotation_side(cube);
+                        middle_rotation_side_reverse(cube);
+                        front_rotation_reverse(cube);
+                    break;
+                    default: break;
+                }
+            }
+        }
+        break;
+        default: break;
     }
+
+    clearScreen();
+    printTitle();
+    printHelp();
+    printLibelleCube(cube);
+
+#ifdef DEBUG
+    if(key >= 'a' && key <= 'z')
+        printf("Key pressed : %c\n", key - 32);
+    if(key == SDLK_TAB)
+        printf("Key pressed : TAB\n");
+    if(key == SDLK_RETURN)
+        printf("Key pressed : RETURN\n");
+    if(key == SDLK_ASTERISK)
+        printf("Key pressed : ASTERISK\n");
+#endif
 }
 
 void UpdateEvents(Input* in, miniCube cube[6][N][N])
@@ -224,11 +476,11 @@ void UpdateEvents(Input* in, miniCube cube[6][N][N])
             goContinue = 0;
             break;
             case SDL_KEYDOWN:
-                in->key[event.key.keysym.sym]=1;
+                in->key[event.key.keysym.sym] = 1;
                 keyboardEventManager(event.key.keysym.sym, cube, in);
             break;
             case SDL_KEYUP:
-                in->key[event.key.keysym.sym]=0;
+                in->key[event.key.keysym.sym] = 0;
             break;
             default:
             break;
@@ -249,6 +501,12 @@ void displayCube2D(miniCube cube[6][N][N]) {
     Input in;
     // init SDL, chargement, tout ce que vous faites avant la boucle.
     memset(&in,0,sizeof(in));
+
+    clearScreen();
+    printTitle();
+    printHelp();
+    printLibelleCube(cube);
+
     while(goContinue) {
         UpdateEvents(&in, cube);
 
