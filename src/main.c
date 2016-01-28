@@ -7,6 +7,8 @@
 #include "rotations.h"
 #include "file.h"
 
+// TODO : Mettre tous les fonctions dans les .h respectif
+
 /*
  * Left side = cube[0]
  * Front side = cube[1]
@@ -50,17 +52,6 @@ void completeCube(char* path) {
         ReadROT(path, cube);
     else // Unknown extension
         printError("Extension inconnue");
-}
-
-void printTitle() {
-    printf("\n\n");
-    printf("██████╗ ██╗   ██╗██████╗ ██╗██╗  ██╗███████╗     ██████╗██╗   ██╗██████╗ ███████╗\n");
-    printf("██╔══██╗██║   ██║██╔══██╗██║██║ ██╔╝██╔════╝    ██╔════╝██║   ██║██╔══██╗██╔════╝\n");
-    printf("██████╔╝██║   ██║██████╔╝██║█████╔╝ ███████╗    ██║     ██║   ██║██████╔╝█████╗  \n");
-    printf("██╔══██╗██║   ██║██╔══██╗██║██╔═██╗ ╚════██║    ██║     ██║   ██║██╔══██╗██╔══╝  \n");
-    printf("██║  ██║╚██████╔╝██████╔╝██║██║  ██╗███████║    ╚██████╗╚██████╔╝██████╔╝███████╗\n");
-    printf("╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝\n");
-    printf("\n\n");
 }
 
 void menu() {

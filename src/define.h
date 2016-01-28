@@ -71,4 +71,5 @@ typedef struct face* miniCube;
 #define OPEN_APPEND "a"
 #define OPEN_ALL "r+"
 
+#define RAND_SIZE 99
 #endif /* __DEFINE_H__ */
