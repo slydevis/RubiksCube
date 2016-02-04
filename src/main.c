@@ -6,6 +6,7 @@
 #include "display.h"
 #include "rotations.h"
 #include "file.h"
+#include "resolution_mecanique.h"
 
 // TODO : Mettre tous les fonctions dans les .h respectif
 
@@ -83,7 +84,7 @@ void menu() {
         default:
             return menu();
     }
-}
+} 
 
 int main(int argc, char** argv) {
     if(argc != 2)
@@ -93,6 +94,7 @@ int main(int argc, char** argv) {
 #endif
     initCube();
     completeCube(argv[1]);
+    resolution_mecanique(cube);
     menu();
     return EXIT_SUCCESS;
 }
