@@ -3,7 +3,7 @@
 
 typedef struct face {
     int color;
-    char* finalPos;
+    int finalPos;
 } face;
 
 typedef struct face* miniCube;
@@ -41,13 +41,6 @@ typedef struct face* miniCube;
 #define SIDE_BOTTOM 3
 #define SIDE_RIGHT 4
 #define SIDE_BEHIND 5
-
-#define SIDE_LEFT_STR "L"
-#define SIDE_FRONT_STR "F"
-#define SIDE_UPPER_STR "U"
-#define SIDE_BOTTOM_STR "D"
-#define SIDE_RIGHT_STR "R"
-#define SIDE_BEHIND_STR "B"
 
 #define EXTENSION_JSON ".json"
 #define EXTENSION_ROT ".rot"
