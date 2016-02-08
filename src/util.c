@@ -49,27 +49,29 @@ void getColorArray(miniCube cube[6][N][N], int cubeTmp[6][N][N]) {
     }
 }
 
-char* getFaceStr(int face) {
+int getFaceStr(int face) {
     switch(face) {
         case SIDE_LEFT:
-            return SIDE_LEFT_STR;
+            return SIDE_LEFT;
         case SIDE_FRONT:
-            return SIDE_FRONT_STR;
+            return SIDE_FRONT;
         case SIDE_UPPER:
-            return SIDE_UPPER_STR;
+            return SIDE_UPPER;
         case SIDE_BOTTOM:
-            return SIDE_BOTTOM_STR;
+            return SIDE_BOTTOM;
         case SIDE_RIGHT:
-            return SIDE_RIGHT_STR;
+            return SIDE_RIGHT;
         case SIDE_BEHIND:
-            return SIDE_BEHIND_STR;
+            return SIDE_BEHIND;
         default:
-            return "";
+            return 9;
     }
 }
 
-char* getFinalLibelle(int face, int x, int y) {
-    char* libelle = malloc(sizeof(char) + 3);
-    sprintf(libelle, "%s%d%d", getFaceStr(face), x, y);
+int getFinalLibelle(int face, int x, int y) {
+    int libelle;
+    libelle = 100*getFaceStr(face) + 10*x + y;
     return libelle;
 }
+
+//ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2

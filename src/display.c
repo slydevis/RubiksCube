@@ -160,7 +160,7 @@ void printLibelleCube(miniCube cube[6][N][N]) {
         for(int k = 0; k < 20; ++k)
             printf(" ");
         for(int j = 0; j < N; ++j) {
-            printf("| %s ", cube[SIDE_UPPER][i][j]->finalPos);
+            printf("| %03d ", cube[SIDE_UPPER][i][j]->finalPos);
         }
         printf("|\n");
     }
@@ -183,7 +183,7 @@ void printLibelleCube(miniCube cube[6][N][N]) {
         sideSelect = SIDE_LEFT;
         for(int i = 0; i < 4; ++i) {
             for(int j = 0; j < N; ++j) {
-                printf("| %s ", cube[sideSelect][selectColumn][j]->finalPos);
+                printf("| %03d ", cube[sideSelect][selectColumn][j]->finalPos);
             }
             sideSelect++;
             if(sideSelect == SIDE_UPPER || sideSelect == SIDE_BOTTOM)
@@ -211,7 +211,7 @@ void printLibelleCube(miniCube cube[6][N][N]) {
         for(int k = 0; k < 20; ++k)
             printf(" ");
         for(int j = 0; j < N; ++j) {
-            printf("| %s ", cube[SIDE_BOTTOM][i][j]->finalPos);
+            printf("| %03d ", cube[SIDE_BOTTOM][i][j]->finalPos);
         }
         printf("|\n");
     }

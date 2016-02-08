@@ -2,12 +2,15 @@ SHELL  = /bin/bash
 CC     = gcc
 CFLAGS = -Wall -std=c99
 LIBFLAGS = -lSDL
-OBJ = test.o display.o file.o util.o rotations.o
+OBJ = test.o display.o file.o util.o rotations.o resolution_mecanique.o
 
 EXECS = main.out
 
 rotations.h : src/rotations.h
 rotations.c : src/rotations.c
+ 
+resolution_mecanique.h : src/resolution_mecanique.h
+resolution_mecanique.c : src/resolution_mecanique.c
 
 util.c : src/util.c
 util.h : src/util.o
@@ -52,3 +55,6 @@ util.o : util.h util.c
 rotations.o : rotations.c rotations.h
 	$(CC) $(CFLAGS) -c src/rotations.c
 	-cp rotations.o output/rotations.o
+resolution_mecanique.o : resolution_mecanique.c resolution_mecanique.h
+	$(CC) $(CFLAGS) -c src/resolution_mecanique.c
+	-cp resolution_mecanique.o output/resolution_mecanique.o
