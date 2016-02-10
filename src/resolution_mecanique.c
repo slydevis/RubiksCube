@@ -23,6 +23,42 @@ int recherche_case(miniCube cube[6][N][N], int x) {
     return pos;
 }
 
+<<<<<<< HEAD
+void white_center_placement (miniCube cube[6][N][N]) {
+	int n = 0, pos;
+	pos = recherche_case(cube, 11);
+
+	while (n < 3 && pos != 13) {
+		cube_rotation_side(cube);
+		pos = recherche_case(cube, 11);
+		n = n + 1;
+	}
+
+	n = 0;
+	pos = recherche_case(cube, 11);
+	while (n < 3 && pos != 13) {
+		cube_rotation_upside_down(cube);
+		pos = recherche_case(cube, 11);
+		n = n + 1;
+	}
+
+	n = 0;
+	pos = recherche_case(cube, 111);
+	while (n < 3 && pos != 40) {
+		cube_rotation_upside_down(cube);
+		cube_rotation_side(cube);
+		cube_rotation_upside_down(cube);
+		cube_rotation_upside_down(cube);
+		cube_rotation_upside_down(cube);
+		pos = recherche_case(cube, 111);
+		n = n + 1;
+	}
+
+	return ;
+}
+
+=======
+>>>>>>> bea7c6435e5c80eeec19e91fdd113fa992c58e48
 void white_cross(miniCube cube[6][N][N]) {
 	int pos;
 
@@ -1427,11 +1463,19 @@ void second_line_3 (miniCube cube[6][N][N]) {
 		cube_rotation_side(cube);
 	}
 	if (pos == 34) {
+<<<<<<< HEAD
+		down_rotation_reverse(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		cube_rotation_side(cube);
+		second_line_right(cube);
+=======
 		down_rotation(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
 		cube_rotation_side(cube);
 		cube_rotation_side(cube);
+>>>>>>> bea7c6435e5c80eeec19e91fdd113fa992c58e48
 		cube_rotation_side(cube);
 	}
 	if (pos == 30) {
@@ -1840,6 +1884,13 @@ void yellow_corners_right_orientation (miniCube cube[6][N][N], int p) {
 } 
 
 void resolution_mecanique (miniCube cube[6][N][N]) {
+<<<<<<< HEAD
+	int pos;
+	pos = recherche_case(cube, 11);
+
+	white_center_placement(cube);
+=======
+>>>>>>> bea7c6435e5c80eeec19e91fdd113fa992c58e48
 	white_cross(cube);
 	cube_rotation_upside_down(cube);
 	white_face(cube);
@@ -1850,6 +1901,21 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 	yellow_cross_right_orientation(cube, 212);
 	yellow_corners_right_placement(cube, 400);
 
+<<<<<<< HEAD
+	pos = recherche_case(cube, 211);
+
+	while (pos != 13) {
+		cube_rotation_side(cube);
+		pos = recherche_case(cube, 211);
+	}
+
+	yellow_corners_right_orientation(cube, 400);
+	
+	pos = recherche_case(cube, 211);
+	while (pos != 13) {
+		cube_rotation_side(cube);
+		pos = recherche_case(cube, 211);
+=======
 	while (recherche_case(cube, 211) != 13) {
 		cube_rotation_side(cube);
 	}
@@ -1858,6 +1924,7 @@ void resolution_mecanique (miniCube cube[6][N][N]) {
 
 	while (recherche_case(cube, 211) != 13) {
 		cube_rotation_side(cube);
+>>>>>>> bea7c6435e5c80eeec19e91fdd113fa992c58e48
 	}
 	cube_rotation_upside_down(cube);
 }

@@ -73,3 +73,5 @@ int getFinalLibelle(int face, int x, int y) {
     libelle = 100*getFaceStr(face) + 10*x + y;
     return libelle;
 }
+
+//ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2
