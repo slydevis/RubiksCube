@@ -5,6 +5,7 @@
 #include "../file.h"
 #include "../rotations.h"
 #include "../display.h"
+#include "../resolution_mecanique.h"
 
 /* Launch test for a function without argument */
 void test(int (*f)(), void (*init)(), int result) {
