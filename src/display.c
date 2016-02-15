@@ -4,6 +4,7 @@
 #include "file.h"
 #include "rotations.h"
 #include "util.h"
+#include "resolution_mecanique.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
@@ -332,7 +333,7 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
         break;
         case SDLK_RETURN:
             if(in->key[SDLK_LCTRL] == 0)
-                printf("RESOUDRE MECANIQUE !!!\n");
+                resolution_mecanique(cube);
             else
                 printf("RESOUDRE !!!!\n");
         break;
