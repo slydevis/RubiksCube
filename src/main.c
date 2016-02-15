@@ -94,7 +94,6 @@ int main(int argc, char** argv) {
 #endif
     initCube();
     completeCube(argv[1]);
-    resolution_mecanique(cube);
     menu();
     return EXIT_SUCCESS;
 }

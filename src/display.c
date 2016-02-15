@@ -332,7 +332,7 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
         break;
         case SDLK_RETURN:
             if(in->key[SDLK_LCTRL] == 0)
-                printf("RESOUDRE MECANIQUE !!!\n");
+                resolution_mecanique(cube);
             else
                 printf("RESOUDRE !!!!\n");
         break;
