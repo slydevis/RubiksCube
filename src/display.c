@@ -4,6 +4,7 @@
 #include "file.h"
 #include "rotations.h"
 #include "util.h"
+#include "resolution_mecanique.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
