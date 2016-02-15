@@ -164,7 +164,6 @@ void white_cross(miniCube cube[6][N][N]) {
 
 	/* positionnement de la case 010*/
 	pos = recherche_case(cube, 10);
-	printf("%d", pos);
 
 	if (pos == 37) {
 		front_rotation(cube);
@@ -1468,9 +1467,6 @@ void second_line_3 (miniCube cube[6][N][N]) {
 		down_rotation(cube);
 		cube_rotation_side(cube);
 		second_line_right(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
-		cube_rotation_side(cube);
 	}
 	if (pos == 30) {
 		down_rotation(cube);
@@ -1631,11 +1627,10 @@ void yellow_cross_right_orientation (miniCube cube[6][N][N], int p) {
 	int pos1, pos2, pos3, n;
 
 	pos1 = recherche_case(cube, p);
-	printf("pos1 = %d\n", pos1);
-	// while (pos1 != 10) {
-	// 	up_rotation(cube);
-	// 	pos1 = recherche_case(cube, p);
-	// }
+	while (pos1 != 10) {
+		up_rotation(cube);
+		pos1 = recherche_case(cube, p);
+	}
 
 	switch(p) {
 		case 212:
@@ -1814,29 +1809,33 @@ void yellow_corners_right_orientation (miniCube cube[6][N][N], int p) {
 		yellow_corners_right_orientation(cube, p);
 	}
 
-	if (pos1 != 24) {
-		while (n < 3 && (pos1 != 24 && pos2 != 24 && pos3 != 24)) {
+	else if (pos1 != 24) {
+		while (n < 3 && (pos4 != 24 && pos2 != 24 && pos3 != 24)) {
 			cube_rotation_side(cube);
 			switch(p) {
 				case 400:
 					pos1 = recherche_case(cube, 402);
 					pos2 = recherche_case(cube, 422);
 					pos3 = recherche_case(cube, 420);
+					pos4 = recherche_case(cube, 400);
 				break;
 				case 420:
 					pos1 = recherche_case(cube, 400);
 					pos2 = recherche_case(cube, 402);
 					pos3 = recherche_case(cube, 422);
+					pos4 = recherche_case(cube, 420);
 				break;
 				case 422:
 					pos1 = recherche_case(cube, 420);
 					pos2 = recherche_case(cube, 400);
 					pos3 = recherche_case(cube, 402);
+					pos4 = recherche_case(cube, 422);
 				break;
 				case 402:
 					pos1 = recherche_case(cube, 422);
 					pos2 = recherche_case(cube, 420);
 					pos3 = recherche_case(cube, 400);
+					pos4 = recherche_case(cube, 402);
 				break;
 			}
 			n = n + 1;
