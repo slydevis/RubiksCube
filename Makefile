@@ -2,7 +2,7 @@ SHELL  = /bin/bash
 CC     = gcc
 CFLAGS = -Wall -std=c99
 LIBFLAGS = -lSDL
-OBJ = test.o display.o file.o util.o rotations.o resolution_mecanique.o
+OBJ = test.o display.o file.o util.o rotations.o resolution_mecanique.o resolveBacktrack.o
 
 EXECS = main.out
 
@@ -24,10 +24,13 @@ display.c : src/display.c
 test.h : src/test/test.h
 test.c : src/test/test.c
 
+resolveBacktrack.c : src/resolveBacktrack.c
+resolveBacktrack.h : src/resolveBacktrack.h
+
 all : $(EXECS)
 
 debug : clean
-debug : CFLAGS += -DDEBUG
+debug : CFLAGS += -DDEBUG -g
 debug : $(EXECS)
 
 release : clean
@@ -58,3 +61,6 @@ rotations.o : rotations.c rotations.h
 resolution_mecanique.o : resolution_mecanique.c resolution_mecanique.h
 	$(CC) $(CFLAGS) -c src/resolution_mecanique.c
 	-cp resolution_mecanique.o output/resolution_mecanique.o
+resolveBacktrack.o : resolveBacktrack.h resolveBacktrack.c
+	$(CC) $(CFLAGS) -c src/resolveBacktrack.c
+	-cp resolveBacktrack.o output/resolveBacktrack.o

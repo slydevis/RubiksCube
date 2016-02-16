@@ -1,7 +1,9 @@
 #include <stdlib.h>
+#include <string.h>
 #include "stdio.h"
 #include "util.h"
 #include "define.h"
+
 
 void printError(char* str) {
     color(PRINT_COLOR_RED);
@@ -49,29 +51,30 @@ void getColorArray(miniCube cube[6][N][N], int cubeTmp[6][N][N]) {
     }
 }
 
-int getFaceStr(int face) {
-    switch(face) {
-        case SIDE_LEFT:
-            return SIDE_LEFT;
-        case SIDE_FRONT:
-            return SIDE_FRONT;
-        case SIDE_UPPER:
-            return SIDE_UPPER;
-        case SIDE_BOTTOM:
-            return SIDE_BOTTOM;
-        case SIDE_RIGHT:
-            return SIDE_RIGHT;
-        case SIDE_BEHIND:
-            return SIDE_BEHIND;
-        default:
-            return 9;
-    }
-}
-
 int getFinalLibelle(int face, int x, int y) {
-    int libelle;
-    libelle = 100*getFaceStr(face) + 10*x + y;
-    return libelle;
+    return 100*face + 10*x + y;
 }
 
-//ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2
+int isCompleteCube(miniCube cube[6][N][N]) {
+	for(int i = 0; i < 6; ++i) {
+		for(int j = 0; j < N; ++j) {
+			for(int k = 0; k < N; ++k) {
+				int finalLibelle = getFinalLibelle(i, j, k);
+				if(finalLibelle != cube[i][j][k]->finalPos)
+					return 0;
+			}
+		}
+	}
+	return 1;
+}
+
+char* concatStr(char *s1, char *s2)
+{
+    size_t len1 = strlen(s1);
+    size_t len2 = strlen(s2);
+    char *result = malloc(len1+len2+1);//+1 for the zero-terminator
+    //in real code you would check for errors in malloc here
+    memcpy(result, s1, len1);
+    memcpy(result+len1, s2, len2+1);//+1 to copy the null-terminator
+    return result;
+}

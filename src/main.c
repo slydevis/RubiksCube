@@ -24,7 +24,7 @@ void initCube() {
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
-                miniCube cubeTmp = malloc(sizeof(face*));
+                miniCube cubeTmp = malloc(sizeof(face));
                 cube[i][j][k] = cubeTmp;
                 cube[i][j][k]->color = getFinalColorId(i);
                 cube[i][j][k]->finalPos = getFinalLibelle(i, j, k);
@@ -58,7 +58,7 @@ void completeCube(char* path) {
 void menu() {
     int select = 0;
 #ifndef DEBUG
-    clearScreen();
+//    clearScreen();
 #endif /* DEBUG */
     printTitle();
     printf("1) Voir en 2D\n");
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     if(argc != 2)
         printError("Nombre d'argument invalide");
 #ifdef DEBUG
-    executeTest();
+//    executeTest();
 #endif
     initCube();
     completeCube(argv[1]);

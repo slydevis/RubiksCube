@@ -5,6 +5,7 @@
 #include "rotations.h"
 #include "util.h"
 #include "resolution_mecanique.h"
+#include "resolveBacktrack.h"
 
 static int goContinue = 1;
 static SDL_Surface* screen = NULL;
@@ -335,26 +336,30 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
             if(in->key[SDLK_LCTRL] == 0)
                 resolution_mecanique(cube);
             else
-                printf("RESOUDRE !!!!\n");
+            	resolveBacktrack(cube);
         break;
         case SDLK_ASTERISK:
         {
-            // TODO : Créer une fonction
+            // TODO : Crï¿½er une fonction
             int selectRotation;
             srand(time(NULL)); // initialisation de rand
             for(int i = 0; i < RAND_SIZE; ++i) {
                 selectRotation = rand()%24;
                 switch(selectRotation) {
                     case 0:
+                    	printf("U");
                         up_rotation(cube);
                     break;
                     case 1:
+                    	printf("U'");
                         up_rotation_reverse(cube);
                     break;
                     case 2:
+                    	printf("L");
                         left_rotation(cube);
                     break;
                     case 3:
+                    	printf("L'");
                         left_rotation_reverse(cube);
                     break;
                     case 4:
@@ -449,9 +454,9 @@ void keyboardEventManager(SDLKey key, miniCube cube[6][N][N], Input* in) {
         default: break;
     }
 
-    clearScreen();
-    printTitle();
-    printHelp();
+    //clearScreen();
+    // printTitle();
+    // printHelp();
     printLibelleCube(cube);
 
 #ifdef DEBUG
@@ -503,7 +508,7 @@ void displayCube2D(miniCube cube[6][N][N]) {
     // init SDL, chargement, tout ce que vous faites avant la boucle.
     memset(&in,0,sizeof(in));
 
-    clearScreen();
+    // clearScreen();
     printTitle();
     printHelp();
     printLibelleCube(cube);
@@ -524,5 +529,5 @@ void displayCube2D(miniCube cube[6][N][N]) {
         SDL_Flip(screen);
     }
 
-        SDL_Quit();
+    SDL_Quit();
 }
