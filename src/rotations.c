@@ -1,13 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL/SDL.h>
-#include "test/test.h"
+#include <string.h> // strcmp()
+
 #include "util.h"
-#include "display.h"
 #include "file.h"
 
-
-/*----------------------------------------------------------------------------*/
+/************************************
+ *          Cube rotations
+ ************************************/
 
 void up_rotation (miniCube cube[6][N][N]) {
     miniCube tmp1[N][N];           // variable temporaire qui contient une face
@@ -684,7 +682,7 @@ void cube_rotation_side (miniCube cube[6][N][N]) {
 }
 
 void cube_rotation_upside_down (miniCube cube[6][N][N]) {
-    /* on crée deux carré temporaire pour retenir la face devant, celle de
+    /* on crÃ©e deux carrÃ© temporaire pour retenir la face devant, celle de
     gauche et celle de droite */
     miniCube tmp1[N][N];
     miniCube tmp2[N][N];
@@ -749,84 +747,233 @@ void cube_rotation_upside_down (miniCube cube[6][N][N]) {
     }
 }
 
+/**
+ * \fn void cubeRotation(miniCube cube[6][N][N], const char* rotation)
+ * \brief Tranduis la notation Singmaster en une rotation sur le cube
+ * \param cube Rubik's cube courant
+ * \param rotation Lettre de la rotation Singmaster
+ */
+void cubeRotation(miniCube cube[6][N][N], const char* rotation) {
+    if(strcmp(rotation, "U") == 0)
+        up_rotation(cube);
+    else if(strcmp(rotation, "U'") == 0)
+        up_rotation_reverse(cube);
+    else if(strcmp(rotation, "L") == 0)
+        left_rotation_reverse(cube);
+    else if(strcmp(rotation, "L'") == 0)
+        left_rotation(cube);
+    else if(strcmp(rotation, "F") == 0)
+        front_rotation(cube);
+    else if(strcmp(rotation, "F'") == 0)
+        front_rotation_reverse(cube);
+    else if(strcmp(rotation, "R") == 0)
+        right_rotation(cube);
+    else if(strcmp(rotation, "R'") == 0)
+        right_rotation_reverse(cube);
+    else if(strcmp(rotation, "B") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+    }
+    else if(strcmp(rotation, "B'") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation_reverse(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+    }
+    else if(strcmp(rotation, "D") == 0)
+        down_rotation_reverse(cube);
+    else if(strcmp(rotation, "D'") == 0)
+        down_rotation(cube);
+    else if(strcmp(rotation, "M") == 0)
+        middle_vectical_rotation(cube);
+    else if(strcmp(rotation, "M'") == 0)
+        middle_vectical_rotation_reverse(cube);
+    else if(strcmp(rotation, "u") == 0) {
+        middle_horizontal_rotation(cube);
+        up_rotation(cube);
+    }
+    else if(strcmp(rotation, "u'") == 0) {
+        middle_horizontal_rotation_reverse(cube);
+        up_rotation_reverse(cube);
+    }
+    else if(strcmp(rotation, "l") == 0) {
+        middle_vectical_rotation(cube);
+        left_rotation_reverse(cube);
+    }
+    else if(strcmp(rotation, "l'") == 0) {
+        middle_vectical_rotation_reverse(cube);
+        left_rotation(cube);
+    }
+    else if(strcmp(rotation, "E") == 0)
+        middle_horizontal_rotation_reverse(cube);
+    else if(strcmp(rotation, "E'") == 0)
+        middle_horizontal_rotation(cube);
+    else if(strcmp(rotation, "f") == 0) {
+        front_rotation(cube);
+        middle_rotation_side(cube);
+    }
+    else if(strcmp(rotation, "f'") == 0) {
+        middle_rotation_side_reverse(cube);
+        front_rotation_reverse(cube);
+    }
+    else if(strcmp(rotation, "r") == 0) {
+        right_rotation(cube);
+        middle_vectical_rotation_reverse(cube);
+    }
+    else if(strcmp(rotation, "r'") == 0) {
+        right_rotation_reverse(cube);
+        middle_vectical_rotation(cube);
+    }
+    else if(strcmp(rotation, "S") == 0)
+        middle_rotation_side(cube);
+    else if(strcmp(rotation, "S'") == 0)
+        middle_rotation_side_reverse(cube);
+    else if(strcmp(rotation, "b") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        middle_rotation_side_reverse(cube);
+    }
+    else if(strcmp(rotation, "b'") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation_reverse(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        middle_rotation_side(cube);
+    }
+    else if(strcmp(rotation, "d") == 0) {
+        down_rotation_reverse(cube);
+        middle_horizontal_rotation_reverse(cube);
+    }
+    else if(strcmp(rotation, "d'") == 0) {
+        down_rotation(cube);
+        middle_horizontal_rotation(cube);
+    }
+    else if(strcmp(rotation, "X") == 0)
+        cube_rotation_upside_down(cube);
+    else if(strcmp(rotation, "X'") == 0) {
+        cube_rotation_upside_down(cube);
+        cube_rotation_upside_down(cube);
+        cube_rotation_upside_down(cube);
+    }
+    else if(strcmp(rotation, "Y") == 0)
+        cube_rotation_side(cube);
+    else if(strcmp(rotation, "Y'") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+    }
+    else if(strcmp(rotation, "Z") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation_reverse(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        middle_rotation_side(cube);
+        front_rotation(cube);
+    }
+    else if(strcmp(rotation, "Z'") == 0) {
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        front_rotation(cube);
+        cube_rotation_side(cube);
+        cube_rotation_side(cube);
+        middle_rotation_side_reverse(cube);
+        front_rotation_reverse(cube);
+    }
+    else
+        printError("Rotation inconnue");
+}
+
+/************************************
+ *   Mechanics cube manipulation
+ ************************************/
+
 void second_line_right(miniCube cube[6][N][N]) {
-	down_rotation(cube);
-	right_rotation_reverse(cube);
-	down_rotation_reverse(cube);
-	right_rotation(cube);
-	down_rotation_reverse(cube);
-	front_rotation(cube);
-	down_rotation(cube);
-	front_rotation_reverse(cube);
+    down_rotation(cube);
+    right_rotation_reverse(cube);
+    down_rotation_reverse(cube);
+    right_rotation(cube);
+    down_rotation_reverse(cube);
+    front_rotation(cube);
+    down_rotation(cube);
+    front_rotation_reverse(cube);
 }
 
 void second_line_left(miniCube cube[6][N][N]) {
-	down_rotation_reverse(cube);
-	left_rotation_reverse(cube);
-	down_rotation(cube);
-	left_rotation(cube);
-	down_rotation(cube);
-	front_rotation_reverse(cube);
-	down_rotation_reverse(cube);
-	front_rotation(cube);
+    down_rotation_reverse(cube);
+    left_rotation_reverse(cube);
+    down_rotation(cube);
+    left_rotation(cube);
+    down_rotation(cube);
+    front_rotation_reverse(cube);
+    down_rotation_reverse(cube);
+    front_rotation(cube);
 }
 
 void yellow_cross_line (miniCube cube[6][N][N]) {
-	up_rotation(cube);
-	front_rotation(cube);
-	right_rotation(cube);
-	up_rotation(cube);
-	right_rotation_reverse(cube);
-	up_rotation_reverse (cube);
-	front_rotation_reverse(cube);
+    up_rotation(cube);
+    front_rotation(cube);
+    right_rotation(cube);
+    up_rotation(cube);
+    right_rotation_reverse(cube);
+    up_rotation_reverse (cube);
+    front_rotation_reverse(cube);
 }
 
 void yellow_cross_cross  (miniCube cube[6][N][N]) {
-	front_rotation(cube);
-	up_rotation(cube);
-	right_rotation(cube);
-	up_rotation_reverse(cube);
-	right_rotation_reverse (cube);
-	front_rotation_reverse(cube);
+    front_rotation(cube);
+    up_rotation(cube);
+    right_rotation(cube);
+    up_rotation_reverse(cube);
+    right_rotation_reverse (cube);
+    front_rotation_reverse(cube);
 }
 
 void yellow_cross_orientation (miniCube cube[6][N][N]) {
-	right_rotation(cube);
-	up_rotation(cube);
-	up_rotation(cube);
-	right_rotation_reverse(cube);
-	up_rotation_reverse(cube);
-	right_rotation(cube);
-	up_rotation_reverse(cube);
-	right_rotation_reverse(cube);
+    right_rotation(cube);
+    up_rotation(cube);
+    up_rotation(cube);
+    right_rotation_reverse(cube);
+    up_rotation_reverse(cube);
+    right_rotation(cube);
+    up_rotation_reverse(cube);
+    right_rotation_reverse(cube);
 }
 
 void yellow_corners_placement (miniCube cube[6][N][N]) {
-	left_rotation(cube);
-	up_rotation(cube);
-	right_rotation(cube);
-	up_rotation_reverse(cube);
-	left_rotation_reverse(cube);
-	up_rotation(cube);
-	right_rotation_reverse(cube);
-	up_rotation_reverse(cube);
+    left_rotation(cube);
+    up_rotation(cube);
+    right_rotation(cube);
+    up_rotation_reverse(cube);
+    left_rotation_reverse(cube);
+    up_rotation(cube);
+    right_rotation_reverse(cube);
+    up_rotation_reverse(cube);
 }
 
 void yellow_corners_orientation (miniCube cube[6][N][N]) {
-	right_rotation(cube);
-	up_rotation(cube);
-	up_rotation(cube);
-	right_rotation_reverse(cube);
-	up_rotation_reverse(cube);
-	right_rotation(cube);
-	up_rotation_reverse(cube);
-	right_rotation_reverse(cube);
-	left_rotation(cube);
-	up_rotation(cube);
-	up_rotation(cube);
-	left_rotation_reverse(cube);
-	up_rotation(cube);
-	left_rotation(cube);
-	up_rotation(cube);
-	left_rotation_reverse(cube);
+    right_rotation(cube);
+    up_rotation(cube);
+    up_rotation(cube);
+    right_rotation_reverse(cube);
+    up_rotation_reverse(cube);
+    right_rotation(cube);
+    up_rotation_reverse(cube);
+    right_rotation_reverse(cube);
+    left_rotation(cube);
+    up_rotation(cube);
+    up_rotation(cube);
+    left_rotation_reverse(cube);
+    up_rotation(cube);
+    left_rotation(cube);
+    up_rotation(cube);
+    left_rotation_reverse(cube);
 }

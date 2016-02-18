@@ -1,0 +1,362 @@
+\hypertarget{rotations_8c}{\section{src/rotations.c File Reference}
+\label{rotations_8c}\index{src/rotations.\-c@{src/rotations.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rotations_8c_a3daf91a235e7814226e268f41dfb5a16}{up\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_acf65826daf02e3e1a6c111eeac472d86}{up\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a07861780f6100bd13c543fbb22c43f12}{down\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_af906ce8c8e824ce92d09bad9bbe12f44}{down\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a01a61ab5ef26c45710226fb72892e84d}{front\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_aece3f754c0b165ed50c5d274c9d41b0f}{front\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a8317ff8265b0f75a880c22542a0242fa}{right\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a3ef531ca47c0e8895ef230667db469c6}{right\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a3a3b1028070bd458a6e6bdd517a794b3}{left\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_ace638526dd8a328382a33fe69505f204}{left\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a385f17b4885dcdb72ea0fe0bbcbfed1e}{middle\-\_\-vectical\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a0e46d53e40eab43c1645f420437c8879}{middle\-\_\-vectical\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a6b556a2bd9c8c449fcfe65c8971f8b48}{middle\-\_\-horizontal\-\_\-rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a49a42874a9d80aefcccaeb20ad7373e6}{middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a4445d2eb64e0d6ac799be71742b2879b}{middle\-\_\-rotation\-\_\-side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a6f17753ba5f0f0ef4f8096d74c0387a5}{middle\-\_\-rotation\-\_\-side\-\_\-reverse} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a0fd7f4e6b95d5aa8e8cf048c61dd0e9d}{cube\-\_\-rotation\-\_\-side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_ab7b717d2cc26d00747146263e177af71}{cube\-\_\-rotation\-\_\-upside\-\_\-down} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a15a4464fa0da42580587afb2a39f62cf}{cube\-Rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, const char $\ast$rotation)
+\begin{DoxyCompactList}\small\item\em Tranduis la notation Singmaster en une rotation sur le cube. \end{DoxyCompactList}\item 
+void \hyperlink{rotations_8c_a0d4361d9168f49249d747ea54182bfa1}{second\-\_\-line\-\_\-right} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a95e6a8a53bb79d35290fdb376e0b689e}{second\-\_\-line\-\_\-left} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a8d4cc1e0286e3792076a1d3f1960b2b2}{yellow\-\_\-cross\-\_\-line} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a82738cc87989c208deff6ee53522944a}{yellow\-\_\-cross\-\_\-cross} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_aa657f5c81014d1350fe491cdb05d8c40}{yellow\-\_\-cross\-\_\-orientation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a46607eff28e3a7e586b771d4f27f8cb0}{yellow\-\_\-corners\-\_\-placement} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\item 
+void \hyperlink{rotations_8c_a95af61452c8c1bbd1f208a2922d30d26}{yellow\-\_\-corners\-\_\-orientation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rotations_8c_a0fd7f4e6b95d5aa8e8cf048c61dd0e9d}{\index{rotations.\-c@{rotations.\-c}!cube\-\_\-rotation\-\_\-side@{cube\-\_\-rotation\-\_\-side}}
+\index{cube\-\_\-rotation\-\_\-side@{cube\-\_\-rotation\-\_\-side}!rotations.c@{rotations.\-c}}
+\subsubsection[{cube\-\_\-rotation\-\_\-side}]{\setlength{\rightskip}{0pt plus 5cm}void cube\-\_\-rotation\-\_\-side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a0fd7f4e6b95d5aa8e8cf048c61dd0e9d}
+
+
+Definition at line 618 of file rotations.\-c.
+
+\hypertarget{rotations_8c_ab7b717d2cc26d00747146263e177af71}{\index{rotations.\-c@{rotations.\-c}!cube\-\_\-rotation\-\_\-upside\-\_\-down@{cube\-\_\-rotation\-\_\-upside\-\_\-down}}
+\index{cube\-\_\-rotation\-\_\-upside\-\_\-down@{cube\-\_\-rotation\-\_\-upside\-\_\-down}!rotations.c@{rotations.\-c}}
+\subsubsection[{cube\-\_\-rotation\-\_\-upside\-\_\-down}]{\setlength{\rightskip}{0pt plus 5cm}void cube\-\_\-rotation\-\_\-upside\-\_\-down (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_ab7b717d2cc26d00747146263e177af71}
+
+
+Definition at line 684 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a15a4464fa0da42580587afb2a39f62cf}{\index{rotations.\-c@{rotations.\-c}!cube\-Rotation@{cube\-Rotation}}
+\index{cube\-Rotation@{cube\-Rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{cube\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void cube\-Rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{const char $\ast$}]{rotation}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a15a4464fa0da42580587afb2a39f62cf}
+
+
+Tranduis la notation Singmaster en une rotation sur le cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube courant \\
+\hline
+{\em rotation} & Lettre de la rotation Singmaster \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 756 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a07861780f6100bd13c543fbb22c43f12}{\index{rotations.\-c@{rotations.\-c}!down\-\_\-rotation@{down\-\_\-rotation}}
+\index{down\-\_\-rotation@{down\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{down\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void down\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a07861780f6100bd13c543fbb22c43f12}
+
+
+Definition at line 89 of file rotations.\-c.
+
+\hypertarget{rotations_8c_af906ce8c8e824ce92d09bad9bbe12f44}{\index{rotations.\-c@{rotations.\-c}!down\-\_\-rotation\-\_\-reverse@{down\-\_\-rotation\-\_\-reverse}}
+\index{down\-\_\-rotation\-\_\-reverse@{down\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{down\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void down\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_af906ce8c8e824ce92d09bad9bbe12f44}
+
+
+Definition at line 129 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a01a61ab5ef26c45710226fb72892e84d}{\index{rotations.\-c@{rotations.\-c}!front\-\_\-rotation@{front\-\_\-rotation}}
+\index{front\-\_\-rotation@{front\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{front\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void front\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a01a61ab5ef26c45710226fb72892e84d}
+
+
+Definition at line 169 of file rotations.\-c.
+
+\hypertarget{rotations_8c_aece3f754c0b165ed50c5d274c9d41b0f}{\index{rotations.\-c@{rotations.\-c}!front\-\_\-rotation\-\_\-reverse@{front\-\_\-rotation\-\_\-reverse}}
+\index{front\-\_\-rotation\-\_\-reverse@{front\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{front\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void front\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_aece3f754c0b165ed50c5d274c9d41b0f}
+
+
+Definition at line 210 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a3a3b1028070bd458a6e6bdd517a794b3}{\index{rotations.\-c@{rotations.\-c}!left\-\_\-rotation@{left\-\_\-rotation}}
+\index{left\-\_\-rotation@{left\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{left\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void left\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a3a3b1028070bd458a6e6bdd517a794b3}
+
+
+Definition at line 333 of file rotations.\-c.
+
+\hypertarget{rotations_8c_ace638526dd8a328382a33fe69505f204}{\index{rotations.\-c@{rotations.\-c}!left\-\_\-rotation\-\_\-reverse@{left\-\_\-rotation\-\_\-reverse}}
+\index{left\-\_\-rotation\-\_\-reverse@{left\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{left\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void left\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_ace638526dd8a328382a33fe69505f204}
+
+
+Definition at line 374 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a6b556a2bd9c8c449fcfe65c8971f8b48}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-horizontal\-\_\-rotation@{middle\-\_\-horizontal\-\_\-rotation}}
+\index{middle\-\_\-horizontal\-\_\-rotation@{middle\-\_\-horizontal\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-horizontal\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-horizontal\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a6b556a2bd9c8c449fcfe65c8971f8b48}
+
+
+Definition at line 482 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a49a42874a9d80aefcccaeb20ad7373e6}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse@{middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse}}
+\index{middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse@{middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-horizontal\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a49a42874a9d80aefcccaeb20ad7373e6}
+
+
+Definition at line 516 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a4445d2eb64e0d6ac799be71742b2879b}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-rotation\-\_\-side@{middle\-\_\-rotation\-\_\-side}}
+\index{middle\-\_\-rotation\-\_\-side@{middle\-\_\-rotation\-\_\-side}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-rotation\-\_\-side}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-rotation\-\_\-side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a4445d2eb64e0d6ac799be71742b2879b}
+
+
+Definition at line 550 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a6f17753ba5f0f0ef4f8096d74c0387a5}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-rotation\-\_\-side\-\_\-reverse@{middle\-\_\-rotation\-\_\-side\-\_\-reverse}}
+\index{middle\-\_\-rotation\-\_\-side\-\_\-reverse@{middle\-\_\-rotation\-\_\-side\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-rotation\-\_\-side\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-rotation\-\_\-side\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a6f17753ba5f0f0ef4f8096d74c0387a5}
+
+
+Definition at line 584 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a385f17b4885dcdb72ea0fe0bbcbfed1e}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-vectical\-\_\-rotation@{middle\-\_\-vectical\-\_\-rotation}}
+\index{middle\-\_\-vectical\-\_\-rotation@{middle\-\_\-vectical\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-vectical\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-vectical\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a385f17b4885dcdb72ea0fe0bbcbfed1e}
+
+
+Definition at line 415 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a0e46d53e40eab43c1645f420437c8879}{\index{rotations.\-c@{rotations.\-c}!middle\-\_\-vectical\-\_\-rotation\-\_\-reverse@{middle\-\_\-vectical\-\_\-rotation\-\_\-reverse}}
+\index{middle\-\_\-vectical\-\_\-rotation\-\_\-reverse@{middle\-\_\-vectical\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{middle\-\_\-vectical\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void middle\-\_\-vectical\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a0e46d53e40eab43c1645f420437c8879}
+
+
+Definition at line 449 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a8317ff8265b0f75a880c22542a0242fa}{\index{rotations.\-c@{rotations.\-c}!right\-\_\-rotation@{right\-\_\-rotation}}
+\index{right\-\_\-rotation@{right\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{right\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void right\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a8317ff8265b0f75a880c22542a0242fa}
+
+
+Definition at line 251 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a3ef531ca47c0e8895ef230667db469c6}{\index{rotations.\-c@{rotations.\-c}!right\-\_\-rotation\-\_\-reverse@{right\-\_\-rotation\-\_\-reverse}}
+\index{right\-\_\-rotation\-\_\-reverse@{right\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{right\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void right\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a3ef531ca47c0e8895ef230667db469c6}
+
+
+Definition at line 292 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a95e6a8a53bb79d35290fdb376e0b689e}{\index{rotations.\-c@{rotations.\-c}!second\-\_\-line\-\_\-left@{second\-\_\-line\-\_\-left}}
+\index{second\-\_\-line\-\_\-left@{second\-\_\-line\-\_\-left}!rotations.c@{rotations.\-c}}
+\subsubsection[{second\-\_\-line\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}void second\-\_\-line\-\_\-left (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a95e6a8a53bb79d35290fdb376e0b689e}
+
+
+Definition at line 910 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a0d4361d9168f49249d747ea54182bfa1}{\index{rotations.\-c@{rotations.\-c}!second\-\_\-line\-\_\-right@{second\-\_\-line\-\_\-right}}
+\index{second\-\_\-line\-\_\-right@{second\-\_\-line\-\_\-right}!rotations.c@{rotations.\-c}}
+\subsubsection[{second\-\_\-line\-\_\-right}]{\setlength{\rightskip}{0pt plus 5cm}void second\-\_\-line\-\_\-right (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a0d4361d9168f49249d747ea54182bfa1}
+
+
+Definition at line 899 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a3daf91a235e7814226e268f41dfb5a16}{\index{rotations.\-c@{rotations.\-c}!up\-\_\-rotation@{up\-\_\-rotation}}
+\index{up\-\_\-rotation@{up\-\_\-rotation}!rotations.c@{rotations.\-c}}
+\subsubsection[{up\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void up\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a3daf91a235e7814226e268f41dfb5a16}
+
+
+Definition at line 10 of file rotations.\-c.
+
+\hypertarget{rotations_8c_acf65826daf02e3e1a6c111eeac472d86}{\index{rotations.\-c@{rotations.\-c}!up\-\_\-rotation\-\_\-reverse@{up\-\_\-rotation\-\_\-reverse}}
+\index{up\-\_\-rotation\-\_\-reverse@{up\-\_\-rotation\-\_\-reverse}!rotations.c@{rotations.\-c}}
+\subsubsection[{up\-\_\-rotation\-\_\-reverse}]{\setlength{\rightskip}{0pt plus 5cm}void up\-\_\-rotation\-\_\-reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_acf65826daf02e3e1a6c111eeac472d86}
+
+
+Definition at line 49 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a95af61452c8c1bbd1f208a2922d30d26}{\index{rotations.\-c@{rotations.\-c}!yellow\-\_\-corners\-\_\-orientation@{yellow\-\_\-corners\-\_\-orientation}}
+\index{yellow\-\_\-corners\-\_\-orientation@{yellow\-\_\-corners\-\_\-orientation}!rotations.c@{rotations.\-c}}
+\subsubsection[{yellow\-\_\-corners\-\_\-orientation}]{\setlength{\rightskip}{0pt plus 5cm}void yellow\-\_\-corners\-\_\-orientation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a95af61452c8c1bbd1f208a2922d30d26}
+
+
+Definition at line 962 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a46607eff28e3a7e586b771d4f27f8cb0}{\index{rotations.\-c@{rotations.\-c}!yellow\-\_\-corners\-\_\-placement@{yellow\-\_\-corners\-\_\-placement}}
+\index{yellow\-\_\-corners\-\_\-placement@{yellow\-\_\-corners\-\_\-placement}!rotations.c@{rotations.\-c}}
+\subsubsection[{yellow\-\_\-corners\-\_\-placement}]{\setlength{\rightskip}{0pt plus 5cm}void yellow\-\_\-corners\-\_\-placement (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a46607eff28e3a7e586b771d4f27f8cb0}
+
+
+Definition at line 951 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a82738cc87989c208deff6ee53522944a}{\index{rotations.\-c@{rotations.\-c}!yellow\-\_\-cross\-\_\-cross@{yellow\-\_\-cross\-\_\-cross}}
+\index{yellow\-\_\-cross\-\_\-cross@{yellow\-\_\-cross\-\_\-cross}!rotations.c@{rotations.\-c}}
+\subsubsection[{yellow\-\_\-cross\-\_\-cross}]{\setlength{\rightskip}{0pt plus 5cm}void yellow\-\_\-cross\-\_\-cross (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a82738cc87989c208deff6ee53522944a}
+
+
+Definition at line 931 of file rotations.\-c.
+
+\hypertarget{rotations_8c_a8d4cc1e0286e3792076a1d3f1960b2b2}{\index{rotations.\-c@{rotations.\-c}!yellow\-\_\-cross\-\_\-line@{yellow\-\_\-cross\-\_\-line}}
+\index{yellow\-\_\-cross\-\_\-line@{yellow\-\_\-cross\-\_\-line}!rotations.c@{rotations.\-c}}
+\subsubsection[{yellow\-\_\-cross\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}void yellow\-\_\-cross\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_a8d4cc1e0286e3792076a1d3f1960b2b2}
+
+
+Definition at line 921 of file rotations.\-c.
+
+\hypertarget{rotations_8c_aa657f5c81014d1350fe491cdb05d8c40}{\index{rotations.\-c@{rotations.\-c}!yellow\-\_\-cross\-\_\-orientation@{yellow\-\_\-cross\-\_\-orientation}}
+\index{yellow\-\_\-cross\-\_\-orientation@{yellow\-\_\-cross\-\_\-orientation}!rotations.c@{rotations.\-c}}
+\subsubsection[{yellow\-\_\-cross\-\_\-orientation}]{\setlength{\rightskip}{0pt plus 5cm}void yellow\-\_\-cross\-\_\-orientation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{rotations_8c_aa657f5c81014d1350fe491cdb05d8c40}
+
+
+Definition at line 940 of file rotations.\-c.
+

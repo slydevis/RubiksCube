@@ -1,0 +1,88 @@
+\hypertarget{list_8h}{\section{src/list.h File Reference}
+\label{list_8h}\index{src/list.\-h@{src/list.\-h}}
+}
+{\ttfamily \#include \char`\"{}tree.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlist}{list}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structlist}{list} \hyperlink{list_8h_a64b7067460a74ef44e8bbb9c65ce6a37}{list}
+\item 
+typedef \hyperlink{structlist}{list} $\ast$ \hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} \hyperlink{list_8h_a1f1de0008f6fbb338cbb68d5bb922227}{add\-List} (\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} head, \hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} t)
+\begin{DoxyCompactList}\small\item\em Crée une liste chainée avec la liste des frêres d'un élément. \end{DoxyCompactList}\item 
+\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} \hyperlink{list_8h_af644d3a0ca6554f0ea38767a8ba38724}{supprimer\-Liste} (\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} l)
+\begin{DoxyCompactList}\small\item\em Supprime un élément de la liste et libère la mémoire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{list_8h_a64b7067460a74ef44e8bbb9c65ce6a37}{\index{list.\-h@{list.\-h}!list@{list}}
+\index{list@{list}!list.h@{list.\-h}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf list}  {\bf list}}}\label{list_8h_a64b7067460a74ef44e8bbb9c65ce6a37}
+\hypertarget{list_8h_af250b03cde78998489a45604d6bf19cb}{\index{list.\-h@{list.\-h}!p\-List@{p\-List}}
+\index{p\-List@{p\-List}!list.h@{list.\-h}}
+\subsubsection[{p\-List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf list}$\ast$ {\bf p\-List}}}\label{list_8h_af250b03cde78998489a45604d6bf19cb}
+
+
+Definition at line 11 of file list.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{list_8h_a1f1de0008f6fbb338cbb68d5bb922227}{\index{list.\-h@{list.\-h}!add\-List@{add\-List}}
+\index{add\-List@{add\-List}!list.h@{list.\-h}}
+\subsubsection[{add\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-List} add\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-List}}]{head, }
+\item[{{\bf p\-Tree}}]{t}
+\end{DoxyParamCaption}
+)}}\label{list_8h_a1f1de0008f6fbb338cbb68d5bb922227}
+
+
+Crée une liste chainée avec la liste des frêres d'un élément. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & Adresse de la tête de la liste \\
+\hline
+{\em t} & Adresse de l'arbre à ajouter dans la liste chainée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse du premier frêre à rajouter 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file list.\-c.
+
+\hypertarget{list_8h_af644d3a0ca6554f0ea38767a8ba38724}{\index{list.\-h@{list.\-h}!supprimer\-Liste@{supprimer\-Liste}}
+\index{supprimer\-Liste@{supprimer\-Liste}!list.h@{list.\-h}}
+\subsubsection[{supprimer\-Liste}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-List} supprimer\-Liste (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-List}}]{l}
+\end{DoxyParamCaption}
+)}}\label{list_8h_af644d3a0ca6554f0ea38767a8ba38724}
+
+
+Supprime un élément de la liste et libère la mémoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & Element de la liste à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse de l'élément suivant 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file list.\-c.
+

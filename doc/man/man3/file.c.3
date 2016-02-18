@@ -1,0 +1,230 @@
+.TH "src/file.c" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/file.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include <ctype\&.h>\fP
+.br
+\fC#include 'file\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
+.br
+\fC#include 'rotations\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "FILE * \fBopenFile\fP (char *path, char *mode)"
+.br
+.RI "\fIOuvre un fichier\&. \fP"
+.ti -1c
+.RI "void \fBcloseFile\fP (FILE *file)"
+.br
+.RI "\fIFerme un fichier\&. \fP"
+.ti -1c
+.RI "int \fBtranslateWord\fP (char *word)"
+.br
+.RI "\fIFait la correspondance mot => id de couleur ou de face\&. \fP"
+.ti -1c
+.RI "char * \fBreverseTranslateWord\fP (int value)"
+.br
+.RI "\fIFait la correspondance id de couleur ou de face => mot\&. \fP"
+.ti -1c
+.RI "void \fBreadJSON\fP (char *path, \fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fITraduis un fichier JSON en un rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBtranslateRotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], char car, const int direction)"
+.br
+.RI "\fIFait une rotation adéquat celon le sens de rotation\&. \fP"
+.ti -1c
+.RI "void \fBReadROT\fP (char *path, \fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fITraduis un fichier \&.rot en un rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBsaveCubeJSON\fP (int cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fITraduis un Rubik's cube en un fichier \&.json pour sauvegarder\&. \fP"
+.ti -1c
+.RI "void \fBsaveCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], char *extension)"
+.br
+.RI "\fILance la sauvegarde d'un rubik's cube celon l'extension désiré \fP"
+.ti -1c
+.RI "char * \fBgetExtension\fP (char *path)"
+.br
+.RI "\fIExtrais d'une chaine de caractère correspondant à un fichier l'extension de celui ci\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "FILE * closeFile (FILE *file)"
+
+.PP
+Ferme un fichier\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP Objet de type FILE 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file file\&.c\&.
+.SS "char * getExtension (char *path)"
+
+.PP
+Extrais d'une chaine de caractère correspondant à un fichier l'extension de celui ci\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Chemin du fichier 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Une chaine de caractère commancant par un '\&.' 
+.RE
+.PP
+
+.PP
+Definition at line 307 of file file\&.c\&.
+.SS "FILE * openFile (char *path, char *mode)"
+
+.PP
+Ouvre un fichier\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Chemin du fichier 
+.br
+\fImode\fP Mode d'ouverture (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie l'objet du type FILE (peut être NULL) 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file file\&.c\&.
+.SS "void readJSON (char *path, \fBminiCube\fPcube[6][N][N])"
+
+.PP
+Traduis un fichier JSON en un rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Chemin du fichier JSON à traduire 
+.br
+\fIcube\fP Rubik's cube initialisé 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file file\&.c\&.
+.SS "void ReadROT (char *path, \fBminiCube\fPcube[6][N][N])"
+
+.PP
+Traduis un fichier \&.rot en un rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Chemin du fichier \&.rot 
+.br
+\fIcube\fP Rubik's cube initialisé 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file file\&.c\&.
+.SS "int reverseTranslateWord (intvalue)"
+
+.PP
+Fait la correspondance id de couleur ou de face => mot\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP Identifiant à traduire 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie une chaine de caractère correspondant a un identifiant 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file file\&.c\&.
+.SS "void saveCube (\fBminiCube\fPcube[6][N][N], char *extension)"
+
+.PP
+Lance la sauvegarde d'un rubik's cube celon l'extension désiré 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.br
+\fIextension\fP Extension de sortie (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+
+.PP
+Definition at line 288 of file file\&.c\&.
+.SS "void saveCubeJSON (intcube[6][N][N])"
+
+.PP
+Traduis un Rubik's cube en un fichier \&.json pour sauvegarder\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube avec seulement ses couleurs 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file file\&.c\&.
+.SS "void translateRotation (\fBminiCube\fPcube[6][N][N], charcar, const intdirection)"
+
+.PP
+Fait une rotation adéquat celon le sens de rotation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.br
+\fIcar\fP Caractère de rotation (notation Singmaster) 
+.br
+\fIdirection\fP Indique le sens de rotation (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+
+.PP
+Definition at line 193 of file file\&.c\&.
+.SS "int translateWord (char *word)"
+
+.PP
+Fait la correspondance mot => id de couleur ou de face\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIword\fP Chaine de caractère a traduire 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie un entier correspondant à un id (cf \fBdefine\&.h\fP) renvoie -1 si c'est un identifiant inconnu 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file file\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

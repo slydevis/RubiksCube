@@ -1,6 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
+/************************************
+ * \file test.c
+ * \brief Test unitaire
+ *
+ * Test les fonctions du programme
+ *
+ ************************************/
+
 #include "test.h"
+
+#include "../util.h"
+#include "../cube.h"
 #include "../define.h"
 #include "../file.h"
 #include "../rotations.h"
@@ -8,6 +17,13 @@
 #include "../resolution_mecanique.h"
 
 /* Launch test for a function without argument */
+/**
+ * \fn void test(int (*f)(), void (*init)(), int result)
+ * \brief Lance un test unitaire si celui-ci echou alors termine le programme
+ * \param (*f)() fonction de test (fonctor)
+ * \param (*init)() fonction d'initialisation
+ * \param result Resultat du test attendus
+ */
 void test(int (*f)(), void (*init)(), int result) {
     int res;
     (*init)();
@@ -27,27 +43,44 @@ void test(int (*f)(), void (*init)(), int result) {
     }
 }
 
+/**
+ * \fn void testCube(void (*f)(miniCube cube[6][N][N]), char* fileInitPath, char* fileResultPath)
+ * \brief Lance un test unitaire si celui-ci echou alors termine le programme
+ * \param (*f)() fonction a tester (fonctor) qui prend en paramètre un cube
+ * \param fileInitPath Chemin du fichier de cube d'initialisation (format JSON)
+ * \param fileResultPath Chemin du fichier de resultat de cube a obtenir (format JSON)
+ */
 void testCube(void (*f)(miniCube cube[6][N][N]), char* fileInitPath, char* fileResultPath) {
     miniCube tmp[6][N][N];
     miniCube result[6][N][N];
 
-    for(int i = 0; i < 6; ++i) {
-        for(int j = 0; j < N; ++j) {
-            for(int k = 0; k < N; ++k) {
-                miniCube cubeTmp = malloc(sizeof(face*));
-                tmp[i][j][k] = cubeTmp;
-                miniCube cubeTmp2 = malloc(sizeof(face*));
-                result[i][j][k] = cubeTmp2;
-            }
-        }
-    }
+    initCube(tmp);
+    initCube(result);
 
     printf("Run test : ");
 
-    readJSON(fileInitPath, tmp);
-    readJSON(fileResultPath, result);
+    char* extensionInit = getExtension(fileInitPath);
+    if(strcmp(extensionInit, EXTENSION_JSON) == 0)
+        readJSON(fileInitPath, tmp);
+    else if(strcmp(extensionInit, EXTENSION_ROT) == 0)
+        ReadROT(fileInitPath, tmp);
+    else
+        printError("Extension non reconnue");
+
+    char* extensionResult = getExtension(fileInitPath);
+    if(strcmp(extensionResult, EXTENSION_JSON) == 0)
+        readJSON(fileResultPath, result);
+    else if(strcmp(extensionResult, EXTENSION_ROT) == 0)
+        ReadROT(fileResultPath, result);
+    else
+        printError("Extension non reconnue");
+
+    // Launch test function
 
     (*f)(tmp);
+
+    // Check result
+
     for(int i = 0; i < 6; ++i) {
         for(int j = 0; j < N; ++j) {
             for(int k = 0; k < N; ++k) {
@@ -68,9 +101,12 @@ void testCube(void (*f)(miniCube cube[6][N][N]), char* fileInitPath, char* fileR
     color(PRINT_COLOR_GREEN);
     printf("OK\n");
     color(PRINT_COLOR_WHITE);
-
 }
 
+/**
+ * \fn void executeTest()
+ * \brief Lance la série de test unitaire
+ */
 void executeTest() {
     printf("===> Test Unit : \n");
     testCube(up_rotation, "input/cube.json", "input/testUpRotation.json");

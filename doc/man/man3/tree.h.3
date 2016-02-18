@@ -1,0 +1,91 @@
+.TH "src/tree.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tree.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'define\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtree\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBtree\fP \fBtree\fP"
+.br
+.ti -1c
+.RI "typedef \fBtree\fP * \fBpTree\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpTree\fP \fBcreeNode\fP (\fBpTree\fP father, \fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fICrée un nouvel élément dans l'arbre de recherche\&. \fP"
+.ti -1c
+.RI "\fBpTree\fP \fBcreateBrothers\fP (\fBpTree\fP father)"
+.br
+.RI "\fICrée une liste chainée avec la liste des frêres d'un élément\&. \fP"
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBtree\fP* \fBpTree\fP"
+
+.PP
+Definition at line 14 of file tree\&.h\&.
+.SS "typedef struct \fBtree\fP  \fBtree\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBpTree\fP createBrothers (\fBpTree\fPfather)"
+
+.PP
+Crée une liste chainée avec la liste des frêres d'un élément\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfather\fP l'adresse de l'élément précédant 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie l'adresse du premier frêre à rajouter 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file tree\&.c\&.
+.SS "\fBpTree\fP creeNode (\fBpTree\fPfather, \fBminiCube\fPcube[6][N][N])"
+
+.PP
+Crée un nouvel élément dans l'arbre de recherche\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfather\fP l'adresse de l'élément précédant 
+.br
+\fIcube\fP L'état courant du Rubik's cube 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie l'adresse du nouvelle élément 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file tree\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

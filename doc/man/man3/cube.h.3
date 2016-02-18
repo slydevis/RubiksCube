@@ -1,0 +1,112 @@
+.TH "src/cube.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/cube.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'define\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrandomizeCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIMélange un cube aléatoirement\&. \fP"
+.ti -1c
+.RI "void \fBinitCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIInitialise la structure de cube par défaut\&. \fP"
+.ti -1c
+.RI "void \fBcompleteCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], char *path)"
+.br
+.RI "\fIInitialise un rubik's cube à partir d'un fichier externe\&. \fP"
+.ti -1c
+.RI "void \fBfreeCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fILibère la place en mémoire du rubik's cube\&. \fP"
+.ti -1c
+.RI "int \fBisCompleteCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIVérifie si un rubik's cube est terminé \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void completeCube (\fBminiCube\fPcube[6][N][N], char *path)"
+
+.PP
+Initialise un rubik's cube à partir d'un fichier externe\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.br
+\fIpath\fP chemin du fichier à lire (extension en \&.json ou \&.rot) 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file cube\&.c\&.
+.SS "void freeCube (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Libère la place en mémoire du rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.RE
+.PP
+
+.PP
+Definition at line 204 of file cube\&.c\&.
+.SS "void initCube (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Initialise la structure de cube par défaut\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube non initialisé 
+.RE
+.PP
+
+.PP
+Definition at line 156 of file cube\&.c\&.
+.SS "int isCompleteCube (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Vérifie si un rubik's cube est terminé 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie 1 si le cube est terminé sinon renvoie 0 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file cube\&.c\&.
+.SS "void randomizeCube (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Mélange un cube aléatoirement\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube initialisé 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file cube\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

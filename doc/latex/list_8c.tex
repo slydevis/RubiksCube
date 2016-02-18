@@ -1,0 +1,65 @@
+\hypertarget{list_8c}{\section{src/list.c File Reference}
+\label{list_8c}\index{src/list.\-c@{src/list.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}list.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} \hyperlink{list_8c_a1f1de0008f6fbb338cbb68d5bb922227}{add\-List} (\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} head, \hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} t)
+\begin{DoxyCompactList}\small\item\em Crée une liste chainée avec la liste des frêres d'un élément. \end{DoxyCompactList}\item 
+\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} \hyperlink{list_8c_af644d3a0ca6554f0ea38767a8ba38724}{supprimer\-Liste} (\hyperlink{list_8h_af250b03cde78998489a45604d6bf19cb}{p\-List} l)
+\begin{DoxyCompactList}\small\item\em Supprime un élément de la liste et libère la mémoire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{list_8c_a1f1de0008f6fbb338cbb68d5bb922227}{\index{list.\-c@{list.\-c}!add\-List@{add\-List}}
+\index{add\-List@{add\-List}!list.c@{list.\-c}}
+\subsubsection[{add\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-List} add\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-List}}]{head, }
+\item[{{\bf p\-Tree}}]{t}
+\end{DoxyParamCaption}
+)}}\label{list_8c_a1f1de0008f6fbb338cbb68d5bb922227}
+
+
+Crée une liste chainée avec la liste des frêres d'un élément. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & Adresse de la tête de la liste \\
+\hline
+{\em t} & Adresse de l'arbre à ajouter dans la liste chainée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse du premier frêre à rajouter 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file list.\-c.
+
+\hypertarget{list_8c_af644d3a0ca6554f0ea38767a8ba38724}{\index{list.\-c@{list.\-c}!supprimer\-Liste@{supprimer\-Liste}}
+\index{supprimer\-Liste@{supprimer\-Liste}!list.c@{list.\-c}}
+\subsubsection[{supprimer\-Liste}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-List} supprimer\-Liste (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-List}}]{l}
+\end{DoxyParamCaption}
+)}}\label{list_8c_af644d3a0ca6554f0ea38767a8ba38724}
+
+
+Supprime un élément de la liste et libère la mémoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & Element de la liste à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse de l'élément suivant 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file list.\-c.
+

@@ -1,0 +1,218 @@
+.TH "src/rotations.c" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/rotations.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'util\&.h'\fP
+.br
+\fC#include 'file\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBup_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBup_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBdown_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBdown_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBfront_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBfront_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBright_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBright_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBleft_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBleft_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_vectical_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_vectical_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_horizontal_rotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_horizontal_rotation_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_rotation_side\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBmiddle_rotation_side_reverse\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBcube_rotation_side\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBcube_rotation_upside_down\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBcubeRotation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], const char *rotation)"
+.br
+.RI "\fITranduis la notation Singmaster en une rotation sur le cube\&. \fP"
+.ti -1c
+.RI "void \fBsecond_line_right\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fBsecond_line_left\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fByellow_cross_line\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fByellow_cross_cross\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fByellow_cross_orientation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fByellow_corners_placement\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.ti -1c
+.RI "void \fByellow_corners_orientation\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void cube_rotation_side (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 618 of file rotations\&.c\&.
+.SS "void cube_rotation_upside_down (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 684 of file rotations\&.c\&.
+.SS "void cubeRotation (\fBminiCube\fPcube[6][N][N], const char *rotation)"
+
+.PP
+Tranduis la notation Singmaster en une rotation sur le cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube courant 
+.br
+\fIrotation\fP Lettre de la rotation Singmaster 
+.RE
+.PP
+
+.PP
+Definition at line 756 of file rotations\&.c\&.
+.SS "void down_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 89 of file rotations\&.c\&.
+.SS "void down_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 129 of file rotations\&.c\&.
+.SS "void front_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 169 of file rotations\&.c\&.
+.SS "void front_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 210 of file rotations\&.c\&.
+.SS "void left_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 333 of file rotations\&.c\&.
+.SS "void left_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 374 of file rotations\&.c\&.
+.SS "void middle_horizontal_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 482 of file rotations\&.c\&.
+.SS "void middle_horizontal_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 516 of file rotations\&.c\&.
+.SS "void middle_rotation_side (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 550 of file rotations\&.c\&.
+.SS "void middle_rotation_side_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 584 of file rotations\&.c\&.
+.SS "void middle_vectical_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 415 of file rotations\&.c\&.
+.SS "void middle_vectical_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 449 of file rotations\&.c\&.
+.SS "void right_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 251 of file rotations\&.c\&.
+.SS "void right_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 292 of file rotations\&.c\&.
+.SS "void second_line_left (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 910 of file rotations\&.c\&.
+.SS "void second_line_right (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 899 of file rotations\&.c\&.
+.SS "void up_rotation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 10 of file rotations\&.c\&.
+.SS "void up_rotation_reverse (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 49 of file rotations\&.c\&.
+.SS "void yellow_corners_orientation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 962 of file rotations\&.c\&.
+.SS "void yellow_corners_placement (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 951 of file rotations\&.c\&.
+.SS "void yellow_cross_cross (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 931 of file rotations\&.c\&.
+.SS "void yellow_cross_line (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 921 of file rotations\&.c\&.
+.SS "void yellow_cross_orientation (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Definition at line 940 of file rotations\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

@@ -1,0 +1,91 @@
+.TH "src/list.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/list.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tree\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlist\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBlist\fP \fBlist\fP"
+.br
+.ti -1c
+.RI "typedef \fBlist\fP * \fBpList\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpList\fP \fBaddList\fP (\fBpList\fP head, \fBpTree\fP t)"
+.br
+.RI "\fICrée une liste chainée avec la liste des frêres d'un élément\&. \fP"
+.ti -1c
+.RI "\fBpList\fP \fBsupprimerListe\fP (\fBpList\fP l)"
+.br
+.RI "\fISupprime un élément de la liste et libère la mémoire\&. \fP"
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBlist\fP  \fBlist\fP"
+
+.SS "typedef \fBlist\fP* \fBpList\fP"
+
+.PP
+Definition at line 11 of file list\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBpList\fP addList (\fBpList\fPhead, \fBpTree\fPt)"
+
+.PP
+Crée une liste chainée avec la liste des frêres d'un élément\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhead\fP Adresse de la tête de la liste 
+.br
+\fIt\fP Adresse de l'arbre à ajouter dans la liste chainée 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie l'adresse du premier frêre à rajouter 
+.RE
+.PP
+
+.PP
+Definition at line 13 of file list\&.c\&.
+.SS "\fBpList\fP supprimerListe (\fBpList\fPl)"
+
+.PP
+Supprime un élément de la liste et libère la mémoire\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP Element de la liste à supprimer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie l'adresse de l'élément suivant 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file list\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

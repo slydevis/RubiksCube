@@ -1,0 +1,243 @@
+\hypertarget{util_8h}{\section{src/util.h File Reference}
+\label{util_8h}\index{src/util.\-h@{src/util.\-h}}
+}
+{\ttfamily \#include \char`\"{}define.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{util_8h_a8aa410f9095cbcc81e65d260ad8d25e4}{print\-Error} (const char $\ast$str)
+\item 
+void \hyperlink{util_8h_af2ac5e4bda10b3f1dc9d6c1694c9919b}{print\-Info} (const char $\ast$str)
+\item 
+void \hyperlink{util_8h_a5c9141ac2bd1fadfa151dbd24a535f00}{print\-Title} ()
+\begin{DoxyCompactList}\small\item\em Affiche le titre du programme en ascii art. \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_a0d20b69b0ad703df78459e1033d5c1d4}{print\-Help} ()
+\begin{DoxyCompactList}\small\item\em Affiche la liste des touches et leur effet. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{util_8h_a2be1e0335097e45bea18a1003a62471b}{concat\-Str} (char $\ast$s1, char $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Concatene deux chaines de caractère. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{util_8h_acd0a4d34caf0ddf70706d4d31193913d}{to\-Upper} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Met en majuscule la chaine de caractère. \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}{clear\-Screen} ()
+\begin{DoxyCompactList}\small\item\em Efface la console (unix seulement) \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_a91691b30b01873f2d33dcc54877fb2aa}{change\-Status\-Save} (int status)
+\begin{DoxyCompactList}\small\item\em Change la variable global de sauvegarde de rotation. \end{DoxyCompactList}\item 
+int \hyperlink{util_8h_a4752ffd75d1f11caeec672f1a952a7d8}{get\-Final\-Color\-Id} (const int id)
+\begin{DoxyCompactList}\small\item\em Donne la couleur final de la face. \end{DoxyCompactList}\item 
+void \hyperlink{util_8h_a361fe22034f602091b58190ad7b24964}{get\-Color\-Array} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, int cube\-Tmp\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Crée un cube sans la structure (que les couleurs des faces) \end{DoxyCompactList}\item 
+int \hyperlink{util_8h_a6d69b1a3de2287e3071bd2b0c535f01f}{get\-Final\-Libelle} (const int \hyperlink{structface}{face}, const int x, const int y)
+\begin{DoxyCompactList}\small\item\em Calcule l'identifiant correspondant à la case final d'un mini cube. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{util_8h_a91691b30b01873f2d33dcc54877fb2aa}{\index{util.\-h@{util.\-h}!change\-Status\-Save@{change\-Status\-Save}}
+\index{change\-Status\-Save@{change\-Status\-Save}!util.h@{util.\-h}}
+\subsubsection[{change\-Status\-Save}]{\setlength{\rightskip}{0pt plus 5cm}void change\-Status\-Save (
+\begin{DoxyParamCaption}
+\item[{int}]{status}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a91691b30b01873f2d33dcc54877fb2aa}
+
+
+Change la variable global de sauvegarde de rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & Status de la sauvegarde (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file util.\-c.
+
+\hypertarget{util_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}{\index{util.\-h@{util.\-h}!clear\-Screen@{clear\-Screen}}
+\index{clear\-Screen@{clear\-Screen}!util.h@{util.\-h}}
+\subsubsection[{clear\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}
+
+
+Efface la console (unix seulement) 
+
+
+
+Definition at line 121 of file util.\-c.
+
+\hypertarget{util_8h_a2be1e0335097e45bea18a1003a62471b}{\index{util.\-h@{util.\-h}!concat\-Str@{concat\-Str}}
+\index{concat\-Str@{concat\-Str}!util.h@{util.\-h}}
+\subsubsection[{concat\-Str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ concat\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s1, }
+\item[{char $\ast$}]{s2}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a2be1e0335097e45bea18a1003a62471b}
+
+
+Concatene deux chaines de caractère. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & Première chaine de caractère \\
+\hline
+{\em s2} & Deuxième chaine de caractère \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie le résultat une chaine de caractère s1 + s2 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file util.\-c.
+
+\hypertarget{util_8h_a361fe22034f602091b58190ad7b24964}{\index{util.\-h@{util.\-h}!get\-Color\-Array@{get\-Color\-Array}}
+\index{get\-Color\-Array@{get\-Color\-Array}!util.h@{util.\-h}}
+\subsubsection[{get\-Color\-Array}]{\setlength{\rightskip}{0pt plus 5cm}void get\-Color\-Array (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{int}]{cube\-Tmp\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a361fe22034f602091b58190ad7b24964}
+
+
+Crée un cube sans la structure (que les couleurs des faces) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube courant (avec la structure) \\
+\hline
+{\em cube\-Tmp} & Rubik's cube sans la structure de sortie \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file util.\-c.
+
+\hypertarget{util_8h_a4752ffd75d1f11caeec672f1a952a7d8}{\index{util.\-h@{util.\-h}!get\-Final\-Color\-Id@{get\-Final\-Color\-Id}}
+\index{get\-Final\-Color\-Id@{get\-Final\-Color\-Id}!util.h@{util.\-h}}
+\subsubsection[{get\-Final\-Color\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Final\-Color\-Id (
+\begin{DoxyParamCaption}
+\item[{const int}]{id}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a4752ffd75d1f11caeec672f1a952a7d8}
+
+
+Donne la couleur final de la face. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Numéro de face (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie le code couleur par rapport à la face 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file util.\-c.
+
+\hypertarget{util_8h_a6d69b1a3de2287e3071bd2b0c535f01f}{\index{util.\-h@{util.\-h}!get\-Final\-Libelle@{get\-Final\-Libelle}}
+\index{get\-Final\-Libelle@{get\-Final\-Libelle}!util.h@{util.\-h}}
+\subsubsection[{get\-Final\-Libelle}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Final\-Libelle (
+\begin{DoxyParamCaption}
+\item[{const int}]{face, }
+\item[{const int}]{x, }
+\item[{const int}]{y}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a6d69b1a3de2287e3071bd2b0c535f01f}
+
+
+Calcule l'identifiant correspondant à la case final d'un mini cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em face} & Numéro de face (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+{\em x} & indice de ligne \\
+\hline
+{\em y} & indice de colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie un entier 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file util.\-c.
+
+\hypertarget{util_8h_a8aa410f9095cbcc81e65d260ad8d25e4}{\index{util.\-h@{util.\-h}!print\-Error@{print\-Error}}
+\index{print\-Error@{print\-Error}!util.h@{util.\-h}}
+\subsubsection[{print\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Error (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a8aa410f9095cbcc81e65d260ad8d25e4}
+
+
+Definition at line 27 of file util.\-c.
+
+\hypertarget{util_8h_a0d20b69b0ad703df78459e1033d5c1d4}{\index{util.\-h@{util.\-h}!print\-Help@{print\-Help}}
+\index{print\-Help@{print\-Help}!util.h@{util.\-h}}
+\subsubsection[{print\-Help}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Help (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a0d20b69b0ad703df78459e1033d5c1d4}
+
+
+Affiche la liste des touches et leur effet. 
+
+
+
+Definition at line 64 of file util.\-c.
+
+\hypertarget{util_8h_af2ac5e4bda10b3f1dc9d6c1694c9919b}{\index{util.\-h@{util.\-h}!print\-Info@{print\-Info}}
+\index{print\-Info@{print\-Info}!util.h@{util.\-h}}
+\subsubsection[{print\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Info (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{util_8h_af2ac5e4bda10b3f1dc9d6c1694c9919b}
+
+
+Definition at line 39 of file util.\-c.
+
+\hypertarget{util_8h_a5c9141ac2bd1fadfa151dbd24a535f00}{\index{util.\-h@{util.\-h}!print\-Title@{print\-Title}}
+\index{print\-Title@{print\-Title}!util.h@{util.\-h}}
+\subsubsection[{print\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{util_8h_a5c9141ac2bd1fadfa151dbd24a535f00}
+
+
+Affiche le titre du programme en ascii art. 
+
+
+
+Definition at line 49 of file util.\-c.
+
+\hypertarget{util_8h_acd0a4d34caf0ddf70706d4d31193913d}{\index{util.\-h@{util.\-h}!to\-Upper@{to\-Upper}}
+\index{to\-Upper@{to\-Upper}!util.h@{util.\-h}}
+\subsubsection[{to\-Upper}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ to\-Upper (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{util_8h_acd0a4d34caf0ddf70706d4d31193913d}
+
+
+Met en majuscule la chaine de caractère. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Chaine de caractère \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie la chaine de caractère en majuscule 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file util.\-c.
+

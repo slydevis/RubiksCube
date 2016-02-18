@@ -1,0 +1,90 @@
+\hypertarget{test_8c}{\section{src/test/test.c File Reference}
+\label{test_8c}\index{src/test/test.\-c@{src/test/test.\-c}}
+}
+{\ttfamily \#include \char`\"{}test.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../cube.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../define.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../rotations.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../display.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../resolution\-\_\-mecanique.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{test_8c_a06891da81f657a06f575ebcdc677764b}{test} (int($\ast$f)(), void($\ast$init)(), int result)
+\begin{DoxyCompactList}\small\item\em Lance un test unitaire si celui-\/ci echou alors termine le programme. \end{DoxyCompactList}\item 
+void \hyperlink{test_8c_acb80a5b0db78901debb886532270bc3b}{test\-Cube} (void($\ast$f)(\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}), char $\ast$file\-Init\-Path, char $\ast$file\-Result\-Path)
+\begin{DoxyCompactList}\small\item\em Lance un test unitaire si celui-\/ci echou alors termine le programme. \end{DoxyCompactList}\item 
+void \hyperlink{test_8c_a0bcc6c230c8eaafc8e3bbd4c25503403}{execute\-Test} ()
+\begin{DoxyCompactList}\small\item\em Lance la série de test unitaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{test_8c_a0bcc6c230c8eaafc8e3bbd4c25503403}{\index{test.\-c@{test.\-c}!execute\-Test@{execute\-Test}}
+\index{execute\-Test@{execute\-Test}!test.c@{test.\-c}}
+\subsubsection[{execute\-Test}]{\setlength{\rightskip}{0pt plus 5cm}void execute\-Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{test_8c_a0bcc6c230c8eaafc8e3bbd4c25503403}
+
+
+Lance la série de test unitaire. 
+
+
+
+Definition at line 110 of file test.\-c.
+
+\hypertarget{test_8c_a06891da81f657a06f575ebcdc677764b}{\index{test.\-c@{test.\-c}!test@{test}}
+\index{test@{test}!test.c@{test.\-c}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}void test (
+\begin{DoxyParamCaption}
+\item[{int($\ast$)()}]{f, }
+\item[{void($\ast$)()}]{init, }
+\item[{int}]{result}
+\end{DoxyParamCaption}
+)}}\label{test_8c_a06891da81f657a06f575ebcdc677764b}
+
+
+Lance un test unitaire si celui-\/ci echou alors termine le programme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ($\ast$f)()} & fonction de test (fonctor) \\
+\hline
+{\em ($\ast$init)()} & fonction d'initialisation \\
+\hline
+{\em result} & Resultat du test attendus \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file test.\-c.
+
+\hypertarget{test_8c_acb80a5b0db78901debb886532270bc3b}{\index{test.\-c@{test.\-c}!test\-Cube@{test\-Cube}}
+\index{test\-Cube@{test\-Cube}!test.c@{test.\-c}}
+\subsubsection[{test\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void test\-Cube (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)({\bf mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}{\bf N}\mbox{]}\mbox{[}{\bf N}\mbox{]})}]{f, }
+\item[{char $\ast$}]{file\-Init\-Path, }
+\item[{char $\ast$}]{file\-Result\-Path}
+\end{DoxyParamCaption}
+)}}\label{test_8c_acb80a5b0db78901debb886532270bc3b}
+
+
+Lance un test unitaire si celui-\/ci echou alors termine le programme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ($\ast$f)()} & fonction a tester (fonctor) qui prend en paramètre un cube \\
+\hline
+{\em file\-Init\-Path} & Chemin du fichier de cube d'initialisation (format J\-S\-O\-N) \\
+\hline
+{\em file\-Result\-Path} & Chemin du fichier de resultat de cube a obtenir (format J\-S\-O\-N) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file test.\-c.
+

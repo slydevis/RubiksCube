@@ -1,0 +1,194 @@
+.TH "src/util.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/util.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'define\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprintError\fP (const char *str)"
+.br
+.ti -1c
+.RI "void \fBprintInfo\fP (const char *str)"
+.br
+.ti -1c
+.RI "void \fBprintTitle\fP ()"
+.br
+.RI "\fIAffiche le titre du programme en ascii art\&. \fP"
+.ti -1c
+.RI "void \fBprintHelp\fP ()"
+.br
+.RI "\fIAffiche la liste des touches et leur effet\&. \fP"
+.ti -1c
+.RI "char * \fBconcatStr\fP (char *s1, char *s2)"
+.br
+.RI "\fIConcatene deux chaines de caractère\&. \fP"
+.ti -1c
+.RI "char * \fBtoUpper\fP (char *str)"
+.br
+.RI "\fIMet en majuscule la chaine de caractère\&. \fP"
+.ti -1c
+.RI "void \fBclearScreen\fP ()"
+.br
+.RI "\fIEfface la console (unix seulement) \fP"
+.ti -1c
+.RI "void \fBchangeStatusSave\fP (int status)"
+.br
+.RI "\fIChange la variable global de sauvegarde de rotation\&. \fP"
+.ti -1c
+.RI "int \fBgetFinalColorId\fP (const int id)"
+.br
+.RI "\fIDonne la couleur final de la face\&. \fP"
+.ti -1c
+.RI "void \fBgetColorArray\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], int cubeTmp[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fICrée un cube sans la structure (que les couleurs des faces) \fP"
+.ti -1c
+.RI "int \fBgetFinalLibelle\fP (const int \fBface\fP, const int x, const int y)"
+.br
+.RI "\fICalcule l'identifiant correspondant à la case final d'un mini cube\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void changeStatusSave (intstatus)"
+
+.PP
+Change la variable global de sauvegarde de rotation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstatus\fP Status de la sauvegarde (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file util\&.c\&.
+.SS "void clearScreen ()"
+
+.PP
+Efface la console (unix seulement) 
+.PP
+Definition at line 121 of file util\&.c\&.
+.SS "char* concatStr (char *s1, char *s2)"
+
+.PP
+Concatene deux chaines de caractère\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs1\fP Première chaine de caractère 
+.br
+\fIs2\fP Deuxième chaine de caractère 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie le résultat une chaine de caractère s1 + s2 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file util\&.c\&.
+.SS "void getColorArray (\fBminiCube\fPcube[6][N][N], intcubeTmp[6][N][N])"
+
+.PP
+Crée un cube sans la structure (que les couleurs des faces) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Rubik's cube courant (avec la structure) 
+.br
+\fIcubeTmp\fP Rubik's cube sans la structure de sortie 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file util\&.c\&.
+.SS "int getFinalColorId (const intid)"
+
+.PP
+Donne la couleur final de la face\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP Numéro de face (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie le code couleur par rapport à la face 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file util\&.c\&.
+.SS "int getFinalLibelle (const intface, const intx, const inty)"
+
+.PP
+Calcule l'identifiant correspondant à la case final d'un mini cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIface\fP Numéro de face (cf \fBdefine\&.h\fP) 
+.br
+\fIx\fP indice de ligne 
+.br
+\fIy\fP indice de colonne 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie un entier 
+.RE
+.PP
+
+.PP
+Definition at line 188 of file util\&.c\&.
+.SS "void printError (const char *str)"
+
+.PP
+Definition at line 27 of file util\&.c\&.
+.SS "void printHelp ()"
+
+.PP
+Affiche la liste des touches et leur effet\&. 
+.PP
+Definition at line 64 of file util\&.c\&.
+.SS "void printInfo (const char *str)"
+
+.PP
+Definition at line 39 of file util\&.c\&.
+.SS "void printTitle ()"
+
+.PP
+Affiche le titre du programme en ascii art\&. 
+.PP
+Definition at line 49 of file util\&.c\&.
+.SS "char* toUpper (char *str)"
+
+.PP
+Met en majuscule la chaine de caractère\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr\fP Chaine de caractère 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie la chaine de caractère en majuscule 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file util\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

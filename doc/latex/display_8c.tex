@@ -1,0 +1,343 @@
+\hypertarget{display_8c}{\section{src/display.c File Reference}
+\label{display_8c}\index{src/display.\-c@{src/display.\-c}}
+}
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}display.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cube.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rotations.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}resolution\-\_\-mecanique.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}resolve\-Backtrack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \hyperlink{display_8c_a0a102ec353113fad34a508d0626957e0}{get\-S\-D\-L\-Color} (const int \hyperlink{define_8h_a7e3662e10fcd0bb440a524366d7fbc27}{color})
+\begin{DoxyCompactList}\small\item\em Fais la traduction code couleur =$>$ couleur S\-D\-L. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_af5e9ba1340e76cf463b8c28d8c37e0b2}{change\-Face\-Color} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, const int side, const int i, const int j, const int \hyperlink{define_8h_a7e3662e10fcd0bb440a524366d7fbc27}{color})
+\begin{DoxyCompactList}\small\item\em Met à jour la couleur d'une structure. \end{DoxyCompactList}\item 
+S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{display_8c_af928ced8da475ec1bc221b09c9807d38}{create\-Face} ()
+\item 
+void \hyperlink{display_8c_a0f149c822094d5410bed9bb3a2fe8b54}{free\-Face} (S\-D\-L\-\_\-\-Surface $\ast$screen)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire d'une surface S\-D\-L. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a4684e1075638667e28216bb8ca629783}{print\-Left\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face gauche du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a505da429a670210dcf083022b7f735ab}{print\-Front\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face de devant du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a44ed2f1568595ce090ae71b4a63f3922}{print\-Upper\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face du dessus du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_ac152dbc9d8b7af7430d9f0a096448fae}{print\-Bottom\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face de dessous du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a3b55a536fb05ecae33eb01576cc29ca8}{print\-Right\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face droite du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a38142575168a7b3a701d826b7cc2059f}{print\-Behind\-Side} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la face de derrière du Rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_ae5559c44b5c949ac536abfa39d5f10ec}{print\-Libelle\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche sur la console une représentation du cube avec les positions final. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a52d6f3f3fdda0832294937e8c8f1228d}{keyboard\-Event\-Manager} (S\-D\-L\-Key key, \hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, \hyperlink{struct_input}{Input} $\ast$in)
+\begin{DoxyCompactList}\small\item\em Lance les fonctions correspondante au touches appuyées. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_a02261b88a8e340664de7ecc55761d549}{Update\-Events} (\hyperlink{struct_input}{Input} $\ast$in, \hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Met à jour les status des touches et gère la fermeture du programme via la croix. \end{DoxyCompactList}\item 
+void \hyperlink{display_8c_ab03812f6f6208e3cbe05d41b45225960}{display\-Cube2\-D} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise S\-D\-L et affiche le Rubik's cube. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{display_8c_af5e9ba1340e76cf463b8c28d8c37e0b2}{\index{display.\-c@{display.\-c}!change\-Face\-Color@{change\-Face\-Color}}
+\index{change\-Face\-Color@{change\-Face\-Color}!display.c@{display.\-c}}
+\subsubsection[{change\-Face\-Color}]{\setlength{\rightskip}{0pt plus 5cm}void change\-Face\-Color (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{const int}]{side, }
+\item[{const int}]{i, }
+\item[{const int}]{j, }
+\item[{const int}]{color}
+\end{DoxyParamCaption}
+)}}\label{display_8c_af5e9ba1340e76cf463b8c28d8c37e0b2}
+
+
+Met à jour la couleur d'une structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de mini\-Cube correspondant au rubik's cube \\
+\hline
+{\em side} & Face à traiter \\
+\hline
+{\em i} & indice de ligne \\
+\hline
+{\em j} & indice de colonne \\
+\hline
+{\em color} & code couleur (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file display.\-c.
+
+\hypertarget{display_8c_af928ced8da475ec1bc221b09c9807d38}{\index{display.\-c@{display.\-c}!create\-Face@{create\-Face}}
+\index{create\-Face@{create\-Face}!display.c@{display.\-c}}
+\subsubsection[{create\-Face}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface $\ast$ create\-Face (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{display_8c_af928ced8da475ec1bc221b09c9807d38}
+\begin{DoxyReturn}{Returns}
+Renvoie une surface S\-D\-L de taille F\-A\-C\-E\-\_\-\-S\-I\-Z\-E (cf \hyperlink{define_8h}{define.\-h}) 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file display.\-c.
+
+\hypertarget{display_8c_ab03812f6f6208e3cbe05d41b45225960}{\index{display.\-c@{display.\-c}!display\-Cube2\-D@{display\-Cube2\-D}}
+\index{display\-Cube2\-D@{display\-Cube2\-D}!display.c@{display.\-c}}
+\subsubsection[{display\-Cube2\-D}]{\setlength{\rightskip}{0pt plus 5cm}void display\-Cube2\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_ab03812f6f6208e3cbe05d41b45225960}
+
+
+Initialise S\-D\-L et affiche le Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Variable de Rubik's cube \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 477 of file display.\-c.
+
+\hypertarget{display_8c_a0f149c822094d5410bed9bb3a2fe8b54}{\index{display.\-c@{display.\-c}!free\-Face@{free\-Face}}
+\index{free\-Face@{free\-Face}!display.c@{display.\-c}}
+\subsubsection[{free\-Face}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Face (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a0f149c822094d5410bed9bb3a2fe8b54}
+
+
+Libère la mémoire d'une surface S\-D\-L. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen} & Surface S\-D\-L a liberer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file display.\-c.
+
+\hypertarget{display_8c_a0a102ec353113fad34a508d0626957e0}{\index{display.\-c@{display.\-c}!get\-S\-D\-L\-Color@{get\-S\-D\-L\-Color}}
+\index{get\-S\-D\-L\-Color@{get\-S\-D\-L\-Color}!display.c@{display.\-c}}
+\subsubsection[{get\-S\-D\-L\-Color}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 get\-S\-D\-L\-Color (
+\begin{DoxyParamCaption}
+\item[{const int}]{color}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a0a102ec353113fad34a508d0626957e0}
+
+
+Fais la traduction code couleur =$>$ couleur S\-D\-L. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & correspond au code couleur voulu (cf \hyperlink{define_8h}{define.\-h}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valeur de la couleur S\-D\-L, renvoie 0 si elle est inconnue 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file display.\-c.
+
+\hypertarget{display_8c_a52d6f3f3fdda0832294937e8c8f1228d}{\index{display.\-c@{display.\-c}!keyboard\-Event\-Manager@{keyboard\-Event\-Manager}}
+\index{keyboard\-Event\-Manager@{keyboard\-Event\-Manager}!display.c@{display.\-c}}
+\subsubsection[{keyboard\-Event\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}void keyboard\-Event\-Manager (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-Key}]{key, }
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a52d6f3f3fdda0832294937e8c8f1228d}
+
+
+Lance les fonctions correspondante au touches appuyées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Touche appuyé \\
+\hline
+{\em cube} & Correspond au Rubik's cube \\
+\hline
+{\em in} & structure avec l'état des touches \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 343 of file display.\-c.
+
+\hypertarget{display_8c_a38142575168a7b3a701d826b7cc2059f}{\index{display.\-c@{display.\-c}!print\-Behind\-Side@{print\-Behind\-Side}}
+\index{print\-Behind\-Side@{print\-Behind\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Behind\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Behind\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a38142575168a7b3a701d826b7cc2059f}
+
+
+Affiche la face de derrière du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face de derrière \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 197 of file display.\-c.
+
+\hypertarget{display_8c_ac152dbc9d8b7af7430d9f0a096448fae}{\index{display.\-c@{display.\-c}!print\-Bottom\-Side@{print\-Bottom\-Side}}
+\index{print\-Bottom\-Side@{print\-Bottom\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Bottom\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Bottom\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_ac152dbc9d8b7af7430d9f0a096448fae}
+
+
+Affiche la face de dessous du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face de dessous \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 157 of file display.\-c.
+
+\hypertarget{display_8c_a505da429a670210dcf083022b7f735ab}{\index{display.\-c@{display.\-c}!print\-Front\-Side@{print\-Front\-Side}}
+\index{print\-Front\-Side@{print\-Front\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Front\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Front\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a505da429a670210dcf083022b7f735ab}
+
+
+Affiche la face de devant du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face de devant \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file display.\-c.
+
+\hypertarget{display_8c_a4684e1075638667e28216bb8ca629783}{\index{display.\-c@{display.\-c}!print\-Left\-Side@{print\-Left\-Side}}
+\index{print\-Left\-Side@{print\-Left\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Left\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Left\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a4684e1075638667e28216bb8ca629783}
+
+
+Affiche la face gauche du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face gauche \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file display.\-c.
+
+\hypertarget{display_8c_ae5559c44b5c949ac536abfa39d5f10ec}{\index{display.\-c@{display.\-c}!print\-Libelle\-Cube@{print\-Libelle\-Cube}}
+\index{print\-Libelle\-Cube@{print\-Libelle\-Cube}!display.c@{display.\-c}}
+\subsubsection[{print\-Libelle\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Libelle\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_ae5559c44b5c949ac536abfa39d5f10ec}
+
+
+Affiche sur la console une représentation du cube avec les positions final. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Variable correspondant au Rubik's cube \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 217 of file display.\-c.
+
+\hypertarget{display_8c_a3b55a536fb05ecae33eb01576cc29ca8}{\index{display.\-c@{display.\-c}!print\-Right\-Side@{print\-Right\-Side}}
+\index{print\-Right\-Side@{print\-Right\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Right\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Right\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a3b55a536fb05ecae33eb01576cc29ca8}
+
+
+Affiche la face droite du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face droite \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 177 of file display.\-c.
+
+\hypertarget{display_8c_a44ed2f1568595ce090ae71b4a63f3922}{\index{display.\-c@{display.\-c}!print\-Upper\-Side@{print\-Upper\-Side}}
+\index{print\-Upper\-Side@{print\-Upper\-Side}!display.c@{display.\-c}}
+\subsubsection[{print\-Upper\-Side}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Upper\-Side (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a44ed2f1568595ce090ae71b4a63f3922}
+
+
+Affiche la face du dessus du Rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Tableau de tableau correspondant à la face du dessus \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file display.\-c.
+
+\hypertarget{display_8c_a02261b88a8e340664de7ecc55761d549}{\index{display.\-c@{display.\-c}!Update\-Events@{Update\-Events}}
+\index{Update\-Events@{Update\-Events}!display.c@{display.\-c}}
+\subsubsection[{Update\-Events}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{display_8c_a02261b88a8e340664de7ecc55761d549}
+
+
+Met à jour les status des touches et gère la fermeture du programme via la croix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & structure avec l'état des touches \\
+\hline
+{\em cube} & Variable de Rubik's cube \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 447 of file display.\-c.
+

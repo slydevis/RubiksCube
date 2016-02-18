@@ -1,25 +1,54 @@
-#include "stdio.h"
+/************************************
+ * \file file.c
+ * \brief Gestionnaire de fichier
+ *
+ * Lis et sauvegarde des cubes à partir
+ * de fichier .rot ou .json
+ *
+ ************************************/
+
+#include <string.h> // strcmp()
+#include <ctype.h> // isdigit()
+
 #include "file.h"
 #include "util.h"
 #include "rotations.h"
-#include <ctype.h>
-#include <string.h>
 
+/************************************
+ *        File management
+ ************************************/
+
+/**
+ * \fn FILE* openFile(char* path, char* mode)
+ * \brief Ouvre un fichier
+ * \param path Chemin du fichier
+ * \param mode Mode d'ouverture (cf define.h)
+ * \return Renvoie l'objet du type FILE (peut être NULL)
+ */
 FILE* openFile(char* path, char* mode) {
     FILE* file = fopen(path, mode);
     return file;
 }
 
+/**
+ * \fn FILE* closeFile(FILE* file)
+ * \brief Ferme un fichier
+ * \param file Objet de type FILE
+ */
 void closeFile(FILE* file) {
     fclose(file);
 }
 
-char* toUpper(char* str) {
-    for(int i = 0; i < strlen(str); ++i)
-        str[i] = (char) toupper((int) str[i]);
-    return str;
-}
+/************************************
+ *        JSON Translation
+ ************************************/
 
+/**
+ * \fn int translateWord(char* word)
+ * \brief Fait la correspondance mot => id de couleur ou de face
+ * \param word Chaine de caractère a traduire
+ * \return Renvoie un entier correspondant à un id (cf define.h) renvoie -1 si c'est un identifiant inconnu
+ */
 int translateWord(char* word) {
     char* str = toUpper(word);
     if(strcmp(str, JSON_LEFT) == 0)
@@ -51,6 +80,12 @@ int translateWord(char* word) {
     return -1;
 }
 
+/**
+ * \fn int reverseTranslateWord(int value)
+ * \brief Fait la correspondance id de couleur ou de face => mot
+ * \param value Identifiant à traduire
+ * \return Renvoie une chaine de caractère correspondant a un identifiant
+ */
 char* reverseTranslateWord(int value) {
     switch(value) {
         case SIDE_LEFT:
@@ -81,7 +116,14 @@ char* reverseTranslateWord(int value) {
             return JSON_NONE;
     }
 }
-void readJSON(char * path, miniCube tmp[6][N][N]) {
+
+/**
+ * \fn void readJSON(char* path , miniCube cube[6][N][N])
+ * \brief Traduis un fichier JSON en un rubik's cube
+ * \param path Chemin du fichier JSON à traduire
+ * \param cube Rubik's cube initialisé
+ */
+void readJSON(char * path, miniCube cube[6][N][N]) {
     /*
      * Exemple of syntax :
      * {
@@ -94,36 +136,40 @@ void readJSON(char * path, miniCube tmp[6][N][N]) {
         }
      */
 
-    char str[200];
-    char* buff;
-    int index;
-    int i = 0;
-    int j = 0;
-    int lastTranslated;
-
     FILE* file = openFile(path, OPEN_READ);
 
     if(!file)
         printError("Impossible d'ouvrir le fichier demande");
 
+    char str[200];
     while(fgets(str, 200, file)) {
-        i = 0;
-        j = 0;
-        buff = strtok (str, "{}:[], \"");
+
+        char* buff = strtok (str, "{}:[], \"");
+
+        int i = 0;
+        int j = 0;
+        int index = 0;
+        int lastTranslated = 0;
         do {
             if(buff != NULL) {
+
                 buff = toUpper(buff);
                 lastTranslated = translateWord(buff);
-                if(lastTranslated < 10) // TODO : Improve this condition
+
+                // Color identifiers are always bigger than face identifiers
+                if(lastTranslated < COLOR_NONE)
                     index = lastTranslated;
                 else {
+
                     if(j == N) {
                         j = 0;
                         ++i;
                     }
                     if(i == N)
                         i = 0;
-                    tmp[index][i][j]->color = lastTranslated;
+
+                    cube[index][i][j]->color = lastTranslated;
+
                     ++j;
                 }
             }
@@ -133,223 +179,80 @@ void readJSON(char * path, miniCube tmp[6][N][N]) {
     closeFile(file);
 }
 
-void translateRotation(miniCube cube[6][N][N], char car, int direction) {
-    switch(car) {
-        case 'U':
-            if(direction == DIRECTION_NORMAL)
-                up_rotation(cube);
-            else
-                up_rotation_reverse(cube);
-        break;
-        case 'L':
-            if(direction == DIRECTION_NORMAL)
-                left_rotation_reverse(cube);
-            else
-                left_rotation(cube);
-            break;
-        case 'F':
-            if(direction == DIRECTION_NORMAL)
-                front_rotation(cube);
-            else
-                front_rotation_reverse(cube);
-        break;
-        case 'R':
-            if(direction == DIRECTION_NORMAL)
-                right_rotation(cube);
-            else
-                right_rotation_reverse(cube);
-        break;
-        case 'B':
-            cube_rotation_side(cube);
-            cube_rotation_side(cube);
-            if(direction == DIRECTION_NORMAL)
-                front_rotation(cube);
-            else
-                front_rotation_reverse(cube);
-            cube_rotation_side(cube);
-            cube_rotation_side(cube);
-        break;
-        case 'D':
-            if(direction == DIRECTION_NORMAL)
-                down_rotation_reverse(cube);
-            else
-                down_rotation(cube);
-        break;
-        case 'M':
-            if(direction == DIRECTION_NORMAL)
-                middle_vectical_rotation(cube);
-            else
-                middle_vectical_rotation_reverse(cube);
-        break;
-        case 'u':
-            if(direction == DIRECTION_NORMAL) {
-                middle_horizontal_rotation(cube);
-                up_rotation(cube);
-            }
-            else {
-                middle_horizontal_rotation_reverse(cube);
-                up_rotation_reverse(cube);
-            }
-        break;
-        case 'l':
-            if(direction == DIRECTION_NORMAL) {
-                middle_vectical_rotation(cube);
-                left_rotation_reverse(cube);
-            }
-            else {
-                middle_vectical_rotation_reverse(cube);
-                left_rotation(cube);
-            }
-        break;
-        case 'E':
-            if(direction == DIRECTION_NORMAL) {
-                middle_horizontal_rotation_reverse(cube);
-            }
-            else {
-                middle_horizontal_rotation(cube);
-            }
-        break;
-        case 'f':
-            if(direction == DIRECTION_NORMAL) {
-                front_rotation(cube);
-                middle_rotation_side(cube);
-            }
-            else {
-                middle_rotation_side_reverse(cube);
-                front_rotation_reverse(cube);
-            }
-        break;
-        case 'r':
-            if(direction == DIRECTION_NORMAL) {
-                right_rotation(cube);
-                middle_vectical_rotation_reverse(cube);
-            }
-            else {
-                right_rotation_reverse(cube);
-                middle_vectical_rotation(cube);
-            }
-        break;
-        case 'S':
-            if(direction == DIRECTION_NORMAL) {
-                middle_rotation_side(cube);
-            }
-            else {
-                middle_rotation_side_reverse(cube);
-            }
-        break;
-        case 'b':
-            if(direction == DIRECTION_NORMAL) {
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                front_rotation(cube);
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                middle_rotation_side_reverse(cube);
-            }
-            else {
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                front_rotation_reverse(cube);
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                middle_rotation_side(cube);
-            }
-        break;
-        case 'd':
-            if(direction == DIRECTION_NORMAL) {
-                down_rotation_reverse(cube);
-                middle_horizontal_rotation_reverse(cube);
-            }
-            else {
-                down_rotation(cube);
-                middle_horizontal_rotation(cube);
-            }
-        break;
-        case 'X':
-            if(direction == DIRECTION_NORMAL)
-                cube_rotation_upside_down(cube);
-            else {
-                cube_rotation_upside_down(cube);
-                cube_rotation_upside_down(cube);
-                cube_rotation_upside_down(cube);
-            }
-        break;
-        case 'Y':
-            if(direction == DIRECTION_NORMAL) {
-                cube_rotation_side(cube);
-            }
-            else {
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-            }
-        break;
-        case 'Z':
-            if(direction == DIRECTION_NORMAL) {
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                front_rotation_reverse(cube);
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                middle_rotation_side(cube);
-                front_rotation(cube);
-            }
-            else {
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                front_rotation(cube);
-                cube_rotation_side(cube);
-                cube_rotation_side(cube);
-                middle_rotation_side_reverse(cube);
-                front_rotation_reverse(cube);
-            }
-        break;
-        default:
-        break;
-    }
+/************************************
+ *        ROT translation
+ ************************************/
+
+/**
+ * \fn void translateRotation(miniCube cube[6][N][N], char car, const int direction)
+ * \brief Fait une rotation adéquat celon le sens de rotation
+ * \param cube Rubik's cube initialisé
+ * \param car Caractère de rotation (notation Singmaster)
+ * \param direction Indique le sens de rotation (cf define.h)
+ */
+void translateRotation(miniCube cube[6][N][N], char car, const int direction) {
+    char* rotation = &car;
+
+    if(direction == DIRECTION_REVERSE)
+        rotation = concatStr(rotation, "\'");
+
+    cubeRotation(cube, rotation);
 }
 
-void ReadROT(char* path, miniCube tmp[6][N][N]) {
+/**
+ * \fn void ReadROT(char* path, miniCube cube[6][N][N])
+ * \brief Traduis un fichier .rot en un rubik's cube
+ * \param path Chemin du fichier .rot
+ * \param cube Rubik's cube initialisé
+ */
+void ReadROT(char* path, miniCube cube[6][N][N]) {
     /*
      * Exemple of syntax :
      * ULFRBDU'L'F'R'B'D'MuM'lEfE'rSbS'du'Xl'X'f'Yr'Y'b'Zd'Z'U2
      */
 
-    char car = '0';
-    char buff;
+    changeStatusSave(SAVE_ROT);
 
     FILE* file = openFile(path, OPEN_READ);
 
     if(!file)
         printError("Impossible d'ouvrir le fichier demande");
 
+    char car;
     do {
         car = getc(file);
-        buff = getc(file);
+        char buff = getc(file);
 
+        // EOF = End of file
         if(car == EOF || buff == EOF)
             break;
 
+        // Decrease the file cursor position of 1
         fseek(file, -1, SEEK_CUR);
 
         if(buff == '\'')
-            translateRotation(tmp, car, DIRECTION_REVERSE);
+            translateRotation(cube, car, DIRECTION_REVERSE);
         else if(isdigit((int) buff)) {
             for(int i = 0; i < (int)(buff - '0'); ++i)
-                translateRotation(tmp, car, DIRECTION_NORMAL);
+                translateRotation(cube, car, DIRECTION_NORMAL);
         }
-        else
-            translateRotation(tmp, car, DIRECTION_NORMAL);
+        else if(car != '\'' && !(isdigit((int) car)) && car != 13) { // 13 = Carriage return
+            translateRotation(cube, car, DIRECTION_NORMAL);
+        }
     } while(car != EOF);
+
+    changeStatusSave(NOT_SAVE_ROT);
 }
 
-char* getExtension(char* path) {
-    char *dotPosition = strrchr(path, '.');
-    if(dotPosition == NULL || dotPosition == path)
-    	return "";
-    return dotPosition;
-}
+/************************************
+ *        Save management
+ ************************************/
 
+/**
+ * \fn void saveCubeJSON(int cube[6][N][N])
+ * \brief Traduis un Rubik's cube en un fichier .json pour sauvegarder
+ * \param cube Rubik's cube avec seulement ses couleurs
+ */
 void saveCubeJSON(int cube[6][N][N]) {
     FILE* file = openFile("output/save.json", "w");
 
@@ -367,6 +270,7 @@ void saveCubeJSON(int cube[6][N][N]) {
             }
             fprintf(file, "],\n");
         }
+
         fprintf(file, "}\n");
 
         closeFile(file);
@@ -375,6 +279,12 @@ void saveCubeJSON(int cube[6][N][N]) {
         printError("Impossible d'ouvrir le fichier test.txt");
 }
 
+/**
+ * \fn void saveCube(miniCube cube[6][N][N], char* extension)
+ * \brief Lance la sauvegarde d'un rubik's cube celon l'extension désiré
+ * \param cube Rubik's cube initialisé
+ * \param extension Extension de sortie (cf define.h)
+ */
 void saveCube(miniCube cube[6][N][N], char* extension) {
     int cubeTmp[6][N][N];
     getColorArray(cube, cubeTmp);
@@ -382,4 +292,21 @@ void saveCube(miniCube cube[6][N][N], char* extension) {
         saveCubeJSON(cubeTmp);
     else
         printError("Extension inconnue");
+}
+
+/************************************
+ *        Misc functions
+ ************************************/
+
+/**
+ * \fn char* getExtension(char* path)
+ * \brief Extrais d'une chaine de caractère correspondant à un fichier l'extension de celui ci
+ * \param path Chemin du fichier
+ * \return Une chaine de caractère commancant par un "."
+ */
+char* getExtension(char* path) {
+    char *dotPosition = strrchr(path, '.');
+    if(dotPosition == NULL || dotPosition == path)
+        return "";
+    return dotPosition;
 }
