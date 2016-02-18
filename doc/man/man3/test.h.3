@@ -1,0 +1,72 @@
+.TH "src/test/test.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/test/test.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./define\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtest\fP (int(*f)(), void(*init)(), int result)"
+.br
+.RI "\fILance un test unitaire si celui-ci echou alors termine le programme\&. \fP"
+.ti -1c
+.RI "void \fBtestCube\fP (void(*f)(\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP]), char *fileInitPath, char *fileResultPath)"
+.br
+.RI "\fILance un test unitaire si celui-ci echou alors termine le programme\&. \fP"
+.ti -1c
+.RI "void \fBexecuteTest\fP ()"
+.br
+.RI "\fILance la série de test unitaire\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void executeTest ()"
+
+.PP
+Lance la série de test unitaire\&. 
+.PP
+Definition at line 110 of file test\&.c\&.
+.SS "void test (int(*)()f, void(*)()init, intresult)"
+
+.PP
+Lance un test unitaire si celui-ci echou alors termine le programme\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI(*f)()\fP fonction de test (fonctor) 
+.br
+\fI(*init)()\fP fonction d'initialisation 
+.br
+\fIresult\fP Resultat du test attendus 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file test\&.c\&.
+.SS "void testCube (void(*)(\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])f, char *fileInitPath, char *fileResultPath)"
+
+.PP
+Lance un test unitaire si celui-ci echou alors termine le programme\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI(*f)()\fP fonction a tester (fonctor) qui prend en paramètre un cube 
+.br
+\fIfileInitPath\fP Chemin du fichier de cube d'initialisation (format JSON) 
+.br
+\fIfileResultPath\fP Chemin du fichier de resultat de cube a obtenir (format JSON) 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file test\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

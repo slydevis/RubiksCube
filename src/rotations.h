@@ -3,6 +3,10 @@
 
 #include "define.h"
 
+/************************************
+ *          Cube rotations
+ ************************************/
+
 void up_rotation (miniCube cube[6][N][N]);
 void up_rotation_reverse (miniCube cube[6][N][N]);
 void down_rotation (miniCube cube[6][N][N]);
@@ -21,6 +25,12 @@ void middle_rotation_side(miniCube cube[6][N][N]);
 void middle_rotation_side_reverse(miniCube cube[6][N][N]);
 void cube_rotation_side (miniCube cube[6][N][N]);
 void cube_rotation_upside_down (miniCube cube[6][N][N]);
+void cubeRotation(miniCube cube[6][N][N], const char* rotation);
+
+/************************************
+ *   Mechanics cube manipulation
+ ************************************/
+
 void second_line_right(miniCube cube[6][N][N]);
 void second_line_left(miniCube cube[6][N][N]);
 void yellow_cross_line (miniCube cube[6][N][N]);

@@ -1,0 +1,264 @@
+\hypertarget{file_8c}{\section{src/file.c File Reference}
+\label{file_8c}\index{src/file.\-c@{src/file.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rotations.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{file_8c_aa532ed9c2b7cb58a78f4cd1ec23e468a}{open\-File} (char $\ast$path, char $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Ouvre un fichier. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a66b170484207bfb4263fb6e8f4933058}{close\-File} (F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em Ferme un fichier. \end{DoxyCompactList}\item 
+int \hyperlink{file_8c_aaea8401799dfc75cbe3f2a51dfe14837}{translate\-Word} (char $\ast$word)
+\begin{DoxyCompactList}\small\item\em Fait la correspondance mot =$>$ id de couleur ou de face. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{file_8c_a9a66ff354b32117bffc45de73a3eee31}{reverse\-Translate\-Word} (int value)
+\begin{DoxyCompactList}\small\item\em Fait la correspondance id de couleur ou de face =$>$ mot. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a059aadee225d3efa792e13321bae612b}{read\-J\-S\-O\-N} (char $\ast$path, \hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Traduis un fichier J\-S\-O\-N en un rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a7bf37746d2ea2951076e465f581890ec}{translate\-Rotation} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, char car, const int direction)
+\begin{DoxyCompactList}\small\item\em Fait une rotation adéquat celon le sens de rotation. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a27d73c18cdcdbe8b79df314375b135cf}{Read\-R\-O\-T} (char $\ast$path, \hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Traduis un fichier .rot en un rubik's cube. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a2f65e6093f925ec4272850c337fd6425}{save\-Cube\-J\-S\-O\-N} (int cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Traduis un Rubik's cube en un fichier .json pour sauvegarder. \end{DoxyCompactList}\item 
+void \hyperlink{file_8c_a14f50f5cfb9524e95dd5c73c818050aa}{save\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, char $\ast$extension)
+\begin{DoxyCompactList}\small\item\em Lance la sauvegarde d'un rubik's cube celon l'extension désiré \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{file_8c_a9289ca2cef0ee2f11125f64d136dd589}{get\-Extension} (char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Extrais d'une chaine de caractère correspondant à un fichier l'extension de celui ci. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{file_8c_a66b170484207bfb4263fb6e8f4933058}{\index{file.\-c@{file.\-c}!close\-File@{close\-File}}
+\index{close\-File@{close\-File}!file.c@{file.\-c}}
+\subsubsection[{close\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E $\ast$ close\-File (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a66b170484207bfb4263fb6e8f4933058}
+
+
+Ferme un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Objet de type F\-I\-L\-E \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file file.\-c.
+
+\hypertarget{file_8c_a9289ca2cef0ee2f11125f64d136dd589}{\index{file.\-c@{file.\-c}!get\-Extension@{get\-Extension}}
+\index{get\-Extension@{get\-Extension}!file.c@{file.\-c}}
+\subsubsection[{get\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ get\-Extension (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a9289ca2cef0ee2f11125f64d136dd589}
+
+
+Extrais d'une chaine de caractère correspondant à un fichier l'extension de celui ci. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Chemin du fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une chaine de caractère commancant par un \char`\"{}.\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 307 of file file.\-c.
+
+\hypertarget{file_8c_aa532ed9c2b7cb58a78f4cd1ec23e468a}{\index{file.\-c@{file.\-c}!open\-File@{open\-File}}
+\index{open\-File@{open\-File}!file.c@{file.\-c}}
+\subsubsection[{open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E $\ast$ open\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path, }
+\item[{char $\ast$}]{mode}
+\end{DoxyParamCaption}
+)}}\label{file_8c_aa532ed9c2b7cb58a78f4cd1ec23e468a}
+
+
+Ouvre un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Chemin du fichier \\
+\hline
+{\em mode} & Mode d'ouverture (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'objet du type F\-I\-L\-E (peut être N\-U\-L\-L) 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file file.\-c.
+
+\hypertarget{file_8c_a059aadee225d3efa792e13321bae612b}{\index{file.\-c@{file.\-c}!read\-J\-S\-O\-N@{read\-J\-S\-O\-N}}
+\index{read\-J\-S\-O\-N@{read\-J\-S\-O\-N}!file.c@{file.\-c}}
+\subsubsection[{read\-J\-S\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}void read\-J\-S\-O\-N (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path, }
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a059aadee225d3efa792e13321bae612b}
+
+
+Traduis un fichier J\-S\-O\-N en un rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Chemin du fichier J\-S\-O\-N à traduire \\
+\hline
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file file.\-c.
+
+\hypertarget{file_8c_a27d73c18cdcdbe8b79df314375b135cf}{\index{file.\-c@{file.\-c}!Read\-R\-O\-T@{Read\-R\-O\-T}}
+\index{Read\-R\-O\-T@{Read\-R\-O\-T}!file.c@{file.\-c}}
+\subsubsection[{Read\-R\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}void Read\-R\-O\-T (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path, }
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a27d73c18cdcdbe8b79df314375b135cf}
+
+
+Traduis un fichier .rot en un rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Chemin du fichier .rot \\
+\hline
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file file.\-c.
+
+\hypertarget{file_8c_a9a66ff354b32117bffc45de73a3eee31}{\index{file.\-c@{file.\-c}!reverse\-Translate\-Word@{reverse\-Translate\-Word}}
+\index{reverse\-Translate\-Word@{reverse\-Translate\-Word}!file.c@{file.\-c}}
+\subsubsection[{reverse\-Translate\-Word}]{\setlength{\rightskip}{0pt plus 5cm}int reverse\-Translate\-Word (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a9a66ff354b32117bffc45de73a3eee31}
+
+
+Fait la correspondance id de couleur ou de face =$>$ mot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Identifiant à traduire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie une chaine de caractère correspondant a un identifiant 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file file.\-c.
+
+\hypertarget{file_8c_a14f50f5cfb9524e95dd5c73c818050aa}{\index{file.\-c@{file.\-c}!save\-Cube@{save\-Cube}}
+\index{save\-Cube@{save\-Cube}!file.c@{file.\-c}}
+\subsubsection[{save\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{char $\ast$}]{extension}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a14f50f5cfb9524e95dd5c73c818050aa}
+
+
+Lance la sauvegarde d'un rubik's cube celon l'extension désiré 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+{\em extension} & Extension de sortie (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 288 of file file.\-c.
+
+\hypertarget{file_8c_a2f65e6093f925ec4272850c337fd6425}{\index{file.\-c@{file.\-c}!save\-Cube\-J\-S\-O\-N@{save\-Cube\-J\-S\-O\-N}}
+\index{save\-Cube\-J\-S\-O\-N@{save\-Cube\-J\-S\-O\-N}!file.c@{file.\-c}}
+\subsubsection[{save\-Cube\-J\-S\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Cube\-J\-S\-O\-N (
+\begin{DoxyParamCaption}
+\item[{int}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a2f65e6093f925ec4272850c337fd6425}
+
+
+Traduis un Rubik's cube en un fichier .json pour sauvegarder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube avec seulement ses couleurs \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 256 of file file.\-c.
+
+\hypertarget{file_8c_a7bf37746d2ea2951076e465f581890ec}{\index{file.\-c@{file.\-c}!translate\-Rotation@{translate\-Rotation}}
+\index{translate\-Rotation@{translate\-Rotation}!file.c@{file.\-c}}
+\subsubsection[{translate\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void translate\-Rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{char}]{car, }
+\item[{const int}]{direction}
+\end{DoxyParamCaption}
+)}}\label{file_8c_a7bf37746d2ea2951076e465f581890ec}
+
+
+Fait une rotation adéquat celon le sens de rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+{\em car} & Caractère de rotation (notation Singmaster) \\
+\hline
+{\em direction} & Indique le sens de rotation (cf \hyperlink{define_8h}{define.\-h}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 193 of file file.\-c.
+
+\hypertarget{file_8c_aaea8401799dfc75cbe3f2a51dfe14837}{\index{file.\-c@{file.\-c}!translate\-Word@{translate\-Word}}
+\index{translate\-Word@{translate\-Word}!file.c@{file.\-c}}
+\subsubsection[{translate\-Word}]{\setlength{\rightskip}{0pt plus 5cm}int translate\-Word (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{word}
+\end{DoxyParamCaption}
+)}}\label{file_8c_aaea8401799dfc75cbe3f2a51dfe14837}
+
+
+Fait la correspondance mot =$>$ id de couleur ou de face. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & Chaine de caractère a traduire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie un entier correspondant à un id (cf \hyperlink{define_8h}{define.\-h}) renvoie -\/1 si c'est un identifiant inconnu 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file file.\-c.
+

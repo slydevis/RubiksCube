@@ -1,0 +1,133 @@
+\hypertarget{cube_8c}{\section{src/cube.c File Reference}
+\label{cube_8c}\index{src/cube.\-c@{src/cube.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}define.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rotations.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cube_8c_a2d27ce4ef4844ef302e85f4560ec9ac8}{randomize\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Mélange un cube aléatoirement. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8c_a0277110fd96499e5f029d51b19dcb2ca}{init\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise la structure de cube par défaut. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8c_a56534e99a0e3dd15d338a03af91c98cc}{complete\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Initialise un rubik's cube à partir d'un fichier externe. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8c_a671f8f2f8d28cc434ff62f67007af986}{free\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Libère la place en mémoire du rubik's cube. \end{DoxyCompactList}\item 
+int \hyperlink{cube_8c_a8e27e4c8f3e72d8813bbd131e879d22b}{is\-Complete\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Vérifie si un rubik's cube est terminé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{cube_8c_a56534e99a0e3dd15d338a03af91c98cc}{\index{cube.\-c@{cube.\-c}!complete\-Cube@{complete\-Cube}}
+\index{complete\-Cube@{complete\-Cube}!cube.c@{cube.\-c}}
+\subsubsection[{complete\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}complete\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{cube_8c_a56534e99a0e3dd15d338a03af91c98cc}
+
+
+Initialise un rubik's cube à partir d'un fichier externe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+{\em path} & chemin du fichier à lire (extension en .json ou .rot) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file cube.\-c.
+
+\hypertarget{cube_8c_a671f8f2f8d28cc434ff62f67007af986}{\index{cube.\-c@{cube.\-c}!free\-Cube@{free\-Cube}}
+\index{free\-Cube@{free\-Cube}!cube.c@{cube.\-c}}
+\subsubsection[{free\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8c_a671f8f2f8d28cc434ff62f67007af986}
+
+
+Libère la place en mémoire du rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 204 of file cube.\-c.
+
+\hypertarget{cube_8c_a0277110fd96499e5f029d51b19dcb2ca}{\index{cube.\-c@{cube.\-c}!init\-Cube@{init\-Cube}}
+\index{init\-Cube@{init\-Cube}!cube.c@{cube.\-c}}
+\subsubsection[{init\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}init\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8c_a0277110fd96499e5f029d51b19dcb2ca}
+
+
+Initialise la structure de cube par défaut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube non initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file cube.\-c.
+
+\hypertarget{cube_8c_a8e27e4c8f3e72d8813bbd131e879d22b}{\index{cube.\-c@{cube.\-c}!is\-Complete\-Cube@{is\-Complete\-Cube}}
+\index{is\-Complete\-Cube@{is\-Complete\-Cube}!cube.c@{cube.\-c}}
+\subsubsection[{is\-Complete\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Complete\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8c_a8e27e4c8f3e72d8813bbd131e879d22b}
+
+
+Vérifie si un rubik's cube est terminé 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie 1 si le cube est terminé sinon renvoie 0 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file cube.\-c.
+
+\hypertarget{cube_8c_a2d27ce4ef4844ef302e85f4560ec9ac8}{\index{cube.\-c@{cube.\-c}!randomize\-Cube@{randomize\-Cube}}
+\index{randomize\-Cube@{randomize\-Cube}!cube.c@{cube.\-c}}
+\subsubsection[{randomize\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void randomize\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8c_a2d27ce4ef4844ef302e85f4560ec9ac8}
+
+
+Mélange un cube aléatoirement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file cube.\-c.
+

@@ -1,0 +1,126 @@
+\hypertarget{cube_8h}{\section{src/cube.h File Reference}
+\label{cube_8h}\index{src/cube.\-h@{src/cube.\-h}}
+}
+{\ttfamily \#include \char`\"{}define.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cube_8h_a2d27ce4ef4844ef302e85f4560ec9ac8}{randomize\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Mélange un cube aléatoirement. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8h_abd61c4a2ac37b18251da96d40908f4bb}{init\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise la structure de cube par défaut. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8h_a055e2df311d8b40c7c7a7e3a1d28e59e}{complete\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Initialise un rubik's cube à partir d'un fichier externe. \end{DoxyCompactList}\item 
+void \hyperlink{cube_8h_a671f8f2f8d28cc434ff62f67007af986}{free\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Libère la place en mémoire du rubik's cube. \end{DoxyCompactList}\item 
+int \hyperlink{cube_8h_a8e27e4c8f3e72d8813bbd131e879d22b}{is\-Complete\-Cube} (\hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Vérifie si un rubik's cube est terminé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{cube_8h_a055e2df311d8b40c7c7a7e3a1d28e59e}{\index{cube.\-h@{cube.\-h}!complete\-Cube@{complete\-Cube}}
+\index{complete\-Cube@{complete\-Cube}!cube.h@{cube.\-h}}
+\subsubsection[{complete\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void complete\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}, }
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{cube_8h_a055e2df311d8b40c7c7a7e3a1d28e59e}
+
+
+Initialise un rubik's cube à partir d'un fichier externe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+{\em path} & chemin du fichier à lire (extension en .json ou .rot) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file cube.\-c.
+
+\hypertarget{cube_8h_a671f8f2f8d28cc434ff62f67007af986}{\index{cube.\-h@{cube.\-h}!free\-Cube@{free\-Cube}}
+\index{free\-Cube@{free\-Cube}!cube.h@{cube.\-h}}
+\subsubsection[{free\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8h_a671f8f2f8d28cc434ff62f67007af986}
+
+
+Libère la place en mémoire du rubik's cube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 204 of file cube.\-c.
+
+\hypertarget{cube_8h_abd61c4a2ac37b18251da96d40908f4bb}{\index{cube.\-h@{cube.\-h}!init\-Cube@{init\-Cube}}
+\index{init\-Cube@{init\-Cube}!cube.h@{cube.\-h}}
+\subsubsection[{init\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8h_abd61c4a2ac37b18251da96d40908f4bb}
+
+
+Initialise la structure de cube par défaut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube non initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file cube.\-c.
+
+\hypertarget{cube_8h_a8e27e4c8f3e72d8813bbd131e879d22b}{\index{cube.\-h@{cube.\-h}!is\-Complete\-Cube@{is\-Complete\-Cube}}
+\index{is\-Complete\-Cube@{is\-Complete\-Cube}!cube.h@{cube.\-h}}
+\subsubsection[{is\-Complete\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Complete\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8h_a8e27e4c8f3e72d8813bbd131e879d22b}
+
+
+Vérifie si un rubik's cube est terminé 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie 1 si le cube est terminé sinon renvoie 0 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file cube.\-c.
+
+\hypertarget{cube_8h_a2d27ce4ef4844ef302e85f4560ec9ac8}{\index{cube.\-h@{cube.\-h}!randomize\-Cube@{randomize\-Cube}}
+\index{randomize\-Cube@{randomize\-Cube}!cube.h@{cube.\-h}}
+\subsubsection[{randomize\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}void randomize\-Cube (
+\begin{DoxyParamCaption}
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cube_8h_a2d27ce4ef4844ef302e85f4560ec9ac8}
+
+
+Mélange un cube aléatoirement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube} & Rubik's cube initialisé \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file cube.\-c.
+

@@ -1,0 +1,398 @@
+.TH "src/define.h" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/define.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBface\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBcolor\fP(param)   printf('\\033[%sm', param);"
+.br
+.ti -1c
+.RI "#define \fBSAVE_ROT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBNOT_SAVE_ROT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_BLACK\fP   '30'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_RED\fP   '31'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_GREEN\fP   '32'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_YELLOW\fP   '33'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_BLUE\fP   '34'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_COLOR_WHITE\fP   '37'"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_NONE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_RED\fP   11"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_BLUE\fP   12"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_YELLOW\fP   13"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_WHITE\fP   14"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_GREEN\fP   15"
+.br
+.ti -1c
+.RI "#define \fBCOLOR_ORANGE\fP   16"
+.br
+.ti -1c
+.RI "#define \fBN\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCREEN_HEIGHT\fP   480"
+.br
+.ti -1c
+.RI "#define \fBSCREEN_WIDTH\fP   640"
+.br
+.ti -1c
+.RI "#define \fBFACE_SIZE\fP   30"
+.br
+.ti -1c
+.RI "#define \fBDIRECTION_NORMAL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDIRECTION_REVERSE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIDE_LEFT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSIDE_FRONT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIDE_UPPER\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSIDE_BOTTOM\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSIDE_RIGHT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSIDE_BEHIND\fP   5"
+.br
+.ti -1c
+.RI "#define \fBEXTENSION_JSON\fP   '\&.json'"
+.br
+.ti -1c
+.RI "#define \fBEXTENSION_ROT\fP   '\&.rot'"
+.br
+.ti -1c
+.RI "#define \fBJSON_LEFT\fP   'LEFT'"
+.br
+.ti -1c
+.RI "#define \fBJSON_RIGHT\fP   'RIGHT'"
+.br
+.ti -1c
+.RI "#define \fBJSON_FRONT\fP   'FRONT'"
+.br
+.ti -1c
+.RI "#define \fBJSON_UPPER\fP   'UPPER'"
+.br
+.ti -1c
+.RI "#define \fBJSON_BOTTOM\fP   'BOTTOM'"
+.br
+.ti -1c
+.RI "#define \fBJSON_BEHIND\fP   'BEHIND'"
+.br
+.ti -1c
+.RI "#define \fBJSON_RED\fP   'RED'"
+.br
+.ti -1c
+.RI "#define \fBJSON_BLUE\fP   'BLUE'"
+.br
+.ti -1c
+.RI "#define \fBJSON_YELLOW\fP   'YELLOW'"
+.br
+.ti -1c
+.RI "#define \fBJSON_WHITE\fP   'WHITE'"
+.br
+.ti -1c
+.RI "#define \fBJSON_GREEN\fP   'GREEN'"
+.br
+.ti -1c
+.RI "#define \fBJSON_ORANGE\fP   'ORANGE'"
+.br
+.ti -1c
+.RI "#define \fBJSON_NONE\fP   'UNDEFINED'"
+.br
+.ti -1c
+.RI "#define \fBOPEN_READ\fP   'r'"
+.br
+.ti -1c
+.RI "#define \fBOPEN_WRITE\fP   'w'"
+.br
+.ti -1c
+.RI "#define \fBOPEN_APPEND\fP   'a'"
+.br
+.ti -1c
+.RI "#define \fBOPEN_ALL\fP   'r+'"
+.br
+.ti -1c
+.RI "#define \fBRAND_SIZE\fP   99"
+.br
+.ti -1c
+.RI "#define \fBMAX_BACKTRACK\fP   99"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBface\fP \fBface\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBface\fP * \fBminiCube\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBsave\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define color(param)   printf('\\033[%sm', param);"
+
+.PP
+Definition at line 11 of file define\&.h\&.
+.SS "#define COLOR_BLUE   12"
+
+.PP
+Definition at line 39 of file define\&.h\&.
+.SS "#define COLOR_GREEN   15"
+
+.PP
+Definition at line 42 of file define\&.h\&.
+.SS "#define COLOR_NONE   10"
+
+.PP
+Definition at line 37 of file define\&.h\&.
+.SS "#define COLOR_ORANGE   16"
+
+.PP
+Definition at line 43 of file define\&.h\&.
+.SS "#define COLOR_RED   11"
+
+.PP
+Definition at line 38 of file define\&.h\&.
+.SS "#define COLOR_WHITE   14"
+
+.PP
+Definition at line 41 of file define\&.h\&.
+.SS "#define COLOR_YELLOW   13"
+
+.PP
+Definition at line 40 of file define\&.h\&.
+.SS "#define DIRECTION_NORMAL   0"
+
+.PP
+Definition at line 63 of file define\&.h\&.
+.SS "#define DIRECTION_REVERSE   1"
+
+.PP
+Definition at line 64 of file define\&.h\&.
+.SS "#define EXTENSION_JSON   '\&.json'"
+
+.PP
+Definition at line 81 of file define\&.h\&.
+.SS "#define EXTENSION_ROT   '\&.rot'"
+
+.PP
+Definition at line 82 of file define\&.h\&.
+.SS "#define FACE_SIZE   30"
+
+.PP
+Definition at line 57 of file define\&.h\&.
+.SS "#define JSON_BEHIND   'BEHIND'"
+
+.PP
+Definition at line 93 of file define\&.h\&.
+.SS "#define JSON_BLUE   'BLUE'"
+
+.PP
+Definition at line 95 of file define\&.h\&.
+.SS "#define JSON_BOTTOM   'BOTTOM'"
+
+.PP
+Definition at line 92 of file define\&.h\&.
+.SS "#define JSON_FRONT   'FRONT'"
+
+.PP
+Definition at line 90 of file define\&.h\&.
+.SS "#define JSON_GREEN   'GREEN'"
+
+.PP
+Definition at line 98 of file define\&.h\&.
+.SS "#define JSON_LEFT   'LEFT'"
+
+.PP
+Definition at line 88 of file define\&.h\&.
+.SS "#define JSON_NONE   'UNDEFINED'"
+
+.PP
+Definition at line 100 of file define\&.h\&.
+.SS "#define JSON_ORANGE   'ORANGE'"
+
+.PP
+Definition at line 99 of file define\&.h\&.
+.SS "#define JSON_RED   'RED'"
+
+.PP
+Definition at line 94 of file define\&.h\&.
+.SS "#define JSON_RIGHT   'RIGHT'"
+
+.PP
+Definition at line 89 of file define\&.h\&.
+.SS "#define JSON_UPPER   'UPPER'"
+
+.PP
+Definition at line 91 of file define\&.h\&.
+.SS "#define JSON_WHITE   'WHITE'"
+
+.PP
+Definition at line 97 of file define\&.h\&.
+.SS "#define JSON_YELLOW   'YELLOW'"
+
+.PP
+Definition at line 96 of file define\&.h\&.
+.SS "#define MAX_BACKTRACK   99"
+
+.PP
+Definition at line 112 of file define\&.h\&.
+.SS "#define N   3"
+
+.PP
+Definition at line 49 of file define\&.h\&.
+.SS "#define NOT_SAVE_ROT   0"
+
+.PP
+Definition at line 19 of file define\&.h\&.
+.SS "#define OPEN_ALL   'r+'"
+
+.PP
+Definition at line 109 of file define\&.h\&.
+.SS "#define OPEN_APPEND   'a'"
+
+.PP
+Definition at line 108 of file define\&.h\&.
+.SS "#define OPEN_READ   'r'"
+
+.PP
+Definition at line 106 of file define\&.h\&.
+.SS "#define OPEN_WRITE   'w'"
+
+.PP
+Definition at line 107 of file define\&.h\&.
+.SS "#define PRINT_COLOR_BLACK   '30'"
+
+.PP
+Definition at line 26 of file define\&.h\&.
+.SS "#define PRINT_COLOR_BLUE   '34'"
+
+.PP
+Definition at line 30 of file define\&.h\&.
+.SS "#define PRINT_COLOR_GREEN   '32'"
+
+.PP
+Definition at line 28 of file define\&.h\&.
+.SS "#define PRINT_COLOR_RED   '31'"
+
+.PP
+Definition at line 27 of file define\&.h\&.
+.SS "#define PRINT_COLOR_WHITE   '37'"
+
+.PP
+Definition at line 31 of file define\&.h\&.
+.SS "#define PRINT_COLOR_YELLOW   '33'"
+
+.PP
+Definition at line 29 of file define\&.h\&.
+.SS "#define RAND_SIZE   99"
+
+.PP
+Definition at line 111 of file define\&.h\&.
+.SS "#define SAVE_ROT   1"
+
+.PP
+Definition at line 18 of file define\&.h\&.
+.SS "#define SCREEN_HEIGHT   480"
+
+.PP
+Definition at line 55 of file define\&.h\&.
+.SS "#define SCREEN_WIDTH   640"
+
+.PP
+Definition at line 56 of file define\&.h\&.
+.SS "#define SIDE_BEHIND   5"
+
+.PP
+Definition at line 75 of file define\&.h\&.
+.SS "#define SIDE_BOTTOM   3"
+
+.PP
+Definition at line 73 of file define\&.h\&.
+.SS "#define SIDE_FRONT   1"
+
+.PP
+Definition at line 71 of file define\&.h\&.
+.SS "#define SIDE_LEFT   0"
+
+.PP
+Definition at line 70 of file define\&.h\&.
+.SS "#define SIDE_RIGHT   4"
+
+.PP
+Definition at line 74 of file define\&.h\&.
+.SS "#define SIDE_UPPER   2"
+
+.PP
+Definition at line 72 of file define\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBface\fP  \fBface\fP"
+
+.SS "typedef struct \fBface\fP* \fBminiCube\fP"
+
+.PP
+Definition at line 9 of file define\&.h\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int save"
+
+.PP
+Definition at line 20 of file define\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

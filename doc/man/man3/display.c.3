@@ -1,0 +1,288 @@
+.TH "src/display.c" 3 "Thu Feb 18 2016" "RubiksCube" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/display.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <SDL/SDL\&.h>\fP
+.br
+\fC#include 'display\&.h'\fP
+.br
+\fC#include 'cube\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
+.br
+\fC#include 'rotations\&.h'\fP
+.br
+\fC#include 'resolution_mecanique\&.h'\fP
+.br
+\fC#include 'resolveBacktrack\&.h'\fP
+.br
+\fC#include 'file\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "Uint32 \fBgetSDLColor\fP (const int \fBcolor\fP)"
+.br
+.RI "\fIFais la traduction code couleur => couleur SDL\&. \fP"
+.ti -1c
+.RI "void \fBchangeFaceColor\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], const int side, const int i, const int j, const int \fBcolor\fP)"
+.br
+.RI "\fIMet à jour la couleur d'une structure\&. \fP"
+.ti -1c
+.RI "SDL_Surface * \fBcreateFace\fP ()"
+.br
+.ti -1c
+.RI "void \fBfreeFace\fP (SDL_Surface *screen)"
+.br
+.RI "\fILibère la mémoire d'une surface SDL\&. \fP"
+.ti -1c
+.RI "void \fBprintLeftSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face gauche du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintFrontSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face de devant du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintUpperSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face du dessus du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintBottomSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face de dessous du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintRightSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face droite du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintBehindSide\fP (\fBminiCube\fP cube[\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche la face de derrière du Rubik's cube\&. \fP"
+.ti -1c
+.RI "void \fBprintLibelleCube\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIAffiche sur la console une représentation du cube avec les positions final\&. \fP"
+.ti -1c
+.RI "void \fBkeyboardEventManager\fP (SDLKey key, \fBminiCube\fP cube[6][\fBN\fP][\fBN\fP], \fBInput\fP *in)"
+.br
+.RI "\fILance les fonctions correspondante au touches appuyées\&. \fP"
+.ti -1c
+.RI "void \fBUpdateEvents\fP (\fBInput\fP *in, \fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIMet à jour les status des touches et gère la fermeture du programme via la croix\&. \fP"
+.ti -1c
+.RI "void \fBdisplayCube2D\fP (\fBminiCube\fP cube[6][\fBN\fP][\fBN\fP])"
+.br
+.RI "\fIInitialise SDL et affiche le Rubik's cube\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void changeFaceColor (\fBminiCube\fPcube[6][N][N], const intside, const inti, const intj, const intcolor)"
+
+.PP
+Met à jour la couleur d'une structure\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de miniCube correspondant au rubik's cube 
+.br
+\fIside\fP Face à traiter 
+.br
+\fIi\fP indice de ligne 
+.br
+\fIj\fP indice de colonne 
+.br
+\fIcolor\fP code couleur (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file display\&.c\&.
+.SS "SDL_Surface * createFace ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+Renvoie une surface SDL de taille FACE_SIZE (cf \fBdefine\&.h\fP) 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file display\&.c\&.
+.SS "void displayCube2D (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Initialise SDL et affiche le Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Variable de Rubik's cube 
+.RE
+.PP
+
+.PP
+Definition at line 477 of file display\&.c\&.
+.SS "void freeFace (SDL_Surface *screen)"
+
+.PP
+Libère la mémoire d'une surface SDL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscreen\fP Surface SDL a liberer 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file display\&.c\&.
+.SS "Uint32 getSDLColor (const intcolor)"
+
+.PP
+Fais la traduction code couleur => couleur SDL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP correspond au code couleur voulu (cf \fBdefine\&.h\fP)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Valeur de la couleur SDL, renvoie 0 si elle est inconnue 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file display\&.c\&.
+.SS "void keyboardEventManager (SDLKeykey, \fBminiCube\fPcube[6][N][N], \fBInput\fP *in)"
+
+.PP
+Lance les fonctions correspondante au touches appuyées\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP Touche appuyé 
+.br
+\fIcube\fP Correspond au Rubik's cube 
+.br
+\fIin\fP structure avec l'état des touches 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file display\&.c\&.
+.SS "void printBehindSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face de derrière du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face de derrière 
+.RE
+.PP
+
+.PP
+Definition at line 197 of file display\&.c\&.
+.SS "void printBottomSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face de dessous du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face de dessous 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file display\&.c\&.
+.SS "void printFrontSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face de devant du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face de devant 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file display\&.c\&.
+.SS "void printLeftSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face gauche du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face gauche 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file display\&.c\&.
+.SS "void printLibelleCube (\fBminiCube\fPcube[6][N][N])"
+
+.PP
+Affiche sur la console une représentation du cube avec les positions final\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Variable correspondant au Rubik's cube 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file display\&.c\&.
+.SS "void printRightSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face droite du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face droite 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file display\&.c\&.
+.SS "void printUpperSide (\fBminiCube\fPcube[N][N])"
+
+.PP
+Affiche la face du dessus du Rubik's cube\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcube\fP Tableau de tableau correspondant à la face du dessus 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file display\&.c\&.
+.SS "void UpdateEvents (\fBInput\fP *in, \fBminiCube\fPcube[6][N][N])"
+
+.PP
+Met à jour les status des touches et gère la fermeture du programme via la croix\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIin\fP structure avec l'état des touches 
+.br
+\fIcube\fP Variable de Rubik's cube 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file display\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for RubiksCube from the source code\&.

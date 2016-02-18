@@ -1,0 +1,88 @@
+\hypertarget{tree_8h}{\section{src/tree.h File Reference}
+\label{tree_8h}\index{src/tree.\-h@{src/tree.\-h}}
+}
+{\ttfamily \#include \char`\"{}define.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtree}{tree}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtree}{tree} \hyperlink{tree_8h_aa2f3e98effa017fef8cc5cb7f9e346f5}{tree}
+\item 
+typedef \hyperlink{structtree}{tree} $\ast$ \hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} \hyperlink{tree_8h_a3ba467869b746bd3b8155507feb20190}{cree\-Node} (\hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} father, \hyperlink{define_8h_aa8bf03849ba704a820a006ea0aeec180}{mini\-Cube} cube\mbox{[}6\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]}\mbox{[}\hyperlink{define_8h_a0240ac851181b84ac374872dc5434ee4}{N}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Crée un nouvel élément dans l'arbre de recherche. \end{DoxyCompactList}\item 
+\hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} \hyperlink{tree_8h_a57b9f2f6a83ad1281f357dfc333ff5fe}{create\-Brothers} (\hyperlink{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{p\-Tree} father)
+\begin{DoxyCompactList}\small\item\em Crée une liste chainée avec la liste des frêres d'un élément. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}{\index{tree.\-h@{tree.\-h}!p\-Tree@{p\-Tree}}
+\index{p\-Tree@{p\-Tree}!tree.h@{tree.\-h}}
+\subsubsection[{p\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf tree}$\ast$ {\bf p\-Tree}}}\label{tree_8h_a1a9c0dbc983f5544b79f364749dc2cf8}
+
+
+Definition at line 14 of file tree.\-h.
+
+\hypertarget{tree_8h_aa2f3e98effa017fef8cc5cb7f9e346f5}{\index{tree.\-h@{tree.\-h}!tree@{tree}}
+\index{tree@{tree}!tree.h@{tree.\-h}}
+\subsubsection[{tree}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf tree}  {\bf tree}}}\label{tree_8h_aa2f3e98effa017fef8cc5cb7f9e346f5}
+
+
+\subsection{Function Documentation}
+\hypertarget{tree_8h_a57b9f2f6a83ad1281f357dfc333ff5fe}{\index{tree.\-h@{tree.\-h}!create\-Brothers@{create\-Brothers}}
+\index{create\-Brothers@{create\-Brothers}!tree.h@{tree.\-h}}
+\subsubsection[{create\-Brothers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-Tree} create\-Brothers (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-Tree}}]{father}
+\end{DoxyParamCaption}
+)}}\label{tree_8h_a57b9f2f6a83ad1281f357dfc333ff5fe}
+
+
+Crée une liste chainée avec la liste des frêres d'un élément. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em father} & l'adresse de l'élément précédant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse du premier frêre à rajouter 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file tree.\-c.
+
+\hypertarget{tree_8h_a3ba467869b746bd3b8155507feb20190}{\index{tree.\-h@{tree.\-h}!cree\-Node@{cree\-Node}}
+\index{cree\-Node@{cree\-Node}!tree.h@{tree.\-h}}
+\subsubsection[{cree\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf p\-Tree} cree\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf p\-Tree}}]{father, }
+\item[{{\bf mini\-Cube}}]{cube\mbox{[}6\mbox{]}\mbox{[}\-N\mbox{]}\mbox{[}\-N\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{tree_8h_a3ba467869b746bd3b8155507feb20190}
+
+
+Crée un nouvel élément dans l'arbre de recherche. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em father} & l'adresse de l'élément précédant \\
+\hline
+{\em cube} & L'état courant du Rubik's cube \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Renvoie l'adresse du nouvelle élément 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file tree.\-c.
+
