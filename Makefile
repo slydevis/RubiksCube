@@ -5,7 +5,7 @@ LIBFLAGS = -lSDL
 OBJ = test.o display.o file.o util.o rotations.o resolution_mecanique.o resolveBacktrack.o cube.o \
       list.o tree.o
 
-EXECS = main.out
+EXECS = rubiks.out
 
 rotations.h : src/rotations.h
 rotations.c : src/rotations.c
