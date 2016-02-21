@@ -50,7 +50,7 @@ release : $(EXECS)
 clean :
 	\rm -f output/*.o output/*.out *.o
 
-main.out : src/main.c $(OBJ)
+rubiks.out : src/main.c $(OBJ)
 	$(CC) $(CFLAGS) -o output/$(EXECS) src/main.c $(OBJ) $(LIBFLAGS)
 	-rm $(OBJ)
 test.o : test.h test.c
